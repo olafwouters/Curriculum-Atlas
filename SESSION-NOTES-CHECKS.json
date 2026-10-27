@@ -1,0 +1,10 @@
+{
+  "checks": {
+    "python_syntax": true,
+    "javascript_syntax": false,
+    "existing_notes_field": true
+  },
+  "detail_route": "/api/sessions/<ident>",
+  "live_api_test": false,
+  "browser_test": false
+}

@@ -1,0 +1,7 @@
+Curriculum Compass — consistent rounded glass
+
+Extract to a permanent location, run Start-Mac.command, open http://127.0.0.1:8022.
+
+Quick Start now shares the desktop first-row alignment with the three counters. Cards/domain boxes/chart containers/session cards use shared 22px corners and reflected glass surfaces; standard controls use matching 14px corners. Approved palette, toolbar and navigation fixes retained.
+
+This separate build copies previous data; copies do not synchronize. Approved baseline is unchanged. Static checks passed; browser visual testing not performed.

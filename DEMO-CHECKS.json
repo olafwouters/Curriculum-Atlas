@@ -1,0 +1,21 @@
+{
+  "years": 2,
+  "modules_per_year": 4,
+  "modules": 8,
+  "submodules": 0,
+  "mappings": 40,
+  "one_mapping_per_area_per_module": true,
+  "types_per_year": {
+    "1": {
+      "introduction": 6,
+      "formative": 8,
+      "summative": 6
+    },
+    "2": {
+      "summative": 9,
+      "introduction": 4,
+      "formative": 7
+    }
+  },
+  "browser_tested": false
+}

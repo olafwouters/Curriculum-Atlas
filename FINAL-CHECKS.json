@@ -1,0 +1,16 @@
+{
+  "persistent_language_lens": "legacy span clipping, 1px size and clip-path reset; position synced with selected language",
+  "sidebar": "transparent inner navigation; matching sidebar and toolbar reflected glass",
+  "light_navigation": "near-black text and icons, including active state",
+  "appearance": "sun / moon / laptop; preference persists through existing handler",
+  "preserved": "pastel background, responsive margins, single search focus ring, freeze-loop fix",
+  "browser_visual_test": "not performed",
+  "css_braces_balanced": true,
+  "javascript_syntax": {
+    "unified-controls.js": true,
+    "i18n.js": true,
+    "glass-full.js": true,
+    "theme.js": true
+  },
+  "missing_local_assets": []
+}

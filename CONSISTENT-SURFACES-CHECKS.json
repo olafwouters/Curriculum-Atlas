@@ -1,0 +1,20 @@
+{
+  "quick_start": "explicit shared first grid row and zero section margins; responsive rows specified",
+  "surface_tokens": {
+    "card_radius": "22px",
+    "control_radius": "14px",
+    "gap": "24px desktop / 20px narrow"
+  },
+  "scope": [
+    "overview counters and quick start",
+    "catalogue domain legend",
+    "target domain cards",
+    "module cards",
+    "chart containers",
+    "session note cards",
+    "dialogs and standard controls"
+  ],
+  "readability": "table cells and SVG plot remain flat within rounded containers",
+  "baseline": "approved baseline ZIP and source unmodified",
+  "verification": "CSS brace balance, Python syntax, local asset references and ZIP integrity passed; browser visual testing not performed"
+}

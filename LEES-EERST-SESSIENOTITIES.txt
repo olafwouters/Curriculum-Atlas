@@ -1,0 +1,5 @@
+Exporteer de huidige werkruimte als JSON als reservekopie. Stop de oude server. Pak deze release in een aparte map uit en start de launcher.
+Voor behoud van volledige historische sessies: kopieer, terwijl beide servers gestopt zijn, je eigen data-map uit de oude installatie naar deze nieuwe installatie. Een werkruimte-JSON bevat mogelijk niet alle historische snapshots.
+Sessies toont nu opgeslagen aantekeningen automatisch onder de bestaande sessiebediening. Dit verandert geen snapshots; lege aantekeningen krijgen een duidelijke melding.
+Herkenbare release: 20261013-111137
+Broncode/syntax gecontroleerd, geen visuele browser- of live-API-test uitgevoerd.

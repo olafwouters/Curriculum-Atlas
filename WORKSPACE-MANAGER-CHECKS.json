@@ -1,0 +1,12 @@
+{
+  "export_with_sessions": true,
+  "confirmation_required": true,
+  "revision_conflict": true,
+  "bulk_delete": true,
+  "sessions_removed_only_for_selected": true,
+  "unselected_preserved": true,
+  "recovery_snapshot": true,
+  "deleted_workspace_not_resurrected": true,
+  "real_database_unchanged": true,
+  "browser_tested": false
+}

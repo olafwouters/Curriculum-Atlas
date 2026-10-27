@@ -1,0 +1,12 @@
+Complete nieuwe release 20261013-110821
+
+1. Exporteer je bestaande werkruimte als JSON voordat je wisselt.
+2. Stop de oude app/server (sluit ook het bijbehorende Terminal-venster).
+3. Pak deze ZIP uit in een nieuwe map; voeg hem niet samen met de oude map.
+4. Start Start-Mac.command, Start-Windows.bat of start-linux.sh vanuit deze nieuwe map.
+5. Controleer links onder de merknaam: v10 · CSS-fix 20261013-110821. Ontbreekt dit, dan draait nog de oude app.
+6. Importeer je JSON-werkruimte. De ZIP bevat geen persoonlijke database.
+
+CSS en JS hebben unieke versienummers. HTML en statische bestanden krijgen no-cache headers.
+Inclusief fixes voor navigatiebreedte, typografie en leeruitkomsttekst binnen de eerste matrixkolom.
+Geen visuele browsercontrole uitgevoerd.

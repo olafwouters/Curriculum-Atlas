@@ -1,0 +1,11 @@
+{
+  "nl_search": true,
+  "nl_cluster_route": true,
+  "nl_source_path_accepted": true,
+  "en_search": true,
+  "en_cluster_route": true,
+  "en_source_path_accepted": true,
+  "invalid_language_rejected": true,
+  "database_unchanged": true,
+  "browser_and_live_tested": false
+}

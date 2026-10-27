@@ -1,0 +1,24 @@
+{
+  "workflow": [
+    "Choose programme",
+    "Map curriculum",
+    "Set target levels",
+    "Review gaps"
+  ],
+  "sidebar_order": [
+    "catalogue",
+    "matrix",
+    "targets",
+    "dashboard",
+    "overview",
+    "modules",
+    "sessions"
+  ],
+  "optional_module_editor_retained": true,
+  "session_label": {
+    "nl": "Sessienotities",
+    "en": "Session notes"
+  },
+  "original_release_unchanged": true,
+  "browser_testing": "Not performed; no new browser verification claimed."
+}

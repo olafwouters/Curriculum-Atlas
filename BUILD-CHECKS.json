@@ -1,0 +1,16 @@
+{
+  "full_width_no_maximum": true,
+  "reference_palette": true,
+  "translation_root_write_guarded": true,
+  "control_writes_guarded": true,
+  "translation_observer_batched": true,
+  "original_project_unchanged": true,
+  "port": 8017,
+  "javascript_syntax": {
+    "i18n.js": true,
+    "unified-controls.js": true,
+    "glass-full.js": true,
+    "theme.js": true
+  },
+  "browser_visual_and_interaction_test": "Not performed; no browser automation available in this session."
+}

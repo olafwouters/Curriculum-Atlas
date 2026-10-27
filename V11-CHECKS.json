@@ -1,0 +1,13 @@
+{
+  "translations": 199,
+  "framework_translations": 20,
+  "image_included": false,
+  "python_syntax": true,
+  "browser_test": false,
+  "javascript_execution_test": false,
+  "limitations": [
+    "Presentation dictionary needs comprehensive browser acceptance testing.",
+    "Last four framework outcomes are English adaptations requiring human review.",
+    "Original figure not included unless found locally."
+  ]
+}

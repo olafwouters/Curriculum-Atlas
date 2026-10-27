@@ -1,0 +1,4 @@
+V11 NL/ENG: nieuwe DigComp 3.0-pagina, permanente taalkeuze, Engelse werkvertalingen van kaderteksten, zichtbare demoknop. Bestaande grafieklijnen en sessienotities behouden.
+Stop de oude server. Pak deze ZIP in een aparte map uit. Kopieer je eigen data-map naar de nieuwe map terwijl beide servers gestopt zijn. Start de launcher. Geen persoonlijke database inbegrepen.
+Taalkeuze wijzigt alleen presentatie, niet opgeslagen IDs of eigen tekstvelden. Browseracceptatietest en redactionele controle van alle Engelse teksten nog nodig.
+Afbeelding opgenomen: False

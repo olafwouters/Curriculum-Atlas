@@ -1,0 +1,21 @@
+{
+  "appearance_modes": [
+    "light",
+    "dark",
+    "system"
+  ],
+  "system_indicator": "laptop icon; selected by preference, not resolved light/dark",
+  "search_focus": "one focus-within ring; inner input ring suppressed",
+  "hover": "language and appearance; pointer-hover devices",
+  "layout": "responsive outer padding 24\u201348px; 24\u201328px overview gaps; enclosing view border removed",
+  "palette": "restored original glass-full cyan/lilac light background and dark background",
+  "retained_observer_loop_fix": true,
+  "browser_visual_test": "not performed",
+  "syntax": {
+    "unified-controls.js": true,
+    "i18n.js": true,
+    "theme.js": true
+  },
+  "python_syntax": true,
+  "missing_html_assets": []
+}

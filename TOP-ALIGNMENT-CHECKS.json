@@ -1,0 +1,9 @@
+{
+  "top_edges": "removed 4px main offset; sidebar and toolbar share shell start",
+  "controls": "48px search/segmented controls/profile; centered on same row; corrected segment inner heights",
+  "panel_edges": "shared box-sizing, width, inset and stack spacing",
+  "responsive": "toolbar intentionally wraps below 950px instead of compressing controls",
+  "design": "glass palette and navigation behavior unchanged",
+  "checks": "balanced stylesheet braces, Python syntax, local asset references and ZIP integrity",
+  "browser_visual_test": "not performed"
+}

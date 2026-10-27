@@ -1,0 +1,12 @@
+{
+  "change": "Expanded sidebar 226px -> 246px at default root font size; collapsed 68px and mobile layout preserved",
+  "typography": "Shared OS-native font stack for content, controls, tables, dialogs and SVG chart; 12px metadata, 14px controls, 16px reading/form text, 18px subheadings, 24px page/dialog headings at default root size. Navigation labels no longer break within words. Dashboard large numeric values and icon glyphs deliberately distinct.",
+  "checks": {
+    "css_braces_balanced": true,
+    "font_token_present": true,
+    "mobile_override_present": true
+  },
+  "limitations": [
+    "Static CSS inspection only; no rendered browser/font/zoom verification. System font differs by operating system. No WCAG certification."
+  ]
+}

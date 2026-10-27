@@ -1,0 +1,23 @@
+{
+  "source": "Digital-AI-Literacy-Compass-Targets-Clean-20261018-101908.zip",
+  "changes": [
+    "Single target domain card with collapsible contributions",
+    "Remove visible global domain legend; preserve popup handlers",
+    "Remove duplicate view-switch buttons",
+    "One year filter; compact context shows edition and cluster only",
+    "Catalogue workspace selection moved into file tools",
+    "Overview duplicate welcome, note and empty-start actions removed",
+    "One visible save action in file tools/context",
+    "Workflow only on task pages",
+    "Normalize popup level labels"
+  ],
+  "javascript_syntax_checked": [
+    "streamlined-pages.js",
+    "page-clarity.js",
+    "v6.js",
+    "v8.js",
+    "app.js"
+  ],
+  "backend_framework_and_domain_colours_unchanged": true,
+  "browser_interaction_test": "Not performed"
+}

@@ -1,0 +1,19 @@
+{
+  "version": 10,
+  "checks": {
+    "server.py syntax": true,
+    "launch.py syntax": true,
+    "app.js unchanged": true,
+    "v6.js unchanged": true,
+    "v8.js unchanged": true,
+    "theme.js unchanged": true,
+    "server_integration": true
+  },
+  "limitations": [
+    "Geen JavaScript-runtime of browser beschikbaar voor interactietest",
+    "Geen visuele desktop/mobile-controle",
+    "Geen WCAG-audit"
+  ],
+  "integration_output": "{\"routes\": {\"/\": 200, \"/api/framework\": 200, \"/api/workspaces\": 200, \"/static/v10.js\": 200, \"/static/v10.css\": 200}, \"sql_roundtrip\": true, \"snapshot\": true}\n",
+  "diagnostics": "/Users/olafwouters/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(\n"
+}

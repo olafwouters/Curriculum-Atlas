@@ -1,0 +1,19 @@
+{
+  "scope": "Real server function bodies executed with isolated database and lightweight request/response substitutes; not a browser test",
+  "tests": {
+    "save_revision_1": true,
+    "load_exact_state": true,
+    "json_export_import_roundtrip": true,
+    "imported_json_save_reload": true,
+    "update_revision_2": true,
+    "updated_state_persisted": true,
+    "session_created": true,
+    "session_snapshot_preserved": true,
+    "stale_revision_rejected": true,
+    "conflict_does_not_overwrite": true,
+    "workspace_list": true,
+    "invalid_workspace_rejected": true
+  },
+  "original_database_unchanged": true,
+  "all_passed": true
+}

@@ -1,0 +1,1 @@
+Complete app copy with full-width glass CSS and animated navigation. Existing scripts/backend/data preserved. Start using Start-Mac.command. Original app unchanged; this copy has separate saved data. Source checks passed; interactive browser testing not yet performed.

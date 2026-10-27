@@ -1,0 +1,13 @@
+{
+  "search_http_200": true,
+  "pagination_followed": true,
+  "cluster_sent_upstream": true,
+  "replacement_and_deduplication": true,
+  "biology_present": true,
+  "complete_count_verified": true,
+  "incomplete_warning": true,
+  "presearch_cluster_options": true,
+  "database_unchanged": true,
+  "browser_tested": false,
+  "live_catalogue_tested_in_this_run": false
+}

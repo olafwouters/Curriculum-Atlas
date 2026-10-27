@@ -1,0 +1,40 @@
+{
+  "checks": {
+    "separate_release": true,
+    "framework_unchanged": true,
+    "no_user_data": true,
+    "assets_linked": true,
+    "workspace_deletion_confirmation_retained": true,
+    "isolated_backend_test": "Export endpoint response: 200\nPASS: home/assets/framework/workspaces, save/reload and stale-revision conflict"
+  },
+  "browser_tests": "NOT RUN; visual appearance, keyboard end-to-end, two-tab UI, 200% zoom and bilingual interaction still need browser verification.",
+  "features": [
+    "Bilingual workflow guide",
+    "Persistent programme, workspace, year and live save context",
+    "Existing separate expand/explain controls retained and layout reinforced",
+    "Sticky competency labels with existing floating module headers",
+    "Row/column highlights, arrow-key navigation, focus mode and Escape exit",
+    "Mapping state legend and evidence/assessment summaries",
+    "Mapping removal and 30-step in-memory undo for mapping edits/removal",
+    "Restore scroll and cell focus after saving",
+    "Existing workspace deletion confirmation retained",
+    "Chart note distinguishes mappings from demonstrated progression",
+    "Visible keyboard focus, responsive toolbar and reduced-motion support"
+  ],
+  "limitations": [
+    "Undo is for mappings only, not workspace deletion; resets after reload.",
+    "Chart lines remain recorded mappings, not proof of learning progression.",
+    "No SSO or access control added."
+  ],
+  "manual_test_checklist": [
+    "NL/EN: create workspace and select modules",
+    "Set target levels for all domains",
+    "Add/edit/remove mapping and undo; verify scroll preservation",
+    "Open all five domain explanations in both languages",
+    "Refresh and verify persistence",
+    "Export and restore workspace",
+    "Two tabs: stale revision must be rejected",
+    "Keyboard-only workflow including dialogs and matrix",
+    "Laptop viewport, 200% zoom, light/dark themes"
+  ]
+}

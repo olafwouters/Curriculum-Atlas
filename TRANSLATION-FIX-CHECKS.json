@@ -1,0 +1,11 @@
+{
+  "dictionary_entries": 323,
+  "reported_target_and_mapping_labels_covered": true,
+  "exact_matches_before_partial_translation": true,
+  "nav_icons_with_hidden_labels": true,
+  "figure_bundled": true,
+  "browser_test": false,
+  "javascript_syntax_test": false,
+  "asset_note": "Saved DigComp-3.0-figure.jpg converted to JPEG and included under the exact referenced static filename.",
+  "image_source": "DigComp-3.0-figure.jpg"
+}

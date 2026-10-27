@@ -1,0 +1,1402 @@
+{
+ "info-01": {
+  "title": "Comparing an AI search strategy with an academic database",
+  "summary": "Students can formulate search queries and compare the results of an academic database and an AI search tool on relevance, source quality and blind spots.",
+  "activity": "Pairs choose a subject-specific research question. They search for 20 minutes in a database and 20 minutes with an AI search tool and complete a search log: query, tool, three usable sources and one missed source. They finish with an improved search strategy.",
+  "ai_role": "AI as a second search route alongside the academic database, never instead of it.",
+  "output": "A completed search log and an improved search strategy of at most one page.",
+  "assessment": "Rubric on the justification of search choices, source quality and reflection on the limitations of AI search.",
+  "duration": "90 minutes",
+  "tags": [
+   "Searching",
+   "Source quality",
+   "AI search tool"
+  ]
+ },
+ "info-02": {
+  "title": "Fact-checking the claims in an AI answer",
+  "summary": "Students can verify statements in an AI text, trace them to a source and correct them.",
+  "activity": "The teacher provides an AI answer to a subject question with three deliberately built-in errors and two unverifiable claims. Small groups label each claim as correct, doubtful or incorrect, find a reliable source and rewrite the answer.",
+  "ai_role": "AI supplies the material to be checked; students are the verifiers.",
+  "output": "An annotated AI answer with source references and a corrected version.",
+  "assessment": "Number of errors rightly detected, quality of the sources and justification of the corrections.",
+  "duration": "60 minutes",
+  "tags": [
+   "Fact-checking",
+   "Verification",
+   "Critical thinking"
+  ]
+ },
+ "info-03": {
+  "title": "Literature matrix with AI as an assistant",
+  "summary": "Students can organise literature systematically and check AI summaries against the original.",
+  "activity": "Students choose six articles for a professional question and have AI summarise the method and key finding of each. They check every summary against the original and note deviations in an AI-check column of their literature matrix.",
+  "ai_role": "Limited: AI may only summarise; checking by the student is mandatory.",
+  "output": "A literature matrix with an AI-check column and a reflection of 300 words.",
+  "assessment": "Accuracy of the check and quality of the source selection, not the number of AI errors.",
+  "duration": "3 hours of self-study",
+  "tags": [
+   "Literature",
+   "Summarising",
+   "Verification"
+  ]
+ },
+ "info-04": {
+  "title": "Data story: your own chart versus AI interpretation",
+  "summary": "Students can interpret data and distinguish correlation from causation.",
+  "activity": "Students receive a small dataset from their field, make their own chart and formulate three conclusions. They then ask AI for an interpretation and check it for calculation errors, causal leaps and missing context.",
+  "ai_role": "With AI as a second interpreter whose output is checked.",
+  "output": "A chart, a conclusion text and a list of checked AI claims.",
+  "assessment": "Rubric: correctness of the interpretation, justification and critical checking of AI statements.",
+  "duration": "2 hours",
+  "tags": [
+   "Data",
+   "Visualisation",
+   "Interpretation"
+  ]
+ },
+ "info-05": {
+  "title": "Detecting bias in a dataset",
+  "summary": "Students can recognise sources of bias in data and formulate measures.",
+  "activity": "Students analyse a recommender-system case, for example internship placement or care triage. They list the variables and missing groups and let AI come up with counterexamples. They assess these for realism and advise on better data and human oversight.",
+  "ai_role": "With AI to generate counterexamples; the assessment stays with the student.",
+  "output": "A risk analysis with improvement advice for data collection and oversight.",
+  "assessment": "Depth of the bias analysis and feasibility of the proposed measures.",
+  "duration": "90 minutes",
+  "tags": [
+   "Data",
+   "Bias",
+   "Ethics"
+  ]
+ },
+ "info-06": {
+  "title": "From broad question to sharp prompt",
+  "summary": "Students can sharpen a research question by formulating it iteratively.",
+  "activity": "Students turn a broad professional question into three increasingly specific prompts using a prompt canvas: goal, context, role, source requirements, constraints and verification. They compare how the output changes and discuss this in plenary.",
+  "ai_role": "With AI as a testing ground for question formulation.",
+  "output": "Three prompt versions with a justification for the chosen formulation.",
+  "assessment": "Quality of the justification and visible improvement between the versions.",
+  "duration": "60 minutes",
+  "tags": [
+   "Prompting",
+   "Searching",
+   "Question formulation"
+  ]
+ },
+ "info-07": {
+  "title": "Dashboard audit",
+  "summary": "Students can assess the provenance, timeliness and definitions of a dashboard.",
+  "activity": "Students audit a dashboard from their field on source, timeliness, definitions, choice of scale and risk of misinterpretation. AI generates critical questions from a fictional client; students answer them using the data.",
+  "ai_role": "With AI as a critical client; the answers come from the data.",
+  "output": "An audit report with improvement advice for the dashboard.",
+  "assessment": "Thoroughness of the audit and quality of the answers to the AI questions.",
+  "duration": "90 minutes",
+  "tags": [
+   "Dashboard",
+   "Data",
+   "Critical thinking"
+  ]
+ },
+ "info-08": {
+  "title": "Mis- and disinformation in the profession",
+  "summary": "Students can classify claims by source, evidence and interests.",
+  "activity": "Students collect five online claims about a professional topic and classify them by source, evidence, interests and uncertainty. They correct a misleading claim for a lay audience; AI may only offer alternative explanations.",
+  "ai_role": "Limited: AI is not used as evidence, only as a source of alternative explanations.",
+  "output": "A fact-check file and an accessible correction for laypeople.",
+  "assessment": "Justification of the classification and comprehensibility of the correction.",
+  "duration": "2 hours",
+  "tags": [
+   "Disinformation",
+   "Source criticism",
+   "Communication"
+  ]
+ },
+ "info-09": {
+  "title": "From raw data to decision",
+  "summary": "Students can clean data, document choices and justify a decision.",
+  "activity": "Students receive a small messy data file, clean it and record every choice in a process log. AI may suggest formulas or steps, but every step is checked. They finish with a decision memo.",
+  "ai_role": "With AI as a help with technical steps, with checked execution.",
+  "output": "A cleaned file, a process log and a decision memo.",
+  "assessment": "Reproducibility of the process and justification of the decision.",
+  "duration": "3 hours",
+  "tags": [
+   "Data",
+   "Decision-making",
+   "Process log"
+  ]
+ },
+ "info-10": {
+  "title": "Exposing fabricated references",
+  "summary": "Students can verify the existence and accuracy of sources.",
+  "activity": "Students ask AI for ten references on a topic and check each reference in a database or via its DOI. They sort them into genuine, incorrectly described and fabricated, and build their own reliable list of sources.",
+  "ai_role": "AI supplies the references to be checked; verification is done by the student.",
+  "output": "A verification report and a checked reference list.",
+  "assessment": "Accuracy of the verification and quality of the student's own source list.",
+  "duration": "45 minutes",
+  "tags": [
+   "References",
+   "Verification",
+   "Sources"
+  ]
+ },
+ "comm-01": {
+  "title": "Writing assignment with an authorship trail",
+  "summary": "Students can write a subject-specific text and account transparently for the contribution of AI.",
+  "activity": "Students first write a first version of an 800-word advisory text themselves. They then ask AI for feedback and alternative wordings and record for each suggestion whether and why they adopt it or not. They hand in the final version with the authorship trail.",
+  "ai_role": "With AI as a feedback giver, only after a first version of their own.",
+  "output": "A final text plus an authorship trail with reasoned choices.",
+  "assessment": "Assess content and writing quality, and separately the quality of the justification of choices.",
+  "duration": "Two weeks, 2 hours per week",
+  "tags": [
+   "Writing",
+   "Transparency",
+   "Authorship"
+  ]
+ },
+ "comm-02": {
+  "title": "Team contract for responsible AI use",
+  "summary": "Students can make agreements as a team about when and how they use AI.",
+  "activity": "Project groups write a team contract on AI use: when it is or is not allowed, how they check sources, how they make contributions visible and which data they never enter. They discuss a conflict case, for example a group member who hands in a complete AI text, and revise the contract after the first sprint.",
+  "ai_role": "The subject of the conversation; AI is not the executor here.",
+  "output": "A team contract and a short evaluation after application.",
+  "assessment": "Concreteness of the agreements and quality of the evaluation.",
+  "duration": "60 minutes plus 20 minutes of evaluation",
+  "tags": [
+   "Collaboration",
+   "Agreements",
+   "Responsible AI use"
+  ]
+ },
+ "comm-03": {
+  "title": "Peer feedback with and without AI",
+  "summary": "Students can give and receive feedback and compare the quality of human and AI feedback.",
+  "activity": "Students first give human peer feedback on a draft product. They then ask AI for feedback on the same criteria and use a rubric to compare the differences in usefulness, tone, specificity and accuracy. They improve their product.",
+  "ai_role": "With AI as a second source of feedback, compared with human feedback.",
+  "output": "A feedback analysis and an improved version of the product.",
+  "assessment": "Quality of the feedback analysis and the visible improvement.",
+  "duration": "90 minutes",
+  "tags": [
+   "Feedback",
+   "Peer learning",
+   "Comparison"
+  ]
+ },
+ "comm-04": {
+  "title": "The same message for two audiences",
+  "summary": "Students can tailor subject content to professionals and to laypeople.",
+  "activity": "Students write out complex subject content for professionals and for laypeople. AI may make suggestions; students check language, inclusion and accuracy. A fellow student from the target group does a comprehension test.",
+  "ai_role": "With AI as a suggestion, checked by the student and the target group.",
+  "output": "Two audience-specific products with a justification of the language choices.",
+  "assessment": "Audience alignment, accuracy and justification of choices.",
+  "duration": "2 hours",
+  "tags": [
+   "Communication",
+   "Target audience",
+   "Language"
+  ]
+ },
+ "comm-05": {
+  "title": "Intercultural communication with AI",
+  "summary": "Students can recognise cultural perspectives in a professional case and communicate inclusively.",
+  "activity": "Students analyse a professional case with different cultural perspectives and let AI explore possible misunderstandings. They mark stereotyping in the AI output and design an inclusive communication strategy.",
+  "ai_role": "With AI as an explorer of perspectives, with a critical bias check.",
+  "output": "A communication plan with reflection on bias and context.",
+  "assessment": "Quality of the analysis and inclusiveness of the plan.",
+  "duration": "90 minutes",
+  "tags": [
+   "Inclusion",
+   "Intercultural communication",
+   "Bias"
+  ]
+ },
+ "comm-06": {
+  "title": "Hybrid meeting: checking the transcript",
+  "summary": "Students can organise and record digital collaboration.",
+  "activity": "Students hold a hybrid project meeting and record decisions. AI summarises the transcript; students check whether decisions and dissenting opinions are reproduced correctly and analyse participation and accessibility.",
+  "ai_role": "With AI as note-taker, checked by the students.",
+  "output": "A meeting protocol, a checked summary and improvement actions.",
+  "assessment": "Correctness of the minutes and quality of the analysis.",
+  "duration": "60 minutes",
+  "tags": [
+   "Collaboration",
+   "Hybrid",
+   "Minute-taking"
+  ]
+ },
+ "comm-07": {
+  "title": "Critically editing a professional profile",
+  "summary": "Students can write a professional profile text while preserving authenticity and privacy.",
+  "activity": "Students write a profile text or cover letter and ask AI for alternatives. They investigate which suggestions remain authentic and explain which sentences they do or do not adopt. Personal data of third parties are not entered.",
+  "ai_role": "With AI as an editor, with accountability for the choices.",
+  "output": "A profile text with a justification of choices.",
+  "assessment": "Authenticity of the text and quality of the justification.",
+  "duration": "60 minutes",
+  "tags": [
+   "Career",
+   "Writing",
+   "Authenticity"
+  ]
+ },
+ "comm-08": {
+  "title": "Online community moderation scripts",
+  "summary": "Students can facilitate participation in an online community and design moderation.",
+  "activity": "Students design an online community around a professional question with rules for moderation, accessibility and dealing with disinformation. AI generates difficult comments; students write appropriate human replies.",
+  "ai_role": "With AI to generate practice scenarios.",
+  "output": "A community plan with moderation scripts.",
+  "assessment": "Usability of the scripts and justification of the rules.",
+  "duration": "2 hours",
+  "tags": [
+   "Online community",
+   "Moderation",
+   "Participation"
+  ]
+ },
+ "comm-09": {
+  "title": "Writing together with version history",
+  "summary": "Students can collaborate in a shared document and make contributions visible.",
+  "activity": "A group writes an advisory report in a shared document. They use comments and version history to make authorship and feedback visible and add a comment to every AI contribution stating purpose, prompt and verification action.",
+  "ai_role": "With AI as a co-writer, with traceable input.",
+  "output": "A report with traceable collaboration and process reflection.",
+  "assessment": "Assess the report and the process, including individual contribution.",
+  "duration": "Two weeks",
+  "tags": [
+   "Writing together",
+   "Version history",
+   "Transparency"
+  ]
+ },
+ "comm-10": {
+  "title": "Escalating after an AI chatbot error",
+  "summary": "Students can respond professionally when an AI system gives an incorrect or harmful answer.",
+  "activity": "Students practise with a case in which a chatbot gives a customer, client or student incorrect advice. In pairs they design a response with acknowledgement, correction, human handover and prevention, and act out the case.",
+  "ai_role": "AI as the source of the error; the solution is human.",
+  "output": "An escalation protocol and a professional response.",
+  "assessment": "Professionalism of the response and completeness of the protocol.",
+  "duration": "60 minutes",
+  "tags": [
+   "Professional conduct",
+   "Communication",
+   "Escalation"
+  ]
+ },
+ "content-01": {
+  "title": "Writing an article: AI as editor, not as author",
+  "summary": "Students can write a well-founded professional article and use AI only in a targeted way.",
+  "activity": "Students write an article from their own sources. AI may only help with structure, clarity and counterarguments; analysis and source selection remain with the student. Students record one round of AI feedback.",
+  "ai_role": "Limited: editing only, no writing of content.",
+  "output": "An article with source accountability and an editing log.",
+  "assessment": "Assess analysis, source selection and the accountability for AI use.",
+  "duration": "Two weeks",
+  "tags": [
+   "Writing",
+   "Editing",
+   "Content"
+  ]
+ },
+ "content-02": {
+  "title": "Programming with an AI code assistant",
+  "summary": "Students can build a small application and critically assess AI-generated code.",
+  "activity": "Students build a small application in pairs. One formulates the task and tests, the other works with an AI code assistant; roles are swapped. They make a test plan, carry out a code review and explain every piece of AI code they adopt.",
+  "ai_role": "With AI as a pair programmer under human review.",
+  "output": "A working application, tests, code review and AI log.",
+  "assessment": "Functionality, test quality and quality of the explanation of adopted code.",
+  "duration": "Two half-days",
+  "tags": [
+   "Programming",
+   "Testing",
+   "Code review"
+  ]
+ },
+ "content-03": {
+  "title": "Debugging with and without AI",
+  "summary": "Students can diagnose errors and compare their own approach with AI help.",
+  "activity": "Students receive faulty code or a faulty spreadsheet formula. They first diagnose without AI and then compare with AI help. For each error they record the cause, AI suggestion, test and final solution.",
+  "ai_role": "First without AI, then with AI for comparison.",
+  "output": "A debug log comparing both approaches.",
+  "assessment": "Quality of the diagnosis and of the comparison.",
+  "duration": "90 minutes",
+  "tags": [
+   "Programming",
+   "Debugging",
+   "Comparison"
+  ]
+ },
+ "content-04": {
+  "title": "Explainer video with responsible AI support",
+  "summary": "Students can make an accessible explainer video about a subject concept.",
+  "activity": "Students make a short explainer video with their own script, visuals and, where relevant, AI-generated images or voice-over. They check facts, add subtitles and note the origin and rights of every component.",
+  "ai_role": "With AI for images or voice, under their own script and control.",
+  "output": "An accessible video with a production and source log.",
+  "assessment": "Accuracy of content, accessibility and accountability of provenance.",
+  "duration": "One week",
+  "tags": [
+   "Video",
+   "Accessibility",
+   "Copyright"
+  ]
+ },
+ "content-05": {
+  "title": "Prototype with a user test",
+  "summary": "Students can build a prototype and improve it based on user feedback.",
+  "activity": "Students make a clickable prototype, dashboard or service concept. AI may help with ideas, text or code. They carry out at least two user observations and record which AI output they adapted afterwards.",
+  "ai_role": "With AI as idea generator and building aid, followed by a user test.",
+  "output": "A prototype, test results and a design rationale.",
+  "assessment": "User focus and justification of adjustments.",
+  "duration": "One week",
+  "tags": [
+   "Prototyping",
+   "User testing",
+   "Design"
+  ]
+ },
+ "content-06": {
+  "title": "Reusable learning resource with an open licence",
+  "summary": "Students can design a reusable digital learning resource and share it in a legally responsible way.",
+  "activity": "Students design a micro learning resource for fellow students with a learning goal, source attribution, accessibility and licence. AI proposes an initial structure; students choose an open licence and improve inclusion.",
+  "ai_role": "With AI for an initial structure, then developed by humans.",
+  "output": "A publishable learning resource with metadata and licence.",
+  "assessment": "Didactic quality, accessibility and correct use of the licence.",
+  "duration": "One week",
+  "tags": [
+   "OER",
+   "Licences",
+   "Learning resource"
+  ]
+ },
+ "content-07": {
+  "title": "Misleading versus responsible visualisation",
+  "summary": "Students can create data visualisations and explain the ethical consequences of design choices.",
+  "activity": "Students make two visualisations of the same data: a misleading one and a responsible one. AI may suggest options. They discuss truncated axes, use of colour, selective data and missing context.",
+  "ai_role": "With AI for design options, with human ethical judgement.",
+  "output": "Two visualisations with an ethical analysis.",
+  "assessment": "Insight into deception and quality of the responsible variant.",
+  "duration": "90 minutes",
+  "tags": [
+   "Visualisation",
+   "Ethics",
+   "Data"
+  ]
+ },
+ "content-08": {
+  "title": "Concept images with generative AI",
+  "summary": "Students can choose imagery critically and account for its origin.",
+  "activity": "Students create concept images for a professional product and compare their own sketches, stock material and AI images on usability, provenance and stereotyping. They record prompts, iterations and choices.",
+  "ai_role": "With AI as an image generator, with critical selection and accountability.",
+  "output": "A visual concept with a transparent account of provenance.",
+  "assessment": "Quality of the selection and the accountability.",
+  "duration": "2 hours",
+  "tags": [
+   "Imagery",
+   "Generative AI",
+   "Provenance"
+  ]
+ },
+ "content-09": {
+  "title": "Automation with a spreadsheet or script",
+  "summary": "Students can automate a recurring professional task with control points.",
+  "activity": "Students automate a recurring task with formulas, macros or a small script. AI may help with the technique; students design the control points themselves and test an error scenario.",
+  "ai_role": "With AI for the technique, with human design of the controls.",
+  "output": "An automation with a manual, test set and controls.",
+  "assessment": "Reliability, test coverage and usability of the manual.",
+  "duration": "Two half-days",
+  "tags": [
+   "Automation",
+   "Programming",
+   "Verification"
+  ]
+ },
+ "content-10": {
+  "title": "Remix and copyright",
+  "summary": "Students can reuse existing material with the right licences and attribution.",
+  "activity": "Students make a new digital product from existing material and analyse copyright, licences, attribution and the status of AI output. For each component they note its origin and usage rights.",
+  "ai_role": "With AI as one of the sources, with the status of AI output in the overview.",
+  "output": "A remix product with a rights and attribution overview.",
+  "assessment": "Accuracy of the rights overview.",
+  "duration": "2 hours",
+  "tags": [
+   "Copyright",
+   "Licences",
+   "Remix"
+  ]
+ },
+ "safe-01": {
+  "title": "Privacy scan of an AI workflow",
+  "summary": "Students can recognise and reduce risks to personal data in an AI workflow.",
+  "activity": "Students map a professional workflow in which AI is used and determine which personal, confidential or special-category data must not be entered. They apply data minimisation and design a safe alternative.",
+  "ai_role": "As the subject of the analysis, not as the executor.",
+  "output": "A privacy scan, risk map and safe work instruction.",
+  "assessment": "Completeness of the risk map and usability of the instruction.",
+  "duration": "90 minutes",
+  "tags": [
+   "Privacy",
+   "GDPR",
+   "Workflow"
+  ]
+ },
+ "safe-02": {
+  "title": "Phishing analysis in professional practice",
+  "summary": "Students can recognise, verify and report phishing.",
+  "activity": "Students assess realistic emails and messages from their field, including AI-generated variants. They mark signals, choose verification steps and write a report message for colleagues.",
+  "ai_role": "With AI as a source of realistic examples.",
+  "output": "A phishing checklist and an awareness message.",
+  "assessment": "Recognition of signals and quality of the message.",
+  "duration": "60 minutes",
+  "tags": [
+   "Phishing",
+   "Security",
+   "Awareness"
+  ]
+ },
+ "safe-03": {
+  "title": "Threat model for a digital product",
+  "summary": "Students can map the risks to a digital product systematically.",
+  "activity": "Students make a simple threat model for an app, dashboard or online service: what are we protecting, against whom, how and with which measure. AI may suggest threats; students prioritise by likelihood and impact.",
+  "ai_role": "With AI as a brainstorming partner for threats.",
+  "output": "A threat model with measures.",
+  "assessment": "Well-founded prioritisation and appropriate measures.",
+  "duration": "2 hours",
+  "tags": [
+   "Security",
+   "Risk",
+   "Threat model"
+  ]
+ },
+ "safe-04": {
+  "title": "Deepfake verification",
+  "summary": "Students can verify the origin of audio, video or images before using them.",
+  "activity": "Students receive a video, audio clip or image of doubtful origin and design a verification protocol for professional use. They combine technical signals, source research and human verification and discuss why detection tools are not decisive.",
+  "ai_role": "AI as part of the problem and sometimes of the detection.",
+  "output": "A verification protocol and a reasoned decision.",
+  "assessment": "Completeness of the protocol and quality of the decision.",
+  "duration": "90 minutes",
+  "tags": [
+   "Deepfake",
+   "Media literacy",
+   "Verification"
+  ]
+ },
+ "safe-05": {
+  "title": "Designing an access policy",
+  "summary": "Students can set up access to digital systems securely.",
+  "activity": "For a fictional organisation, students design an access policy with roles, multi-factor authentication, recovery procedure and least privilege. AI generates a draft policy; students correct errors and unrealistic requirements.",
+  "ai_role": "With AI for a draft that is improved critically.",
+  "output": "An access policy with a role matrix.",
+  "assessment": "Realism and security of the policy.",
+  "duration": "2 hours",
+  "tags": [
+   "Access",
+   "Passwords",
+   "Policy"
+  ]
+ },
+ "safe-06": {
+  "title": "Writing a safe prompt",
+  "summary": "Students can anonymise case information before submitting it to AI.",
+  "activity": "Students rewrite an unsafe prompt containing sensitive case details into an anonymised and purposeful prompt. Fellow students try to guess the original person or organisation; if they succeed, the anonymisation is insufficient.",
+  "ai_role": "With AI, but only with anonymised input.",
+  "output": "A before-and-after prompt with privacy justification.",
+  "assessment": "Effectiveness of the anonymisation and usability of the prompt.",
+  "duration": "45 minutes",
+  "tags": [
+   "Prompting",
+   "Privacy",
+   "Anonymising"
+  ]
+ },
+ "safe-07": {
+  "title": "Digital balance and AI workload",
+  "summary": "Students can consciously manage their digital habits and workload with AI.",
+  "activity": "Students investigate how notifications, generative AI and always-available tools affect their concentration and workload. They design a personal or team protocol for focus, availability and deliberate breaks.",
+  "ai_role": "AI as a subject of reflection.",
+  "output": "A reflection and a workable wellbeing plan.",
+  "assessment": "Quality of the reflection and feasibility of the plan.",
+  "duration": "A one-week log plus 45 minutes",
+  "tags": [
+   "Wellbeing",
+   "Workload",
+   "Reflection"
+  ]
+ },
+ "safe-08": {
+  "title": "Accessibility and inclusion check",
+  "summary": "Students can test a digital product for accessibility and exclusion.",
+  "activity": "Students test a digital product for language, colour contrast, alternative text and possible exclusion by AI. They use automatic checks as a start and supplement them with manual tests.",
+  "ai_role": "With AI tools as an aid in the check.",
+  "output": "An accessibility report with improvements.",
+  "assessment": "Completeness of the check and usability of the improvements.",
+  "duration": "2 hours",
+  "tags": [
+   "Accessibility",
+   "Inclusion",
+   "Testing"
+  ]
+ },
+ "safe-09": {
+  "title": "Incident response to a data breach or AI error",
+  "summary": "Students can handle a digital incident in a structured way.",
+  "activity": "Students re-enact an incident: a dataset shared by mistake or an AI system that displays sensitive information. They work with a timeline, roles, communication, damage limitation and evaluation.",
+  "ai_role": "AI as the source of the incident.",
+  "output": "An incident plan and a debrief.",
+  "assessment": "Quality of the plan and of the debrief.",
+  "duration": "90 minutes",
+  "tags": [
+   "Incident",
+   "Privacy",
+   "Crisis"
+  ]
+ },
+ "safe-10": {
+  "title": "A professional's digital footprint",
+  "summary": "Students can map their digital visibility and manage it consciously.",
+  "activity": "Students map their public digital footprint and investigate what an AI tool can infer from it. They discuss the difference between personal control, professional visibility and other people's data.",
+  "ai_role": "With AI to show what can be inferred.",
+  "output": "A personal action plan for digital reputation.",
+  "assessment": "Quality of the analysis and concreteness of the plan.",
+  "duration": "60 minutes",
+  "tags": [
+   "Identity",
+   "Privacy",
+   "Reputation"
+  ]
+ },
+ "solve-01": {
+  "title": "Solving a professional case with and without AI",
+  "summary": "Students can tackle a complex problem and compare how AI influences their thinking.",
+  "activity": "Students solve the same professional case first without AI and then with AI as a sparring partner. They compare problem definition, options, quality and risks using a fixed decision rubric and point out where AI broadened or narrowed their thinking.",
+  "ai_role": "First without AI, then with AI as a sparring partner.",
+  "output": "A dual solution route and a critical comparison.",
+  "assessment": "Quality of both routes and of the comparison.",
+  "duration": "2 hours",
+  "tags": [
+   "Problem solving",
+   "Comparison",
+   "Decision-making"
+  ]
+ },
+ "solve-02": {
+  "title": "Treating AI output as a hypothesis",
+  "summary": "Students can turn AI results into testable hypotheses.",
+  "activity": "Students have AI generate hypotheses for a practical problem and then design a test or information need themselves. What is assessed is not the most convincing AI text, but the quality of the testing.",
+  "ai_role": "With AI as a hypothesis generator.",
+  "output": "A list of hypotheses, a test plan and a conclusion.",
+  "assessment": "Quality of the test design.",
+  "duration": "2 hours",
+  "tags": [
+   "Hypothesis",
+   "Research",
+   "Critical thinking"
+  ]
+ },
+ "solve-03": {
+  "title": "Design sprint with AI in different roles",
+  "summary": "Students can deploy AI purposefully in a design process and assess the yield.",
+  "activity": "Teams go through a short design sprint. AI is given changing roles: user, critic, domain expert or adversary. Teams record which role gave useful insights and which assumptions they rejected.",
+  "ai_role": "With AI in explicitly chosen roles.",
+  "output": "A solution concept with an iteration log.",
+  "assessment": "Quality of the iterations and justification of rejected assumptions.",
+  "duration": "A half-day",
+  "tags": [
+   "Design thinking",
+   "Design sprint",
+   "Iteration"
+  ]
+ },
+ "solve-04": {
+  "title": "Diagnosing the failure of an AI decision",
+  "summary": "Students can analyse the causes of a faulty AI outcome.",
+  "activity": "Students investigate a fictional AI recommendation that led to a poor professional decision. Using a root-cause analysis they look at data, prompt, model limitation, human oversight, context and governance.",
+  "ai_role": "AI as the subject of analysis.",
+  "output": "A root-cause analysis and improvement measures.",
+  "assessment": "Depth of the analysis and feasibility of the measures.",
+  "duration": "90 minutes",
+  "tags": [
+   "Failure analysis",
+   "AI",
+   "Governance"
+  ]
+ },
+ "solve-05": {
+  "title": "Tool choice under constraints",
+  "summary": "Students can choose in a reasoned way between no tool, standard software, automation or AI.",
+  "activity": "For a professional assignment, students choose between no digital tool, standard software, automation or generative AI. They weigh cost, privacy, reliability, accessibility, skills and impact in a decision matrix.",
+  "ai_role": "AI is one of the options, not the starting point.",
+  "output": "A reasoned tool choice with an alternative scenario.",
+  "assessment": "Care taken in the weighing.",
+  "duration": "90 minutes",
+  "tags": [
+   "Tool choice",
+   "Weighing options",
+   "Decision-making"
+  ]
+ },
+ "solve-06": {
+  "title": "Prompt debugging as iterative design",
+  "summary": "Students can improve a prompt systematically and know when to stop.",
+  "activity": "Students receive a poorly performing prompt for a subject assignment and improve it systematically against predetermined criteria. They also decide when stopping is better than prompting further.",
+  "ai_role": "With AI as a testing ground for prompts.",
+  "output": "A prompt log with iterations, criteria and final decision.",
+  "assessment": "Systematic approach to improvement and quality of the decision to stop.",
+  "duration": "60 minutes",
+  "tags": [
+   "Prompting",
+   "Iteration",
+   "Criteria"
+  ]
+ },
+ "solve-07": {
+  "title": "Human-in-the-loop: a service with human oversight",
+  "summary": "Students can design a service in which AI and professional work together.",
+  "activity": "Students design a service in which AI makes a first proposal and a professional checks, corrects or takes over. They record when escalation is mandatory and how feedback improves the service.",
+  "ai_role": "With AI as first proposer under human oversight.",
+  "output": "A service blueprint with human control points.",
+  "assessment": "Clarity of the control points and escalation rules.",
+  "duration": "2 hours",
+  "tags": [
+   "Human in the loop",
+   "Service design",
+   "Verification"
+  ]
+ },
+ "solve-08": {
+  "title": "Scenarios for an uncertain future",
+  "summary": "Students can explore and test future scenarios for their profession.",
+  "activity": "Students explore a professional future with AI by drawing up scenarios and testing assumptions explicitly. AI can generate variants; students distinguish between plausible, desirable and probable.",
+  "ai_role": "With AI as a scenario generator.",
+  "output": "A scenario report with action options.",
+  "assessment": "Justification of assumptions and quality of the action options.",
+  "duration": "2 hours",
+  "tags": [
+   "Future",
+   "Scenario",
+   "Professional practice"
+  ]
+ },
+ "solve-09": {
+  "title": "Improving a process with automation",
+  "summary": "Students can judge where automation makes sense and design a small experiment.",
+  "activity": "Students analyse a work process, determine where automation makes sense and design a small experiment with measurement points. They also describe the baseline scenario: what happens if we do not automate.",
+  "ai_role": "With AI or automation as a possible direction for a solution.",
+  "output": "A process analysis, experiment design and evaluation criteria.",
+  "assessment": "Justification of the choice and quality of the measurement points.",
+  "duration": "3 hours",
+  "tags": [
+   "Automation",
+   "Process improvement",
+   "Experiment"
+  ]
+ },
+ "solve-10": {
+  "title": "My digital learning strategy",
+  "summary": "Students can use AI to learn without becoming dependent.",
+  "activity": "Students identify a skills gap of their own, choose learning resources and use AI as a practice partner or feedback giver. They record a learning goal, a verification moment and a stopping rule and evaluate after two weeks.",
+  "ai_role": "With AI as a practice partner, with own direction and a stopping rule.",
+  "output": "A personal learning plan and a reflection on self-direction.",
+  "assessment": "Quality of the reflection and concreteness of the plan.",
+  "duration": "Two weeks",
+  "tags": [
+   "Learning to learn",
+   "Self-direction",
+   "Reflection"
+  ]
+ },
+ "info-11": {
+  "title": "Improving a search query with AI help",
+  "summary": "Students can adjust a simple search query and recognise basic limitations of AI search tools.",
+  "activity": "Students search for information on a simple subject question with an ordinary search engine, adjust the query three times and then ask an AI assistant to improve the query. They note what changed in the results and where the AI suggestion fell short.",
+  "ai_role": "With AI as a help in formulating; students assess the results themselves.",
+  "output": "Three search versions with brief observations.",
+  "assessment": "Formative: checklist (query adjusted, limitation named, result viewed critically).",
+  "duration": "30 minutes",
+  "tags": [
+   "Searching",
+   "Basics",
+   "AI search tool"
+  ]
+ },
+ "info-12": {
+  "title": "Getting my digital study folder in order",
+  "summary": "Students can organise digital files, make a backup and restore a file.",
+  "activity": "For a project assignment, students set up a folder structure, name files consistently, make a backup and restore a deliberately deleted file. They record their way of working in five rules.",
+  "ai_role": "Without AI; optionally AI may suggest a folder name, the student decides.",
+  "output": "An overview of the folder structure and a backup protocol of five rules.",
+  "assessment": "Formative: checklist covering structure, naming, backup and restore.",
+  "duration": "45 minutes",
+  "tags": [
+   "File management",
+   "Backup",
+   "Basics"
+  ]
+ },
+ "info-13": {
+  "title": "Comparing sources on interests and bias",
+  "summary": "Students can assess search results on source, interests and (AI) bias.",
+  "activity": "Students collect six sources on a professional issue: a scientific source, an industry body, a news source, an advocacy group, a forum and an AI summary. They fill in a matrix with source, interest and evidence and check the AI summary for distortion.",
+  "ai_role": "With AI as one of the six sources, assessed critically.",
+  "output": "A source matrix with a short conclusion on reliability.",
+  "assessment": "Rubric: quality of the source analysis and justification of the bias assessment.",
+  "duration": "90 minutes",
+  "tags": [
+   "Sources",
+   "Bias",
+   "Interests"
+  ]
+ },
+ "info-14": {
+  "title": "Managing a small dataset ethically",
+  "summary": "Students can manage a simple dataset carefully and ethically.",
+  "activity": "Students receive survey data containing personal data, pseudonymise it, record versions and naming and write a data dictionary. They choose where to store the data and with whom it may be shared.",
+  "ai_role": "AI may draft a data dictionary; students check and correct it.",
+  "output": "A cleaned dataset, a data dictionary and sharing agreements.",
+  "assessment": "Rubric: care, privacy and completeness of the documentation.",
+  "duration": "2 hours",
+  "tags": [
+   "Data management",
+   "Privacy",
+   "Documentation"
+  ]
+ },
+ "info-15": {
+  "title": "Reliability workshop for fellow students",
+  "summary": "Students can support others in assessing sources reliably.",
+  "activity": "Students design and deliver a 20-minute workshop for first-years on combining search tools, checking sources and testing an AI answer. They collect feedback and improve their workshop.",
+  "ai_role": "AI is the subject of the workshop and may help prepare the material; the teaching approach is the students' own.",
+  "output": "A workshop design, materials and an improved version based on feedback.",
+  "assessment": "Rubric: accuracy of content, teaching approach and processing of feedback.",
+  "duration": "3 hours",
+  "tags": [
+   "Peer teaching",
+   "Sources",
+   "Coaching others"
+  ]
+ },
+ "info-16": {
+  "title": "Search protocol for a systematic literature review",
+  "summary": "Students can design advanced search strategies and direct others in carrying them out.",
+  "activity": "For a graduation question, students design a search protocol with databases, search terms, inclusion and exclusion criteria and documentation. They coach a junior student in carrying out and refining the protocol.",
+  "ai_role": "AI may suggest additional search terms and an initial screening; every decision and all AI use is documented.",
+  "output": "A search protocol, a search log and a coaching report.",
+  "assessment": "Rubric: methodological quality, transparency and quality of the coaching.",
+  "duration": "One week",
+  "tags": [
+   "Literature review",
+   "Search strategy",
+   "Coaching others"
+  ]
+ },
+ "info-17": {
+  "title": "Reproducible data analysis with an audit trail",
+  "summary": "Students can structure, analyse and document large or complex datasets transparently.",
+  "activity": "Students analyse a large dataset from their field in a notebook or script, document every choice and have a fellow student reproduce and audit the analysis.",
+  "ai_role": "AI may suggest code or analyses; the student justifies and tests every step.",
+  "output": "A reproducible analysis with documentation of choices and an audit report.",
+  "assessment": "Rubric: reproducibility, transparency and quality of the audit.",
+  "duration": "One week",
+  "tags": [
+   "Data",
+   "Reproducibility",
+   "Audit"
+  ]
+ },
+ "info-18": {
+  "title": "Technology radar for search and AI tools",
+  "summary": "Students can follow and assess new search and AI technologies for their programme.",
+  "activity": "Over a semester, students keep track of new search and AI tools, test them with a test protocol for precision, bias and transparency and advise the programme team on which tools fit.",
+  "ai_role": "AI tools are the object of study and may also serve as an aid, with accountability.",
+  "output": "A technology radar and an advisory note for the team.",
+  "assessment": "Rubric: quality of testing, justification and usefulness of the advice.",
+  "duration": "One semester, 1 hour per week",
+  "tags": [
+   "Technology radar",
+   "Evaluation",
+   "Advice"
+  ]
+ },
+ "info-19": {
+  "title": "Data management plan for a research project",
+  "summary": "Students can design and improve data strategies for a complex project.",
+  "activity": "Students write a data management plan covering provenance, consent, retention period, sharing, FAIR principles and AI use. They present the plan to a programme team and process the questions.",
+  "ai_role": "AI may draft a version; the students make the legal and ethical choices themselves.",
+  "output": "A data management plan and a presentation.",
+  "assessment": "Rubric: completeness, feasibility and justification of the choices.",
+  "duration": "3 hours",
+  "tags": [
+   "Data governance",
+   "FAIR",
+   "Ethics"
+  ]
+ },
+ "info-20": {
+  "title": "Advice: the influence of AI on information provision in the profession",
+  "summary": "Students can investigate how interests and AI bias steer information provision and advise others about it.",
+  "activity": "Students investigate how AI tools shape information provision in their professional field, who benefits and what risks there are. They deliver a well-founded advice with a guideline for reliable use to a professional organisation or programme.",
+  "ai_role": "AI is the subject of research and may be an aid, with source accountability.",
+  "output": "An advisory report with a guideline for reliable use.",
+  "assessment": "Rubric: depth, justification and usefulness of the guideline.",
+  "duration": "Two weeks",
+  "tags": [
+   "Policy advice",
+   "Bias",
+   "Information provision"
+  ]
+ },
+ "comm-11": {
+  "title": "First agreements in a digital group",
+  "summary": "Students can collaborate digitally on a shared task, taking account of the preferences and boundaries of others.",
+  "activity": "Groups choose a channel, divide roles, agree on response times and discuss preferences and boundaries. They then complete a short task in a shared document and evaluate the collaboration.",
+  "ai_role": "Without AI.",
+  "output": "A list of agreements and a short evaluation.",
+  "assessment": "Formative: checklist covering agreements, role division and evaluation.",
+  "duration": "45 minutes",
+  "tags": [
+   "Collaboration",
+   "Agreements",
+   "Basics"
+  ]
+ },
+ "comm-12": {
+  "title": "Human or machine? Comparing two conversations",
+  "summary": "Students can recognise basic differences between human-human and human-machine interaction.",
+  "activity": "Students hold a short customer-query chat with a fellow student and with an AI chatbot. They compare empathy, understanding, errors and transparency and discuss when a human remains necessary.",
+  "ai_role": "With AI as a conversation partner, compared with a human.",
+  "output": "A comparison table and three conclusions.",
+  "assessment": "Formative: checklist covering the comparison and conclusions.",
+  "duration": "45 minutes",
+  "tags": [
+   "Human-machine",
+   "Communication",
+   "Basics"
+  ]
+ },
+ "comm-13": {
+  "title": "Managing my digital identity in a simple way",
+  "summary": "Students can manage their digital identity and footprint in a simple way.",
+  "activity": "Students search for themselves online, adjust the privacy settings of two platforms and choose what may be professionally visible. They record three concrete actions.",
+  "ai_role": "An AI search on one's own name serves as exploration; students assess its accuracy.",
+  "output": "An action list for a professional digital identity.",
+  "assessment": "Formative: checklist covering the search, settings and actions.",
+  "duration": "45 minutes",
+  "tags": [
+   "Digital identity",
+   "Privacy",
+   "Basics"
+  ]
+ },
+ "comm-14": {
+  "title": "Communication strategy with systematically refined AI instructions",
+  "summary": "Students can tailor communication in a complex situation to context and audience by systematically refining AI instructions.",
+  "activity": "Students work on a complex communication question, for example a change notice to clients. They refine their AI instructions in versions with criteria, adapt the message per audience and record their choices.",
+  "ai_role": "With AI as a writing aid, with systematically documented instructions.",
+  "output": "A communication plan, prompt versions and final messages per audience.",
+  "assessment": "Rubric: audience alignment, quality of the iterations and justification.",
+  "duration": "3 hours",
+  "tags": [
+   "Prompting",
+   "Target audience",
+   "Communication strategy"
+  ]
+ },
+ "comm-15": {
+  "title": "Coaching others on inclusive online behaviour",
+  "summary": "Students can advise others on respectful, inclusive and responsible online behaviour.",
+  "activity": "Students advise a team or class on conduct rules, inclusive language and AI use in chats and facilitate a conversation about this. They include legal aspects such as the GDPR and portrait rights.",
+  "ai_role": "AI is the subject of the agreements and may generate examples.",
+  "output": "An advisory note and a conversation report.",
+  "assessment": "Rubric: inclusiveness, legal justification and quality of the coaching.",
+  "duration": "3 hours",
+  "tags": [
+   "Inclusion",
+   "Online behaviour",
+   "Coaching others"
+  ]
+ },
+ "comm-16": {
+  "title": "Digital communication strategy for an organisation",
+  "summary": "Students can design and improve advanced forms of digital communication and collaboration.",
+  "activity": "Students design a coherent strategy for channels, an AI chatbot, escalation routes, tone of voice and monitoring and present it to a client.",
+  "ai_role": "An AI chatbot is part of the design; students determine the boundaries.",
+  "output": "A communication strategy with an implementation plan.",
+  "assessment": "Rubric: coherence, feasibility and quality of the presentation.",
+  "duration": "Two weeks",
+  "tags": [
+   "Strategy",
+   "Chatbot",
+   "Client"
+  ]
+ },
+ "comm-17": {
+  "title": "Leading a digital citizenship programme",
+  "summary": "Students can take the lead in programmes on digital citizenship and behaviour.",
+  "activity": "Students design and run a programme, for example workshops on media literacy and AI for a school or care institution. They measure the effect and improve the programme.",
+  "ai_role": "AI is the subject of the workshops and an aid for materials.",
+  "output": "A programme design, workshops delivered and an evaluation.",
+  "assessment": "Rubric: design, delivery and measurement of effect.",
+  "duration": "One month",
+  "tags": [
+   "Digital citizenship",
+   "Leadership",
+   "Workshop"
+  ]
+ },
+ "comm-18": {
+  "title": "Human-AI team agreements for a professional team",
+  "summary": "Students can guide others in complex choices about responsible human-machine collaboration.",
+  "activity": "Students design agreements on the division of tasks between human and AI, transparency towards clients and ultimate responsibility. They test the agreements in a role play and advise the team.",
+  "ai_role": "AI has an explicit role in the design, with ultimate human responsibility.",
+  "output": "A team protocol and an advisory report after the role play.",
+  "assessment": "Rubric: clarity, feasibility and quality of the test results.",
+  "duration": "3 hours",
+  "tags": [
+   "Human-AI",
+   "Team agreements",
+   "Responsibility"
+  ]
+ },
+ "comm-19": {
+  "title": "Pilot and evaluation of a new communication tool",
+  "summary": "Students can follow and assess developments in digital and AI communication tools.",
+  "activity": "Students run a pilot with a new AI communication tool and evaluate inclusiveness, privacy and the effect on collaboration. They advise on adoption.",
+  "ai_role": "The AI tool is the subject of the pilot.",
+  "output": "A pilot report with advice.",
+  "assessment": "Rubric: research design, critical evaluation and advice.",
+  "duration": "Two weeks",
+  "tags": [
+   "Pilot",
+   "Evaluation",
+   "Innovation"
+  ]
+ },
+ "comm-20": {
+  "title": "Digital rights and identity: a policy case",
+  "summary": "Students can advise others on digital identity, digital rights and consent.",
+  "activity": "Students advise on a professional case involving deepfakes or voice clones, for example in care or education, with legal and ethical justification and a proposal for consent rules.",
+  "ai_role": "AI is the subject of the case; AI may help with literature exploration, with checking.",
+  "output": "A policy advice with consent rules.",
+  "assessment": "Rubric: legal and ethical justification and usefulness.",
+  "duration": "Two weeks",
+  "tags": [
+   "Digital rights",
+   "Identity",
+   "Policy"
+  ]
+ },
+ "content-11": {
+  "title": "First text with AI help and labelling",
+  "summary": "Students can create simple digital content and label AI-generated content correctly.",
+  "activity": "Students make a short flyer or post for a professional context. AI may suggest titles; students label the AI contribution, add alternative text and check the contrast.",
+  "ai_role": "With AI for title suggestions, with mandatory labelling.",
+  "output": "A flyer or post with a label and accessibility check.",
+  "assessment": "Formative: checklist covering labelling, accessibility and own contribution.",
+  "duration": "45 minutes",
+  "tags": [
+   "Content",
+   "Labelling",
+   "Accessibility"
+  ]
+ },
+ "content-12": {
+  "title": "My first steps in programming",
+  "summary": "Students can give simple instructions to a computer using symbolic steps.",
+  "activity": "Using blocks or pseudocode, students build a small task, for example a calculation aid for their subject, and test it with three input values.",
+  "ai_role": "AI may explain a concept or block after an attempt of their own.",
+  "output": "A working step plan or block program with test results.",
+  "assessment": "Formative: does the task work and can the steps be followed?",
+  "duration": "60 minutes",
+  "tags": [
+   "Programming",
+   "Basics",
+   "Algorithm"
+  ]
+ },
+ "content-13": {
+  "title": "Adapting existing content with attribution",
+  "summary": "Students can adapt and combine existing content in a simple way, paying attention to copyright.",
+  "activity": "Students look for an image and a text with an open licence, adapt them for a product of their own and add the correct attribution.",
+  "ai_role": "Without AI; an AI image is allowed, provided it is labelled.",
+  "output": "An adapted product with attribution.",
+  "assessment": "Formative: correct licence and attribution.",
+  "duration": "45 minutes",
+  "tags": [
+   "Copyright",
+   "Licences",
+   "Basics"
+  ]
+ },
+ "content-14": {
+  "title": "Developing and improving a specialised digital product",
+  "summary": "Students can combine suitable digital and AI tools for a complex assignment and make a product sound in content, form and ethics.",
+  "activity": "Students develop a specialised product, for example a data-driven reporting template or small application, combine several tools, carry out an ethical check and improve the product after user tests.",
+  "ai_role": "With AI tools in several steps, with accountability per step.",
+  "output": "A product, test report and design rationale.",
+  "assessment": "Rubric: quality, ethics and justification of improvements.",
+  "duration": "Two weeks",
+  "tags": [
+   "Product development",
+   "Ethics",
+   "Iteration"
+  ]
+ },
+ "content-15": {
+  "title": "Coaching others on responsible reuse of AI content",
+  "summary": "Students can guide others in the responsible reuse and sharing of digital and AI-generated content.",
+  "activity": "Students write a guideline and give a workshop on reuse, licences and labelling of AI content. They give peer feedback on the products of fellow students.",
+  "ai_role": "AI content is the subject of the guideline.",
+  "output": "A guideline, workshop material and peer feedback.",
+  "assessment": "Rubric: correctness of the guideline and quality of the feedback.",
+  "duration": "3 hours",
+  "tags": [
+   "Reuse",
+   "Licences",
+   "Coaching others"
+  ]
+ },
+ "content-16": {
+  "title": "Content strategy with AI governance",
+  "summary": "Students can design and improve advanced content processes.",
+  "activity": "Students design a content process for an organisation covering creation, checking, labelling and archiving, including quality and ethics criteria and roles for AI.",
+  "ai_role": "AI is a defined step in the process, with human approval.",
+  "output": "A process design and criteria.",
+  "assessment": "Rubric: coherence, verifiability and ethics.",
+  "duration": "2 weeks",
+  "tags": [
+   "Content strategy",
+   "Governance",
+   "Quality"
+  ]
+ },
+ "content-17": {
+  "title": "Architecture of an AI-supported application",
+  "summary": "Students can design and improve complex digital solutions with an AI component.",
+  "activity": "Students design and build an application with an AI component, add logging and evaluation and test for bias and errors. The team carries out a code review.",
+  "ai_role": "AI is part of the solution and of the development environment, with review.",
+  "output": "An application, test report and review.",
+  "assessment": "Rubric: design, test quality and team review.",
+  "duration": "Two weeks",
+  "tags": [
+   "Software",
+   "Architecture",
+   "Evaluation"
+  ]
+ },
+ "content-18": {
+  "title": "Toolkit for the programme: building and maintaining",
+  "summary": "Students can take the lead in developing and sharing reusable digital products.",
+  "activity": "Students build a reusable toolkit, choose a licence, write documentation, use version control and coordinate contributions from others.",
+  "ai_role": "AI may help with code and documentation, with checking and labelling.",
+  "output": "A toolkit with documentation and licence.",
+  "assessment": "Rubric: usability, documentation and collaboration.",
+  "duration": "One month",
+  "tags": [
+   "Toolkit",
+   "Version control",
+   "Open licence"
+  ]
+ },
+ "content-19": {
+  "title": "Evaluation framework for generative tools in a field",
+  "summary": "Students can choose responsibly and advise others on generative tools.",
+  "activity": "Students develop a framework covering quality, bias, copyright and sustainability, test four tools and advise the programme.",
+  "ai_role": "AI tools are the subject of the evaluation.",
+  "output": "An evaluation framework and advice.",
+  "assessment": "Rubric: framework, testing and advice.",
+  "duration": "Two weeks",
+  "tags": [
+   "Evaluation",
+   "Generative AI",
+   "Advice"
+  ]
+ },
+ "content-20": {
+  "title": "Leading a creative team with AI",
+  "summary": "Students can take the lead in a project when using AI for content creation.",
+  "activity": "Students lead a creative project, divide tasks, safeguard quality and ethics and carry out an audit of the AI input. They reflect on their role as a maker.",
+  "ai_role": "AI as a team member with defined tasks.",
+  "output": "The project result, an audit report and a reflection.",
+  "assessment": "Rubric: leadership, quality and reflection.",
+  "duration": "Two weeks",
+  "tags": [
+   "Leadership",
+   "Creation",
+   "Audit"
+  ]
+ },
+ "safe-11": {
+  "title": "Strong password and getting logins in order",
+  "summary": "Students can apply basic measures for secure login.",
+  "activity": "Students set up a password manager, switch on two-step verification and arrange recovery methods for an account.",
+  "ai_role": "Without AI.",
+  "output": "A screenshot report of the measures set up.",
+  "assessment": "Formative: checklist.",
+  "duration": "45 minutes",
+  "tags": [
+   "Passwords",
+   "Logging in",
+   "Basics"
+  ]
+ },
+ "safe-12": {
+  "title": "What do I share with AI and what not?",
+  "summary": "Students can apply simple rules for personal and sensitive data when using AI.",
+  "activity": "Students sort cards with examples of data into safe, careful and never, and then assess a few example prompts.",
+  "ai_role": "AI prompts are the material to be assessed.",
+  "output": "Sorted cards and three personal rules.",
+  "assessment": "Formative: checklist of rules.",
+  "duration": "30 minutes",
+  "tags": [
+   "Privacy",
+   "AI use",
+   "Basics"
+  ]
+ },
+ "safe-13": {
+  "title": "Using privacy settings and GDPR rights",
+  "summary": "Students can use settings and rights to protect their data.",
+  "activity": "Students request access to their own data from a service, adjust privacy settings and investigate whether the service trains AI on user data.",
+  "ai_role": "AI may write a draft request; students check it.",
+  "output": "An access request and an overview of the adjusted settings.",
+  "assessment": "Rubric: correctness of the request and quality of the analysis.",
+  "duration": "90 minutes",
+  "tags": [
+   "GDPR",
+   "Privacy",
+   "Rights"
+  ]
+ },
+ "safe-14": {
+  "title": "Choosing a safe AI tool",
+  "summary": "Students can compare AI tools on data processing and security.",
+  "activity": "Students compare two AI tools on storage, training on data, licence and privacy statement and choose a safe tool for a professional task.",
+  "ai_role": "AI tools are the object of study.",
+  "output": "A comparison matrix and a reasoned choice.",
+  "assessment": "Rubric: care in the comparison and justification.",
+  "duration": "90 minutes",
+  "tags": [
+   "Tool choice",
+   "Privacy",
+   "Security"
+  ]
+ },
+ "safe-15": {
+  "title": "Risk analysis of an AI application in care or education",
+  "summary": "Students can analyse the risks of an AI application and support colleagues in using it safely.",
+  "activity": "Students carry out a light risk analysis for an AI application: purpose, data, risks and measures. They present the outcome to colleagues and answer questions.",
+  "ai_role": "AI is the subject of the analysis.",
+  "output": "A risk analysis and a presentation.",
+  "assessment": "Rubric: completeness of the analysis and quality of the explanation.",
+  "duration": "3 hours",
+  "tags": [
+   "Risk analysis",
+   "Privacy",
+   "Care and education"
+  ]
+ },
+ "safe-16": {
+  "title": "Security policy for AI use in an organisation",
+  "summary": "Students can design and improve security policy for AI.",
+  "activity": "Students design a policy with permitted tools, data classification and training and present it to a management team.",
+  "ai_role": "AI is the subject of the policy.",
+  "output": "A policy document and a presentation.",
+  "assessment": "Rubric: feasibility and justification.",
+  "duration": "Two weeks",
+  "tags": [
+   "Policy",
+   "Security",
+   "AI use"
+  ]
+ },
+ "safe-17": {
+  "title": "Designing and running an awareness programme",
+  "summary": "Students can direct others in digital safety.",
+  "activity": "Students set up an ethically responsible phishing simulation and training, measure the effect and improve the programme.",
+  "ai_role": "AI may generate scenarios; the ethical frameworks are human.",
+  "output": "A programme, measurement results and improvement advice.",
+  "assessment": "Rubric: ethics, measurement of effect and improvement.",
+  "duration": "One month",
+  "tags": [
+   "Awareness",
+   "Phishing",
+   "Leadership"
+  ]
+ },
+ "safe-18": {
+  "title": "Red teaming an AI application",
+  "summary": "Students can investigate the weak points of an AI application systematically.",
+  "activity": "In a sandboxed test environment, students try to provoke prompt injection and data leaks, report their findings and propose measures.",
+  "ai_role": "The AI application is the test object.",
+  "output": "A test report with measures.",
+  "assessment": "Rubric: systematic approach, reporting and measures.",
+  "duration": "One week",
+  "tags": [
+   "Red teaming",
+   "Security",
+   "Testing"
+  ]
+ },
+ "safe-19": {
+  "title": "Ethics and privacy review for new digital tools",
+  "summary": "Students can design and use a review framework for new tools.",
+  "activity": "Students develop a review framework, assess a real tool of the programme and advise the team.",
+  "ai_role": "The AI tool is the object of review.",
+  "output": "A framework, a review report and advice.",
+  "assessment": "Rubric: framework, application and advice.",
+  "duration": "Two weeks",
+  "tags": [
+   "Ethics",
+   "Privacy",
+   "Review framework"
+  ]
+ },
+ "safe-20": {
+  "title": "Digital wellbeing policy for a team",
+  "summary": "Students can design and evaluate interventions for digital wellbeing and AI workload.",
+  "activity": "Students investigate workload caused by notifications and AI tools in a team, design an intervention and evaluate its effect.",
+  "ai_role": "AI is the subject of the investigation.",
+  "output": "A research report, an intervention and an evaluation.",
+  "assessment": "Rubric: research, intervention and evaluation.",
+  "duration": "Two weeks",
+  "tags": [
+   "Wellbeing",
+   "Workload",
+   "Policy"
+  ]
+ },
+ "solve-11": {
+  "title": "Solving a simple digital problem step by step",
+  "summary": "Students can approach a simple technical problem with a step plan.",
+  "activity": "Students solve a simple problem, for example a shared file that will not open, using a step plan. Only after an attempt of their own may they ask an AI chat for a hint.",
+  "ai_role": "Hint only after an attempt of their own.",
+  "output": "A step plan with solution.",
+  "assessment": "Formative: checklist.",
+  "duration": "30 minutes",
+  "tags": [
+   "Problem solving",
+   "Basics",
+   "Step-by-step plan"
+  ]
+ },
+ "solve-12": {
+  "title": "Which tool fits this task?",
+  "summary": "Students can choose from simple digital tools and justify their choice.",
+  "activity": "Students try out three simple tools for the same task and justify their choice. AI is one of the options.",
+  "ai_role": "AI as one of the options.",
+  "output": "A short comparison and choice.",
+  "assessment": "Formative: justification in three sentences.",
+  "duration": "45 minutes",
+  "tags": [
+   "Tool choice",
+   "Basics",
+   "Comparison"
+  ]
+ },
+ "solve-13": {
+  "title": "Understanding and fixing an error message",
+  "summary": "Students can recognise and fix simple digital errors.",
+  "activity": "Students are given error messages in a spreadsheet or small piece of code. First they try themselves, then they ask AI for an explanation and check it.",
+  "ai_role": "AI explanation after an attempt of their own, with checking.",
+  "output": "A list of errors, causes and solutions.",
+  "assessment": "Formative: checklist.",
+  "duration": "45 minutes",
+  "tags": [
+   "Debugging",
+   "Basics",
+   "Error messages"
+  ]
+ },
+ "solve-14": {
+  "title": "Learning a new digital tool in 30 minutes",
+  "summary": "Students can learn independently how to use a new tool.",
+  "activity": "Using a manual, video and AI explanation, students learn a new tool and reflect on what helped.",
+  "ai_role": "AI as one of the learning resources.",
+  "output": "A short demo and reflection.",
+  "assessment": "Formative: demo and reflection.",
+  "duration": "45 minutes",
+  "tags": [
+   "Learning",
+   "Independence",
+   "Basics"
+  ]
+ },
+ "solve-15": {
+  "title": "Automating a professional task with a simple workflow",
+  "summary": "Students can design, test and improve a simple digital solution.",
+  "activity": "Students design a flowchart for a professional task, build a simple workflow, test edge cases and improve it.",
+  "ai_role": "AI may suggest steps; students test every suggestion.",
+  "output": "A flowchart, workflow and test report.",
+  "assessment": "Rubric: functioning, testing and improvement.",
+  "duration": "2 hours",
+  "tags": [
+   "Workflow",
+   "Automation",
+   "Testing"
+  ]
+ },
+ "solve-16": {
+  "title": "Complex problem: combining and evaluating several tools",
+  "summary": "Students can combine several digital and AI tools in complex situations and evaluate the solution.",
+  "activity": "Students solve a complex case with several tools, design evaluation criteria, compare solutions and record their learning process.",
+  "ai_role": "With AI alongside other tools, with accountability.",
+  "output": "A solution, criteria and a learning report.",
+  "assessment": "Rubric: coherence, evaluation and reflection.",
+  "duration": "3 hours",
+  "tags": [
+   "Complexity",
+   "Evaluation",
+   "Combining tools"
+  ]
+ },
+ "solve-17": {
+  "title": "Innovation project with AI for a client",
+  "summary": "Students can take the lead in developing and evaluating a digital innovation.",
+  "activity": "Students develop, pilot and evaluate an innovation with AI for a real client, paying attention to ethics and impact.",
+  "ai_role": "AI is part of the innovation.",
+  "output": "A pilot report and an advisory report.",
+  "assessment": "Rubric: innovation, ethics and impact.",
+  "duration": "Six weeks",
+  "tags": [
+   "Innovation",
+   "Pilot",
+   "Client"
+  ]
+ },
+ "solve-18": {
+  "title": "Strategic choice: deploy AI or not",
+  "summary": "Students can make strategic choices about digital and AI solutions in highly complex situations.",
+  "activity": "Students advise a board on a difficult choice covering costs, benefits, ethics, sustainability and risk and work out scenarios.",
+  "ai_role": "AI is one of the options.",
+  "output": "An advisory note with scenarios.",
+  "assessment": "Rubric: justification and scenario analysis.",
+  "duration": "One week",
+  "tags": [
+   "Strategy",
+   "Ethics",
+   "Scenario"
+  ]
+ },
+ "solve-19": {
+  "title": "Coaching colleagues in problem solving with AI",
+  "summary": "Students can direct others in solving problems with digital and AI tools.",
+  "activity": "Students design a coaching plan, coach junior students or colleagues on a problem, observe and give feedback.",
+  "ai_role": "AI as an aid in the coaching, with critical reflection.",
+  "output": "A coaching plan and report.",
+  "assessment": "Rubric: plan, coaching and reflection.",
+  "duration": "Three weeks",
+  "tags": [
+   "Coaching",
+   "Leadership",
+   "Problem solving"
+  ]
+ },
+ "solve-20": {
+  "title": "Experimenting with emerging technology",
+  "summary": "Students can investigate emerging technologies and share knowledge.",
+  "activity": "Students investigate a new technology, design an experiment, evaluate the outcome and share the knowledge with the team.",
+  "ai_role": "The AI technology is the object of study.",
+  "output": "An experiment report and knowledge sharing.",
+  "assessment": "Rubric: experiment design and knowledge sharing.",
+  "duration": "Three weeks",
+  "tags": [
+   "Experiment",
+   "Innovation",
+   "Knowledge sharing"
+  ]
+ }
+}

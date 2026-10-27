@@ -1,0 +1,13 @@
+{
+  "checks": {
+    "python_syntax": true,
+    "connection_layer_behind_points": true,
+    "gaps_not_bridged": true,
+    "descending_levels_connected": true,
+    "multiple_levels_preserved": true,
+    "domains_not_mixed": true
+  },
+  "javascript_syntax_check": false,
+  "browser_test": false,
+  "note": "Algorithm policy tested with Python equivalent; actual JS/browser not executed."
+}

@@ -1,0 +1,20 @@
+{
+  "backend_unchanged": true,
+  "existing_ids_preserved": true,
+  "functional_scripts_unchanged": {
+    "v10.js": true,
+    "theme.js": true,
+    "session-notes.js": true,
+    "v6.js": true,
+    "demo-realistic.js": true,
+    "v8.js": true,
+    "i18n.js": true,
+    "app.js": true,
+    "v9.js": true
+  },
+  "data_unchanged": {
+    "data/.gitkeep": true,
+    "data/compass.sqlite3": true
+  },
+  "browser_testing": "Not run"
+}

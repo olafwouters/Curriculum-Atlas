@@ -1,0 +1,12 @@
+{
+  "release": "20261013-110821",
+  "checks": {
+    "python_syntax": true,
+    "outcome_wrap_override": true,
+    "navigation_width": true,
+    "versioned_assets": true,
+    "cache_headers": true
+  },
+  "visual_browser_test": false,
+  "personal_data_included": false
+}

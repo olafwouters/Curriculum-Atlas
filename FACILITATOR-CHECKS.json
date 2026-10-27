@@ -1,0 +1,25 @@
+{
+  "menu_order": [
+    "Overview",
+    "DigComp 3.0 Framework",
+    "Facilitator instructions",
+    "Catalogue",
+    "Competence matrix",
+    "Target level",
+    "Curriculum chart",
+    "Session Notes",
+    "Edit Courses & modules",
+    "View demonstration"
+  ],
+  "guide_steps": [
+    "Choose programme",
+    "Map curriculum",
+    "Set target levels",
+    "Review gaps"
+  ],
+  "bilingual": true,
+  "step_links": "Route to existing navigation; requires workspace for mapping/targets/chart/notes/editor",
+  "original_release_preserved": true,
+  "no_user_data": true,
+  "browser_verified": false
+}

@@ -1,0 +1,15 @@
+DIGITAL & AI-LITERACY CURRICULUM COMPASS
+
+Deze ZIP bevat de goedgekeurde vormgeving en de bestaande websitefunctionaliteit.
+
+1. Pak de volledige ZIP uit.
+2. Zorg dat Python 3 is geïnstalleerd.
+3. Mac: open Start-Mac.command. Indien nodig: voer in Terminal python3 launch.py uit vanuit deze map.
+4. Windows: open Start-Windows.bat.
+5. De eerste start maakt een lokale Python-omgeving en installeert afhankelijkheden (internet nodig).
+6. De browser opent http://127.0.0.1:8022. Laat het terminalvenster open.
+7. Stop met Control+C. Als poort 8022 bezet is, sluit eerst de oude server.
+
+Deze distributie bevat geen persoonlijke werkruimtes/database, oude projectkopie of ontwikkelomgeving. Exporteer bestaande werkruimtes eerst vanuit de oude website als JSON en importeer ze in deze versie. De oorspronkelijke gegevens zijn niet gewijzigd.
+
+De vormgeving is overgenomen uit de goedgekeurde preview. Browser-/interactietests zijn nog niet uitgevoerd.

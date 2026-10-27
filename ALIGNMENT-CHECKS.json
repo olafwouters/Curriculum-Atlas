@@ -1,0 +1,13 @@
+{
+  "navigation": "single selection normalizes active and aria-current; DigComp resolved from current tab; demonstration selection persists through its internal matrix render until another sidebar item is clicked",
+  "spacing": "identity panel, workspace panel, domain legend, headings and matrix toolbar use consistent padding and gaps",
+  "preserved": "glass palette and surfaces, persistent language selector, three-way theme, freeze-loop fixes",
+  "browser_interaction_test": "not performed",
+  "javascript_syntax": {
+    "navigation-state-fix.js": true,
+    "glass-full.js": true,
+    "unified-controls.js": true,
+    "i18n.js": true
+  },
+  "missing_local_assets": []
+}

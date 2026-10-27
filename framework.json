@@ -1,0 +1,142 @@
+[
+  {
+    "id": "o1",
+    "domain": "Informatie & data geletterdheid",
+    "level": "I. Starten",
+    "text": "De student kan met eenvoudige digitale en AI‑zoektools informatie zoeken en de zoekopdracht aanpassen, basiskenmerken en beperkingen van deze tools herkennen, resultaten voorzichtig beoordelen op betrouwbaarheid en het risico op mis‑ en desinformatie, en digitale bestanden en contactgegevens eenvoudig opslaan, ordenen, bijwerken en verwijderen, back-ups maken en gegevens herstellen, en eenvoudige gegevens structureren.",
+    "color": "#F7CF59"
+  },
+  {
+    "id": "o2",
+    "domain": "Informatie & data geletterdheid",
+    "level": "II. Toepassen",
+    "text": "De student kan zelfstandig passende digitale en AI‑zoektools kiezen en nieuwe zoekstrategieën uitproberen, informatiebehoeften vertalen naar effectieve zoekopdrachten en filters, zoekresultaten kritisch beoordelen op relevantie, bron, belangen en (AI‑)bias, AI-uitvoer controleren op juistheid en beperkingen, en digitale data en informatie zorgvuldig en ethisch beheren door bestanden, mappen, accounts en eenvoudige datasets in spreadsheets systematisch te benoemen, ordenen, bewerken en bewaren.",
+    "color": "#F7CF59"
+  },
+  {
+    "id": "o3",
+    "domain": "Informatie & data geletterdheid",
+    "level": "III. Verdiepen",
+    "text": "De student kan in complexe situaties diverse digitale en AI‑zoektools en strategieën combineren en blijven verdiepen, kritisch onderzoeken hoe belangen en (AI‑)bias de informatievoorziening sturen, en anderen ondersteunen bij het betrouwbaar beoordelen van bronnen, terwijl hij of zij data en informatie op een transparante en ethische manier verzamelt, verwerkt, analyseert en beheert om onderbouwde beslissingen te nemen.",
+    "color": "#F7CF59"
+  },
+  {
+    "id": "o4",
+    "domain": "Informatie & data geletterdheid",
+    "level": "IV. Richting geven",
+    "text": "De student kan in zeer complexe of gespecialiseerde situaties op de hoogte blijven van nieuwe digitale en AI‑zoektechnologieën, geavanceerde zoek‑ en datastrategieën ontwerpen en verbeteren, en anderen aansturen bij het uitvoeren en verfijnen van complexe zoekopdrachten, terwijl hij of zij grote en complexe datasets transparant en zorgvuldig structureert, documenteert, analyseert en beheert, en leidend bijdraagt aan initiatieven en oplossingen die betrouwbare, kritische omgang met digitale informatie en (des)informatie ondersteunen.",
+    "color": "#F7CF59"
+  },
+  {
+    "id": "o5",
+    "domain": "Communicatie & samenwerking",
+    "level": "I. Starten",
+    "text": "De student kan met eenvoudige digitale communicatiemiddelen en sociale media contact leggen en informatie delen, digitaal samenwerken aan een gezamenlijke taak met aandacht voor verschillende perspectieven, rekening houden met voorkeuren en grenzen van anderen, basisverschillen tussen mens‑mens en mens‑machine interacties herkennen, en zijn of haar digitale identiteit en digitale voetafdruk op een eenvoudige manier beheren en beschermen, met aandacht voor basisrechten, wetten en risico’s van online deelname",
+    "color": "#5B8DC5"
+  },
+  {
+    "id": "o6",
+    "domain": "Communicatie & samenwerking",
+    "level": "II. Toepassen",
+    "text": "De student kan zijn of haar digitale communicatie afstemmen op context en doel, passende middelen en functies kiezen (inclusief eenvoudige interacties met AI‑systemen en robots, waarbij vragen en instructies aan AI-systemen worden geformuleerd en verfijnd), informatie vóór het delen toetsen op waarde en juistheid, actief en verantwoord deelnemen aan digitale vormen van burgerschap, waaronder digitale diensten gebruiken en digitale rechten uitoefenen, deelnemen aan en eenvoudige digitale samenwerking organiseren, en één of meerdere digitale identiteiten gericht beheren door instellingen, gedrag en zichtbaarheid bewust aan te passen.",
+    "color": "#5B8DC5"
+  },
+  {
+    "id": "o7",
+    "domain": "Communicatie & samenwerking",
+    "level": "III. Verdiepen",
+    "text": "De student kan in complexe situaties digitale en AI‑communicatiemiddelen en ‑samenwerkingstools combineren en zijn of haar communicatie steeds aanpassen aan context en doelgroep, ook door AI-instructies systematisch te verfijnen, anderen adviseren en begeleiden bij het kiezen van passende middelen en bij respectvol, inclusief en verantwoord online gedrag, en eigen én andermans digitale identiteiten bewust en juridisch onderbouwd beheren, met oog voor kansen en risico’s van digitale technologie en AI voor democratie, participatie en informatie‑deling.",
+    "color": "#5B8DC5"
+  },
+  {
+    "id": "o8",
+    "domain": "Communicatie & samenwerking",
+    "level": "IV. Richting geven",
+    "text": "De student kan bij zeer complexe of nieuwe vraagstukken op de hoogte blijven van ontwikkelingen in digitale en AI‑communicatietools, geavanceerde vormen van communiceren, samenwerken en informatie delen ontwerpen en verbeteren, leiding nemen in digitale burgerschaps‑ en gedragstrajecten, en anderen adviseren en begeleiden bij complexe keuzes rond digitale identiteit, digitale rechten en verantwoorde mens‑machine‑samenwerking.",
+    "color": "#5B8DC5"
+  },
+  {
+    "id": "o9",
+    "domain": "Digitale content creatie",
+    "level": "I. Starten",
+    "text": "De student kan met eenvoudige digitale en AI‑hulpmiddelen basisvormen van digitale content maken en bewerken, bestaande content op een eenvoudige manier aanpassen en combineren, rekening houden met toegankelijkheid, auteursrecht en het juist labelen van AI‑gegenereerde inhoud, en simpele instructies aan een computer geven met symbolische stappen om een kleine taak uit te voeren.",
+    "color": "#EAA03F"
+  },
+  {
+    "id": "o10",
+    "domain": "Digitale content creatie",
+    "level": "II. Toepassen",
+    "text": "De student kan bewust en efficiënt verschillende digitale en AI‑hulpmiddelen kiezen en gebruiken om digitale content te maken, bewerken en af te stemmen op de behoeften van doelgroep, formaat en toegankelijkheid, bestaande teksten, cijfers en beelden zorgvuldig en transparant aanpassen en integreren met respect voor auteursrecht en licenties, en eenvoudige algoritmen en programma’s ontwerpen en bouwen met basisconcepten uit programmeren en machine learning.",
+    "color": "#EAA03F"
+  },
+  {
+    "id": "o11",
+    "domain": "Digitale content creatie",
+    "level": "III. Verdiepen",
+    "text": "De student kan bij complexe opdrachten passende digitale en AI‑tools voor contentcreatie selecteren en combineren, gespecialiseerde digitale producten ontwikkelen en verbeteren die inhoudelijk, vormelijk en ethisch kloppen voor doel en doelgroep, anderen begeleiden bij verantwoord hergebruik en delen van digitale (ook AI‑gegenereerde) content volgens actuele wet‑ en regelgeving, en met programmeer‑ en AI‑systemen routinetaken en complexere problemen (deels) automatiseren met aandacht voor menselijke regie en maatschappelijke impact.",
+    "color": "#EAA03F"
+  },
+  {
+    "id": "o12",
+    "domain": "Digitale content creatie",
+    "level": "IV. Richting geven",
+    "text": "De student kan in zeer complexe of gespecialiseerde situaties leiding geven aan inclusieve, toegankelijke en ethisch verantwoorde digitale contentcreatie met selectief gebruik van AI, geavanceerde integraties en visualisaties ontwerpen en verbeteren, beleid en richtlijnen rond auteursrecht en licenties helpen vormgeven, en projecten aansturen waarin programmeren en AI‑systemen (zoals robotics) op een verantwoorde manier worden ontwikkeld, ingezet en door anderen geleerd.",
+    "color": "#EAA03F"
+  },
+  {
+    "id": "o13",
+    "domain": "Digitale veiligheid",
+    "level": "I. Starten",
+    "text": "De student kan zijn of haar apparaten en gegevens met eenvoudige middelen beschermen, voorzichtig omgaan met het delen van persoonsgegevens en basisrisico’s van misleiding, identiteitsdiefstal, AI‑systemen en online betalingen herkennen, eigen digitale gewoontes in balans brengen met offline activiteiten ter bescherming van welzijn, en met simpele keuzes (zoals minder data‑ en energiegebruik) bijdragen aan het verkleinen van de milieu‑impact van digitale technologie. ",
+    "color": "#619E54"
+  },
+  {
+    "id": "o14",
+    "domain": "Digitale veiligheid",
+    "level": "II. Toepassen",
+    "text": "De student kan up‑to‑date en alert omgaan met cyberveiligheid (zoals malware herkennen en voorkomen, social engineering doorzien en privacy‑instellingen en tools gebruiken), persoonsgegevens van zichzelf en anderen zorgvuldig beheren binnen wet‑ en regelgeving en met oog voor AI‑gerelateerde risico’s, actief grenzen stellen aan eigen online gebruik en reageren op schadelijk online gedrag of misleidend ontwerp ter bescherming van welzijn, en bewust verschillende strategieën toepassen om de milieu‑impact van het eigen gebruik van digitale technologieën te verkleinen.",
+    "color": "#619E54"
+  },
+  {
+    "id": "o15",
+    "domain": "Digitale veiligheid",
+    "level": "III. Verdiepen",
+    "text": "De student kan bij complexe vraagstukken cyberbeveiliging actief en regelmatig bijwerken, eigen rechten rond cybersecurity en data‑ en privacywetgeving uitleggen, en anderen helpen basismaatregelen voor apparaat‑ en gegevensbescherming te nemen, inclusief bij nieuwe AI‑gerelateerde dreigingen.  De student kan kritisch en zichtbaar optreden tegen schadelijk online gedrag, uitsluiting en misleiding, anderen ondersteunen bij het herzien van hun digitale gebruik en het kennen van hun rechten op welzijn en inclusie, en zo bijdragen aan een veiligere digitale omgeving voor verschillende groepen.  De student kan op de hoogte blijven van milieu‑impact van digitale technologie, deze impact meewegen in keuzes en besluitvorming, en anderen begeleiden bij het analyseren en verminderen van de ecologische voetafdruk van hun digitale apparaten en online gedrag. ",
+    "color": "#619E54"
+  },
+  {
+    "id": "o16",
+    "domain": "Digitale veiligheid",
+    "level": "IV. Richting geven",
+    "text": "De student kan bij zeer complexe of maatschappelijke vraagstukken op de hoogte blijven van technologische en juridische ontwikkelingen rond cyberveiligheid, data‑eigenaarschap en privacy, rechten van individuen duiden, en anderen ondersteunen én richting geven bij het opzetten van praktische beschermingsmaatregelen en citizen‑gerichte cyberveiligheidsinitiatieven.  De student kan beleidsmatig meedenken en adviseren over data‑bescherming, welzijn en inclusie in digitale omgevingen, en initiatief nemen of leiding geven aan programma’s en beslissingen die veilige, inclusieve en rechtvaardige digitale omgevingen bevorderen.  De student kan actuele kennis over de milieu‑ en duurzaamheidsimpact van digitale technologie inzetten om acties, initiatieven en oplossingen voor digitale duurzaamheid te ontwikkelen, ondersteunen en verbeteren, en anderen daarin meenemen. ",
+    "color": "#619E54"
+  },
+  {
+    "id": "o17",
+    "domain": "Probleemoplossend vermogen",
+    "level": "I. Starten",
+    "text": "De student kan eenvoudige technische problemen en hulpmiddelen in digitale omgevingen herkennen, basisverschillen tussen hardware, software en hulpfuncties (zoals digitale assistenten en toegankelijkheidstools) benoemen, met hulp software installeren en bijwerken, ervaren dat digitale technologie creativiteit ondersteunt maar niet vervangt, en kansen zien om de eigen digitale vaardigheden stap voor stap verder te ontwikkelen.",
+    "color": "#E1776B"
+  },
+  {
+    "id": "o18",
+    "domain": "Probleemoplossend vermogen",
+    "level": "II. Toepassen",
+    "text": "De student kan veelvoorkomende technische problemen zelfstandig oplossen door verschillende zoek- en oplossingsstrategieën te gebruiken, instellingen van apparaten aanpassen voor goede werking, digitale hulpfuncties en omgevingen bewust configureren op eigen en andermans behoeften, digitale technologieën (inclusief AI) kritisch en mensgericht inzetten bij probleemoplossing, en eigen digitale vaardigheden en leerbehoeften regelmatig inschatten en actief bijleren. ",
+    "color": "#E1776B"
+  },
+  {
+    "id": "o19",
+    "domain": "Probleemoplossend vermogen",
+    "level": "III. Verdiepen",
+    "text": "De student kan in complexe situaties technische problemen in digitale omgevingen doelgericht analyseren en met verschillende strategieën oplossen, anderen daarbij begeleiden, en diverse digitale technologieën efficiënt, ethisch en mensgericht inzetten om echte vraagstukken op te lossen en nieuwe kennis of oplossingen (mee) te ontwikkelen.  De student kan digitale ontwikkelingen en hun gevolgen voor eigen en andermans digitale vaardigheden blijvend inschatten, zichzelf gericht blijven professionaliseren en anderen ondersteunen om zelfstandiger, zekerder en probleemoplossend te leren werken in digitale omgevingen.",
+    "color": "#E1776B"
+  },
+  {
+    "id": "o20",
+    "domain": "Probleemoplossend vermogen",
+    "level": "IV. Richting geven",
+    "text": "De student kan in zeer complexe of gespecialiseerde situaties anderen coachen en trainen om technische problemen zelfstandig op te lossen, digitale omgevingen en hulpmiddelen inclusief en toegankelijk ontwerpen of verbeteren op basis van complexe behoeften, en leiding geven aan initiatieven waarin digitale technologieën worden ingezet om ingewikkelde vraagstukken en real‑life problemen op een vernieuwende manier aan te pakken, terwijl hij of zij ook leertrajecten ontwikkelt om andermans geavanceerde digitale competenties verder te versterken. ",
+    "color": "#E1776B"
+  }
+]

@@ -1,0 +1,10 @@
+Separate Consistent Glass usability release.
+Your original installation and data are unchanged.
+ZIP has no data folder. Transfer workspaces using existing export/import; retain the old installation as backup.
+Start using Start-Mac.command or Start-Windows.bat.
+See USABILITY-CHECKS.json for implemented features and checks.
+Browser testing is still pending; do not treat this release as browser-verified.
+
+Workflow update: Choose programme > Map curriculum > Set target levels > Review gaps. Module editing remains optional in the sidebar. Sessions renamed Session notes (NL: Sessienotities).
+
+Facilitator release: requested ten-item sidebar order, bilingual facilitator instructions with four linked steps and optional editor/notes links. Static checks and ZIP integrity only; browser interaction verification pending.

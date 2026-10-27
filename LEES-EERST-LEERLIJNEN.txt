@@ -1,0 +1,4 @@
+Stop de oude app/server. Pak deze complete release uit in een aparte map. Kopieer je bestaande data-map naar deze nieuwe projectmap terwijl beide servers gestopt zijn om werkruimtes en historische sessies te behouden. Start de launcher uit deze nieuwe map.
+Release: 20261013-111338
+Grafiek: lijnen per domein tussen opeenvolgende modules, achter de klikbare punten. Ontbrekende mappings onderbreken lijnen. Meerdere mappings blijven zichtbaar als vertakkingen. De volgorde is modulevolgorde, niet een gemeten individuele leerroute.
+Inclusief eerdere CSS-fixes en zichtbare sessienotities. Geen persoonlijke database inbegrepen. Geen browsercontrole uitgevoerd.
