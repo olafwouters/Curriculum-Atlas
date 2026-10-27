@@ -33,7 +33,7 @@ jobs:
       - name: Setup uv
         uses: astral-sh/setup-uv@v6
 
-          - name: Install Python dependencies
+    - name: Install Python dependencies
         shell: bash
         run: |
           uv venv
