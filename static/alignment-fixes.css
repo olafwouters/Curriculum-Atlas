@@ -1,0 +1,26 @@
+/* Shared content edges and internal spacing. No changes to the glass palette. */
+#workspace-controls{display:flow-root;width:100%;min-width:0;margin:0!important;padding:0!important}
+#workspace-controls[hidden]{display:none!important}
+#identity:not([hidden]){box-sizing:border-box!important;padding:26px 30px!important;margin:0 0 28px!important;border-radius:22px!important;overflow:visible!important;min-width:0!important}
+#identity>div:first-child{gap:20px!important;align-items:center!important;flex-wrap:wrap!important}
+#identity h1,#identity h2,#identity h3{margin:0 0 16px!important;line-height:1.35!important}
+#identity p{margin:10px 0 0!important;line-height:1.65!important}
+#identity button{margin-left:12px;flex-shrink:0}
+#identity>button{float:none!important;margin:0 0 16px!important}
+.workspace-tools{box-sizing:border-box!important;margin:0 0 22px!important;padding:18px 22px!important;border-radius:20px!important}
+.workspace-tools>summary{padding:0!important;line-height:1.5;min-height:20px;cursor:pointer}
+.workspace-tools[open]>.toolbar{margin-top:18px!important;padding:16px!important;gap:12px!important;display:flex;flex-wrap:wrap;align-items:center}
+#legend.legend{box-sizing:border-box!important;padding:0!important;margin:0 0 22px!important;gap:12px!important;align-items:stretch!important}
+#legend:empty{display:none!important}
+#legend.legend>*{box-sizing:border-box;min-height:50px;padding:14px 16px!important;line-height:1.5!important;min-width:0}
+#legend.legend button{margin-left:6px}
+#view>.card{box-sizing:border-box!important;padding:28px 30px!important;margin-bottom:28px!important}
+#view>.card>h2:first-child{margin-top:0!important;margin-bottom:22px!important}
+#view .welcome{margin:6px 0 26px!important;gap:24px;align-items:center}
+#view .welcome h1{margin:0 0 12px!important}#view .welcome p{margin:0!important}
+#view>h2{margin:0 0 20px!important}#view>h1{margin:0 0 18px!important}
+#view>.toolbar{box-sizing:border-box!important;padding:16px!important;margin:0 0 18px!important;gap:12px!important;flex-wrap:wrap!important}
+#view>.hint,#view>p.hint{box-sizing:border-box!important;padding:16px 18px!important;margin:18px 0 22px!important;line-height:1.65!important}
+#view .matrix-tools,#view .matrix-controls{gap:12px!important;margin-bottom:18px!important;flex-wrap:wrap!important}
+#navigation-panel #navigation-items>button{transition:color .18s ease!important}
+@media(max-width:640px){#identity:not([hidden]),#view>.card{padding:22px!important}#identity>div:first-child{align-items:flex-start!important;flex-direction:column}#identity button{margin-left:0!important}.workspace-tools{padding:16px 18px!important}#legend.legend{gap:10px!important}}

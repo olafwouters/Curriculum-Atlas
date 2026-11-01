@@ -1,0 +1,37 @@
+/* Spacing, surface and interaction corrections. Loaded last. */
+body{background:radial-gradient(ellipse at 4% 10%,#b4dfeeaa,transparent 52%),radial-gradient(ellipse at 96% 0%,#dcc1f3aa,transparent 56%),#e8eff9!important;background-attachment:fixed!important}
+html[data-theme="dark"] body{background:radial-gradient(ellipse at 3% 15%,#1b2f4f3b,transparent 55%),radial-gradient(ellipse at 95% 5%,#3d255940,transparent 60%),#0b1020!important}
+:root,html[data-theme="light"]{--panel:rgba(255,255,255,.43);--lens:rgba(255,255,255,.32);--glass:rgba(103,119,155,.14);--edge:rgba(255,255,255,.26);--uc-lens:rgba(255,255,255,.32);--uc-edge:rgba(255,255,255,.26)}
+html[data-theme="dark"]{--panel:rgba(185,205,240,.065);--lens:rgba(185,205,240,.14);--glass:rgba(95,115,155,.14);--edge:rgba(255,255,255,.12);--uc-lens:rgba(185,205,240,.14);--uc-edge:rgba(255,255,255,.12)}
+.app-shell{padding:clamp(24px,2.5vw,48px)!important;gap:clamp(28px,2.6vw,48px)!important;grid-template-columns:260px minmax(0,1fr)!important;align-items:start!important;width:100%!important;max-width:none!important}
+.sidebar{top:clamp(24px,2.5vw,48px)!important;height:calc(100dvh - clamp(48px,5vw,96px))!important;max-height:calc(100dvh - clamp(48px,5vw,96px))!important;padding:26px 16px!important}
+main{padding:4px 0 24px!important;margin:0!important;background:transparent!important;min-width:0!important}
+/* Remove enclosing frame; cards, not the whole view, are surfaces. */
+#view,body[data-view="matrix"] #view{background:transparent!important;border:0!important;outline:0!important;box-shadow:none!important;border-radius:0!important;padding:0!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+.sidebar #navigation-items{background:transparent!important;border:0!important;box-shadow:none!important;outline:0!important;border-radius:0!important}
+#view>.card{margin:0 0 32px!important;padding:26px 28px!important}
+#view .card{padding:26px!important;background:var(--panel)!important;border:1px solid var(--edge)!important;border-radius:22px!important;box-shadow:0 8px 26px rgba(30,45,75,.035)!important}
+#view>.card select{margin-right:12px;max-width:100%}#view>.card h2{margin:0 0 20px!important}
+#view>h1,#view>h2{margin:28px 0 12px!important}#view>p{margin:0 0 24px!important}
+.overview-grid{gap:24px!important;margin-top:28px!important;grid-template-columns:repeat(3,minmax(0,1fr)) minmax(250px,1.1fr)!important}
+.overview-grid>*,.overview-grid section{min-width:0}.overview-grid .card{margin:0!important}
+.topbar{margin:0 0 36px!important;gap:20px!important;min-height:52px!important;align-items:center!important}
+.topbar-settings{gap:18px!important;align-items:center!important;min-height:48px!important}
+#global-search{min-height:48px!important;width:clamp(240px,30vw,520px)!important;padding:0 15px!important;outline:none!important;outline-offset:0!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.18)!important;transition:box-shadow .2s,border-color .2s}
+#global-search:focus-within,.topbar form#global-search:focus-within{outline:none!important;border-color:rgba(100,128,169,.42)!important;box-shadow:0 0 0 3px rgba(110,143,190,.18),inset 0 1px 0 rgba(255,255,255,.22)!important}
+#global-search #global-query,#global-search input:focus,#global-search input:focus-visible,#global-search input:active{outline:none!important;outline-offset:0!important;border:0!important;border-radius:0!important;box-shadow:none!important;background:transparent!important;min-height:44px!important;padding:0!important;margin:0!important}
+/* Single glass treatment for all three appearance options. */
+.unified-theme.unified-three{grid-template-columns:repeat(3,minmax(44px,1fr))!important;min-width:152px!important;width:152px!important}
+.unified-theme.unified-three>.unified-lens{width:calc((100% - 8px)/3)!important;transform:translateX(calc(var(--uc-index,2)*100%))!important}
+.language-switch{min-width:112px!important}.language-switch>button,.unified-theme>button{min-height:40px!important;transition:background .18s,color .18s,box-shadow .18s!important}
+@media(hover:hover){.language-switch>button:hover,.unified-theme>button:hover{background:rgba(255,255,255,.23)!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.26),0 2px 7px rgba(28,42,68,.06)!important;color:var(--uc-ink)!important}html[data-theme="dark"] .language-switch>button:hover,html[data-theme="dark"] .unified-theme>button:hover{background:rgba(205,220,250,.13)!important}}
+.language-switch>button:active,.unified-theme>button:active{background:rgba(150,175,210,.20)!important}
+.language-switch>button:focus-visible,.unified-theme>button:focus-visible{outline:2px solid rgba(110,143,190,.8)!important;outline-offset:3px!important}
+.language-switch>.unified-lens,.unified-theme>.unified-lens{transition:transform .48s cubic-bezier(.22,1,.36,1)!important}
+.unified-system,.unified-appearance-row,.topbar-theme{display:none!important}
+.app-shell.navigation-collapsed{grid-template-columns:76px minmax(0,1fr)!important}
+@media(min-width:1900px){.overview-grid{gap:28px!important}#view .card{padding:30px!important}}
+@media(max-width:1200px){.app-shell{grid-template-columns:232px minmax(0,1fr)!important;padding:24px!important;gap:28px!important}.sidebar{top:24px!important;height:calc(100dvh - 48px)!important;max-height:calc(100dvh - 48px)!important}.overview-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:20px!important}.topbar-settings{gap:12px!important}#global-search{width:clamp(220px,25vw,360px)!important}}
+@media(max-width:850px){.overview-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}.overview-grid>*{grid-column:auto!important}.app-shell{gap:22px!important;grid-template-columns:210px minmax(0,1fr)!important}.topbar{margin-bottom:28px!important}#view .card{padding:22px!important}}
+@media(max-width:640px){.app-shell,.app-shell.navigation-collapsed{padding:18px!important;gap:24px!important;display:flex!important;flex-direction:column!important}.sidebar{top:0!important;height:auto!important;max-height:none!important}.topbar{gap:16px!important}#global-search{width:100%!important}.topbar-settings{margin-left:0!important}.overview-grid{grid-template-columns:1fr!important}#view>.card{padding:22px!important}#view>.card select{margin-bottom:12px}}
+@media(prefers-reduced-motion:reduce){.language-switch>.unified-lens,.unified-theme>.unified-lens,.language-switch>button,.unified-theme>button,#global-search{transition:none!important}}

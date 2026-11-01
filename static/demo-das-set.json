@@ -1,0 +1,286 @@
+{
+ "name": "DAS competenties",
+ "setId": "c84adefa-f236-4ae8-88bb-a53fb67c12ea",
+ "outcomes": [
+  {
+   "id": "c-f946dbd5-237c-457a-bd58-6c9c4d67868a",
+   "domain": "Onderzoeken",
+   "level": "I. Starten",
+   "text": "De student levert een belangrijke bijdrage aan een aangereikte onderzoeksstrategie en voert het onderzoek uit.",
+   "color": "#8E6BBF"
+  },
+  {
+   "id": "c-0d06b912-09b0-4d75-ac35-f5fdeb2f85b2",
+   "domain": "Onderzoeken",
+   "level": "II. Toepassen",
+   "text": "De student levert een belangrijke bijdrage aan een aangereikte onderzoeksstrategie en voert het onderzoek uit.",
+   "color": "#8E6BBF"
+  },
+  {
+   "id": "c-855c8ff2-b60b-44b2-8cc6-4ae389dc677a",
+   "domain": "Onderzoeken",
+   "level": "III. Verdiepen",
+   "text": "De student vertaalt een aangereikt probleem naar een onderzoeksstrategie en voert het onderzoek uit.",
+   "color": "#8E6BBF"
+  },
+  {
+   "id": "c-890d08f7-1b73-4962-9f2a-8c0c430ddd3f",
+   "domain": "Onderzoeken",
+   "level": "IV. Richting geven",
+   "text": "De Bachelor of Science doet binnen het domein Applied Science onderzoek dat ofwel bijdraagt aan de oplossing van een probleem of de ontwikkeling van een methode, ofwel leidt tot groter inzicht in een onderwerp binnen de eigen werkomgeving.",
+   "color": "#8E6BBF"
+  },
+  {
+   "id": "c-efb7777e-ebcc-4441-9256-8490e8526117",
+   "domain": "Experimenteren",
+   "level": "I. Starten",
+   "text": "De student voert een experiment uit volgens aangereikt(e) aanpak/voorschrift en verkrijgt dupliceerbare resultaten",
+   "color": "#2A9D8F"
+  },
+  {
+   "id": "c-26178f12-99d5-4f23-a654-ab40be985d8e",
+   "domain": "Experimenteren",
+   "level": "II. Toepassen",
+   "text": "De student kiest een voorschrift/aanpak, past het zo nodig aan, voert het uit en verkrijgt reproduceerbare en betrouwbare resultaten.",
+   "color": "#2A9D8F"
+  },
+  {
+   "id": "c-6e93efcb-ae7a-4747-ad77-37cfaa781a33",
+   "domain": "Experimenteren",
+   "level": "III. Verdiepen",
+   "text": "De student zet met begeleiding experimenten op, voert deze zelfstandig en systematisch uit verkrijgt reproduceerbare en betrouwbare resultaten.",
+   "color": "#2A9D8F"
+  },
+  {
+   "id": "c-b3cffe5e-6c34-47d4-a706-18fee30c7e87",
+   "domain": "Experimenteren",
+   "level": "IV. Richting geven",
+   "text": "De Bachelor of Science voert experimenten uit binnen het domein Applied Science zodat aantoonbaar betrouwbare resultaten worden verkregen.",
+   "color": "#2A9D8F"
+  },
+  {
+   "id": "c-5daef6d4-0ab4-4795-8ae9-9092897a5c13",
+   "domain": "Ontwikkelen",
+   "level": "I. Starten",
+   "text": "De student ontwikkelt of verbetert volgens een aangereikte aanpak.",
+   "color": "#D9822B"
+  },
+  {
+   "id": "c-63a25499-fe10-4f25-bebb-921f92cb3871",
+   "domain": "Ontwikkelen",
+   "level": "II. Toepassen",
+   "text": "De student ontwikkelt of verbetert door een aanpak te selecteren of aan te passen.",
+   "color": "#D9822B"
+  },
+  {
+   "id": "c-e1adbc54-c8b2-4306-9900-9f0daebc08e6",
+   "domain": "Ontwikkelen",
+   "level": "III. Verdiepen",
+   "text": "De student ontwikkelt of verbetert door zelfstandig een aanpak op te stellen.",
+   "color": "#D9822B"
+  },
+  {
+   "id": "c-f0595867-1438-43af-9e77-bb165b65f297",
+   "domain": "Ontwikkelen",
+   "level": "IV. Richting geven",
+   "text": "De ervaren beroepsbeoefenaar ontwikkelt of verbetert zelfstandig, waarbij de situatie complex is of transfer vanuit een ander vakgebied een rol speelt.",
+   "color": "#D9822B"
+  },
+  {
+   "id": "c-8b11d68c-2aba-497d-8d18-39c38dff14f5",
+   "domain": "Beheren",
+   "level": "I. Starten",
+   "text": "De student handelt binnen de gegeven kaders en procedures beschreven in relevante beheersystemen.",
+   "color": "#C44569"
+  },
+  {
+   "id": "c-d978a4e5-c9b6-48f0-afc5-1bd4e0c95132",
+   "domain": "Beheren",
+   "level": "II. Toepassen",
+   "text": "De student toetst werkzaamheden van zichzelf of anderen aan procedures omschreven in relevante beheersystemen",
+   "color": "#C44569"
+  },
+  {
+   "id": "c-c582bd3b-4167-4d85-b806-542cd5f416ef",
+   "domain": "Beheren",
+   "level": "III. Verdiepen",
+   "text": "De student evalueert en onderhoudt een beheersysteem.",
+   "color": "#C44569"
+  },
+  {
+   "id": "c-44a81c89-c3e3-4b43-bafb-a18e878bec70",
+   "domain": "Beheren",
+   "level": "IV. Richting geven",
+   "text": "De Bachelor of Science zorgt voor de inrichting, implementatie en het onderhoud van een beheersysteem of onderdelen daarvan, zodat het systeem voldoet aan de betreffende wet- en regelgeving, kwaliteitseisen en de cultuur van de organisatie.",
+   "color": "#C44569"
+  },
+  {
+   "id": "c-a71ec7cf-c95e-444b-bd62-f37154b07308",
+   "domain": "Adviseren",
+   "level": "I. Starten",
+   "text": "De student verdiept zich in de problemen en/of wensen van de opdrachtgever. Levert een bijdrage aan een advies volgens een aangereikte werkwijze.",
+   "color": "#3D7EA6"
+  },
+  {
+   "id": "c-93a4a327-a3bc-4b01-9c4c-2e975ae579e6",
+   "domain": "Adviseren",
+   "level": "II. Toepassen",
+   "text": "De student draagt bij aan het oplossen van een technisch probleem van de opdrachtgever. Levert zelfstandig een advies in een niet-complexe situatie.",
+   "color": "#3D7EA6"
+  },
+  {
+   "id": "c-a78cceab-3cb6-48c9-afa7-0b5fa87e37e7",
+   "domain": "Adviseren",
+   "level": "III. Verdiepen",
+   "text": "De student geeft een concreet advies op een specifieke vraag. Levert zelfstandig een advies in een complexe situatie.",
+   "color": "#3D7EA6"
+  },
+  {
+   "id": "c-8206245f-f029-4a5d-904f-9930bec4d140",
+   "domain": "Adviseren",
+   "level": "IV. Richting geven",
+   "text": "De Bachelor of Science geeft vanuit eigen expertise goed onderbouwde adviezen over het ontwerpen, verbeteren of toepassen van producten, processen en methoden binnen het domein Applied Science, rekening houdend met technische, economische en maatschappelijke randvoorwaarden, en draagt zo bij aan technische en economische oplossingen aangaande goederen of diensten binnen het domein Applied Science.",
+   "color": "#3D7EA6"
+  },
+  {
+   "id": "c-71a8d1ab-8875-4f01-99fb-3e092c5c6a54",
+   "domain": "Instrueren | Begeleiden | Coachen",
+   "level": "I. Starten",
+   "text": "De student geeft onder begeleiding kennis en vaardigheden door aan collega's.",
+   "color": "#7A9E2E"
+  },
+  {
+   "id": "c-d00da664-d096-4451-8ea0-16687aa26905",
+   "domain": "Instrueren | Begeleiden | Coachen",
+   "level": "II. Toepassen",
+   "text": "De student neemt initiatief voor het doorgeven van kennis en vaardigheden aan collega's.",
+   "color": "#7A9E2E"
+  },
+  {
+   "id": "c-96a5e855-94a6-4af8-87f0-7818e8bf61c3",
+   "domain": "Instrueren | Begeleiden | Coachen",
+   "level": "III. Verdiepen",
+   "text": "De student brengt kennis en vaardigheden zelfstandig over aan collega's.",
+   "color": "#7A9E2E"
+  },
+  {
+   "id": "c-96e87f20-7504-4e51-a2a4-754e6c0f5f2a",
+   "domain": "Instrueren | Begeleiden | Coachen",
+   "level": "IV. Richting geven",
+   "text": "De Bachelor of Science instrueert, begeleidt en coacht collega's en cursisten bij het aanleren van nieuwe kennis en vaardigheden binnen het domein Applied Science.",
+   "color": "#7A9E2E"
+  },
+  {
+   "id": "c-4de03555-7a88-47ab-84b8-00891e74ab8b",
+   "domain": "Projectmatig werken",
+   "level": "I. Starten",
+   "text": "De student werkt aan een project binnen een besloten projectkader.",
+   "color": "#8E6BBF"
+  },
+  {
+   "id": "c-0b560948-d18b-4d55-9c9d-5b89f5a8bfbc",
+   "domain": "Projectmatig werken",
+   "level": "II. Toepassen",
+   "text": "De student werkt aan een project binnen een beperkt open projectkader.",
+   "color": "#8E6BBF"
+  },
+  {
+   "id": "c-51c11e12-40e2-4d24-a779-db7c80a3b29f",
+   "domain": "Projectmatig werken",
+   "level": "III. Verdiepen",
+   "text": "De student werkt binnen een open projectkader.",
+   "color": "#8E6BBF"
+  },
+  {
+   "id": "c-092fd416-0293-438d-9f55-357d02a8ce76",
+   "domain": "Projectmatig werken",
+   "level": "IV. Richting geven",
+   "text": "De Bachelor of Science is in staat om op een gestructureerde en planmatige wijze, samen met anderen te werken aan de oplossing van een complex probleem of uitdaging.",
+   "color": "#8E6BBF"
+  },
+  {
+   "id": "c-edf0290e-306a-40b1-83be-eb351cfc554e",
+   "domain": "Zelfsturing",
+   "level": "I. Starten",
+   "text": "De student reflecteert op eigen functioneren.",
+   "color": "#2A9D8F"
+  },
+  {
+   "id": "c-0fa50da2-c61c-4e8a-846b-b2d484429d76",
+   "domain": "Zelfsturing",
+   "level": "II. Toepassen",
+   "text": "De student reflecteert op eigen functioneren en ontwikkeling.",
+   "color": "#2A9D8F"
+  },
+  {
+   "id": "c-10ec6adc-2fe7-45eb-a531-38dfe286720b",
+   "domain": "Zelfsturing",
+   "level": "III. Verdiepen",
+   "text": "De student stuurt zichzelf in eigen functioneren en ontwikkeling.",
+   "color": "#2A9D8F"
+  },
+  {
+   "id": "c-fae38923-9c5c-4977-99c2-1417b1aa5552",
+   "domain": "Zelfsturing",
+   "level": "IV. Richting geven",
+   "text": "De Bachelor of Science stuurt zichzelf in zijn functioneren en in zijn ontwikkeling en stelt zich op de hoogte van de actuele ontwikkelingen van kennis en vaardigheden, ook in relatie tot ethische dilemma’s en maatschappelijk geaccepteerde normen en waarden.",
+   "color": "#2A9D8F"
+  },
+  {
+   "id": "c-c7c86be9-72fd-40e3-abb1-4d9b3a316b42",
+   "domain": "Modelleren",
+   "level": "I. Starten",
+   "text": "De student pas een eenvoudig model doelmatig toe. Dit gebeurt onder strakke sturing.",
+   "color": "#D9822B"
+  },
+  {
+   "id": "c-91c8a953-52e2-4771-b1fb-5490621664d2",
+   "domain": "Modelleren",
+   "level": "II. Toepassen",
+   "text": "De student pas een (relatief) complex model doelmatig toe. Dit gebeurt onder losse sturing.",
+   "color": "#D9822B"
+  },
+  {
+   "id": "c-f551e5f6-9c3c-4559-afb2-7dce588e9e62",
+   "domain": "Modelleren",
+   "level": "III. Verdiepen",
+   "text": "De student past een complex model doelmatig toe. Dit gebeurt onder sturing op aanvraag van de student.",
+   "color": "#D9822B"
+  },
+  {
+   "id": "c-6dc575a9-2eb7-4583-be0d-c725feea03aa",
+   "domain": "Modelleren",
+   "level": "IV. Richting geven",
+   "text": "De ervaren beroepsbeoefenaar ontwikkelt of verbetert zelfstandig modellen van een complexe situatie of waarbij transfer vanuit een ander vakgebied een rol speelt.",
+   "color": "#D9822B"
+  },
+  {
+   "id": "c-dd3e81af-621d-44c1-90eb-3d3ad149265b",
+   "domain": "Leidinggeven | Managen",
+   "level": "I. Starten",
+   "text": "De student verleent assistentie en geeft richting aan medewerkers wanneer daar om wordt gevraagd.",
+   "color": "#C44569"
+  },
+  {
+   "id": "c-eb6d44ec-202d-4994-b5d9-71171b4b83fc",
+   "domain": "Leidinggeven | Managen",
+   "level": "II. Toepassen",
+   "text": "en geeft richting aan medewerkers wanneer daar om wordt gevraagd.\nDe student laat dat zien door: De student verleent assistentie en geeft richting aan medewerkers om prestaties te verbeteren.",
+   "color": "#C44569"
+  },
+  {
+   "id": "c-e9fbcaf3-7fd2-4d51-894d-8df5bdc6935b",
+   "domain": "Leidinggeven | Managen",
+   "level": "III. Verdiepen",
+   "text": "De student: zorgt dat doelen en rollen van leden van een team gedefinieerd zijn en ondersteunt het functioneren van de leden in het realiseren van de teamdoelen.",
+   "color": "#C44569"
+  },
+  {
+   "id": "c-da1455a2-5af4-4831-a75e-b6a7e23068d0",
+   "domain": "Leidinggeven | Managen",
+   "level": "IV. Richting geven",
+   "text": "De Bachelor of Science geeft richting en sturing aan organisatieprocessen en de daarbij betrokken medewerkers, teneinde de doelen te realiseren van het organisatieonderdeel of project waar hij leiding aan geeft.",
+   "color": "#C44569"
+  }
+ ]
+}

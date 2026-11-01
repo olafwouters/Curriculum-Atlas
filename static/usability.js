@@ -1,0 +1,38 @@
+/* Consistent Glass usability enhancements; no storage schema changes. */
+(()=>{'use strict';
+const q=s=>document.querySelector(s),en=()=>localStorage.getItem('compass-language')==='en',t=(a,b)=>en()?b:a;
+const node=(tag,cls,text)=>{const n=document.createElement(tag);n.className=cls;n.dataset.noTranslate='';n.textContent=text;return n;};
+let history=[],returnTo=null;
+function checkpoint(){history.push({workspace:state,mappings:structuredClone(state.mappings||{})});if(history.length>30)history.shift();}
+function undo(){const h=history.pop();if(!h||h.workspace!==state){history=[];return;}state.mappings=h.mappings;changed();render();}
+function decorate(){const view=q('#view');if(!view)return;
+let context=q('#ux-context');if(!context){context=node('section','ux-context','');context.id='ux-context';view.before(context);}context.replaceChildren();context.hidden=!state;
+if(state){context.append(node('strong','',state.programme||''),node('span','',[state.cluster,state.edition?t('Editie ','Edition ')+state.edition:'',year?t('Studiejaar ','Study year ')+year:t('Alle studiejaren','All study years'),t('Werkruimte: ','Workspace: ')+(q('#saved option:checked')?.textContent||id||t('Nieuw','New'))].filter(Boolean).join(' · ')));const status=node('span','ux-save',q('#status')?.textContent||'');status.setAttribute('role','status');status.setAttribute('aria-live','polite');context.append(status);const b=node('button','',t('Nu opslaan','Save now'));b.type='button';b.onclick=()=>save();context.append(b);}
+let guide=q('#ux-workflow');if(!guide){guide=node('div','ux-workflow','');guide.id='ux-workflow';context.after(guide);}guide.replaceChildren();guide.setAttribute('role','navigation');guide.setAttribute('aria-label',t('Werkproces','Workflow'));
+[['catalogue','Kies opleiding','Choose programme'],['matrix','Koppel curriculum','Map curriculum'],['targets','Bepaal doelniveau','Set target levels'],['dashboard','Bekijk hiaten','Review gaps']].forEach(([route,a,b],i)=>{const control=node('button','',`${i+1}. ${t(a,b)}`);control.type='button';const nav=[...document.querySelectorAll('.sidebar [data-tab]')].find(x=>x.dataset.tab===route);control.disabled=(!state&&i>0)||!nav;if(nav){if(nav.classList.contains('active'))control.setAttribute('aria-current','step');control.onclick=()=>nav.click();}guide.append(control);});
+if(tab==='dashboard'&&!view.querySelector('.ux-chart-note')){view.prepend(node('p','ux-chart-note',t('Lijnen tonen vastgelegde koppelingen, geen bewijs van leerprogressie. Bespreek leeractiviteiten en toetsing voordat je conclusies trekt.','Lines show recorded mappings, not evidence of learning progression. Review learning activities and assessment evidence before drawing conclusions.')));}
+const actions=view.querySelector('.matrix-actions');if(actions){const b=node('button','',t('Koppeling ongedaan maken','Undo mapping change'));b.type='button';b.disabled=!history.length||history.at(-1).workspace!==state;b.onclick=undo;actions.append(b);}
+q('#notice')?.setAttribute('role','status');
+}
+const priorRender=render;render=function(...args){const r=priorRender.apply(this,args);decorate();return r;};
+const priorMatrix=matrix;matrix=function(view){priorMatrix(view);const table=view.querySelector('.v6-matrix');if(!table)return;
+const legend=node('p','ux-state-legend',t('○ Niet besproken · — Bewust niet opgenomen · ✓ Koppeling vastgelegd · ! Relevant, ontbreekt. Een koppeling bewijst geen studentbeheersing.','○ Not discussed · — Deliberately excluded · ✓ Mapping recorded · ! Relevant, missing. A mapping does not prove student proficiency.'));table.parentElement.before(legend);
+const focus=view.querySelector('#matrix-workmode');if(focus){const label=()=>{focus.textContent=document.body.classList.contains('matrix-workmode')?t('Focusmodus sluiten','Exit focus mode'):t('Focusmodus','Focus mode');};label();focus.addEventListener('click',label);}
+table.querySelectorAll('[data-map]').forEach(b=>{const key=b.dataset.map,a=state.mappings[key],decision=a?.decision||(a?.status==='excluded'?'excluded':a?.status==='gap'?'gap':'included');const mapped=a&&(a.phase||a.evidence||a.assessment||a.intended||['introduced','practised','assessed'].includes(a.status));const status=decision==='excluded'?t('— Niet opgenomen','— Excluded'):decision==='gap'?t('! Ontbreekt','! Missing'):mapped?t('✓ Vastgelegd','✓ Recorded'):t('○ Niet besproken','○ Not discussed');
+const summary=node('small','ux-map-summary',[status,a?.assessment?t('Toetsing: ','Assessment: ')+a.assessment:'',a?.evidence?t('Activiteit: ','Activity: ')+a.evidence:''].filter(Boolean).join(' · '));b.append(summary);b.setAttribute('aria-label',[b.closest('tr')?.querySelector('th')?.textContent,status,a?.assessment||''].join(' · '));
+function highlight(){table.querySelectorAll('.ux-row,.ux-column').forEach(x=>x.classList.remove('ux-row','ux-column'));b.closest('tr').classList.add('ux-row');const i=b.closest('td,th').cellIndex;for(const r of table.rows)if(r.cells.length>1&&r.cells[i])r.cells[i].classList.add('ux-column');}
+b.addEventListener('focus',highlight);b.addEventListener('mouseenter',highlight);b.addEventListener('keydown',e=>{const dirs={ArrowLeft:[0,-1],ArrowRight:[0,1],ArrowUp:[-1,0],ArrowDown:[1,0]};if(!dirs[e.key])return;const [dr,dc]=dirs[e.key],rows=[...table.rows].filter(r=>!r.hidden&&r.querySelector('[data-map]')),row=b.closest('tr'),ri=rows.indexOf(row),buttons=[...row.querySelectorAll('[data-map]')],ci=buttons.indexOf(b),next=dr?rows[ri+dr]?.querySelectorAll('[data-map]')[ci]:buttons[ci+dc];if(next){e.preventDefault();next.focus();}});
+});
+if(returnTo){const target=returnTo;returnTo=null;requestAnimationFrame(()=>{const b=[...table.querySelectorAll('[data-map]')].find(x=>x.dataset.map===target.key);b?.focus({preventScroll:true});window.scrollTo(target.x,target.y);const s=view.querySelector('.matrix-scroll');if(s)s.scrollLeft=target.left;});}
+};
+const priorMapping=mapping;mapping=function(key){const place={key,x:scrollX,y:scrollY,left:q('.matrix-scroll')?.scrollLeft||0};priorMapping(key);const form=q('#form');if(!form)return;
+form.prepend(node('p','ux-editor-help',t('Kies het niveau via de leeruitkomst en leg leeractiviteit en toetsing vast. Na opslaan keer je terug naar dezelfde plek.','Choose the level through the learning outcome, then record learning activities and assessment evidence. Saving returns you to the same position.')));
+const submit=form.onsubmit;form.onsubmit=function(e){const before=JSON.stringify(state.mappings);checkpoint();returnTo=place;const result=submit.call(this,e);if(JSON.stringify(state.mappings)===before){history.pop();returnTo=null;}return result;};
+if(state.mappings[key]){const remove=node('button','',t('Verwijder koppeling','Remove mapping'));remove.type='button';remove.onclick=()=>{checkpoint();delete state.mappings[key];returnTo=place;q('#dialog').close();changed();render();};form.append(remove);}
+};
+const priorDialog=dialog;dialog=function(...args){const opener=document.activeElement,r=priorDialog.apply(this,args),d=q('#dialog');d.setAttribute('aria-labelledby','title');d.addEventListener('close',()=>{if(opener?.isConnected)opener.focus({preventScroll:true});},{once:true});return r;};
+window.addEventListener('beforeunload',e=>{if(dirty||busy){e.preventDefault();e.returnValue='';}});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!q('#dialog')?.open&&document.body.classList.contains('matrix-workmode'))q('#matrix-workmode')?.click();});
+if(q('#status'))new MutationObserver(()=>{const n=q('.ux-save'),s=q('#status').textContent;if(n&&n.textContent!==s)n.textContent=s;}).observe(q('#status'),{childList:true,subtree:true,characterData:true});
+decorate();
+})();

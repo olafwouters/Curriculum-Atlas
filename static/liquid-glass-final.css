@@ -1,0 +1,32 @@
+/* Final unified glass layer. Explicitly neutralizes legacy clipping and nav surfaces. */
+:root,html[data-theme="light"]{--lg-text:#17202d;--lg-surface:rgba(220,231,245,.35);--lg-rim:rgba(255,255,255,.40);--lg-shadow:rgba(42,60,90,.11);--lg-shine:rgba(255,255,255,.36);--uc-ink:#17202d;--uc-muted:#293443;--uc-track:rgba(92,111,145,.10);--uc-lens:rgba(255,255,255,.40);--uc-edge:rgba(255,255,255,.34)}
+html[data-theme="dark"]{--lg-text:#f0f3fa;--lg-surface:rgba(30,43,64,.47);--lg-rim:rgba(225,238,255,.17);--lg-shadow:rgba(0,0,0,.23);--lg-shine:rgba(225,238,255,.11);--uc-ink:#f0f3fa;--uc-muted:#d4dceb;--uc-track:rgba(0,0,0,.15);--uc-lens:rgba(200,219,249,.17);--uc-edge:rgba(225,238,255,.18)}
+/* Same reflected surface for navigation and the toolbar, without a nested nav panel. */
+#navigation-panel.sidebar,main>.topbar{background:linear-gradient(125deg,var(--lg-shine) 0%,rgba(255,255,255,.06) 25%,transparent 49%,rgba(255,255,255,.08) 79%,transparent 100%),var(--lg-surface)!important;border:1px solid var(--lg-rim)!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.32),inset 1px 0 0 rgba(255,255,255,.11),0 14px 40px var(--lg-shadow)!important;backdrop-filter:blur(28px) saturate(145%)!important;-webkit-backdrop-filter:blur(28px) saturate(145%)!important;color:var(--lg-text)!important}
+main>.topbar{padding:14px 18px!important;border-radius:23px!important;min-height:78px!important;margin-bottom:32px!important;overflow:visible!important;isolation:isolate}
+#navigation-panel.sidebar{padding:26px 16px!important;border-radius:26px!important}
+#navigation-panel.sidebar nav#navigation-items{background:transparent!important;background-color:transparent!important;background-image:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;border:0!important;outline:0!important;box-shadow:none!important;filter:none!important;opacity:1!important;isolation:isolate!important;overflow:visible!important}
+#navigation-panel.sidebar nav#navigation-items::before,#navigation-panel.sidebar nav#navigation-items::after{content:none!important;display:none!important}
+#navigation-panel.sidebar nav#navigation-items button,#navigation-panel.sidebar nav#navigation-items button.active,#navigation-panel.sidebar nav#navigation-items button[aria-current="page"],#navigation-panel.sidebar nav#navigation-items button span,#navigation-panel.sidebar nav#navigation-items button.active span,#navigation-panel .sidebar-brand{color:var(--lg-text)!important;opacity:1!important;-webkit-text-fill-color:currentColor!important}
+#navigation-panel.sidebar nav#navigation-items button{background:transparent!important;border:0!important;box-shadow:none!important}
+#navigation-panel.sidebar nav#navigation-items button.active{font-weight:650!important}
+#navigation-panel.sidebar nav#navigation-items button .nav-label{color:inherit!important}
+#navigation-panel.sidebar nav#navigation-items button svg{stroke:currentColor}
+#navigation-panel .sidebar-brand small,#navigation-toggle,#navigation-panel .sidebar-settings{color:var(--lg-text)!important;opacity:.8}
+#navigation-panel #navigation-items>.glass-nav-marker{display:block;z-index:0!important;opacity:1!important;background:linear-gradient(145deg,rgba(255,255,255,.28),transparent 62%),var(--uc-lens)!important;border:1px solid var(--lg-rim)!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.37),0 4px 14px var(--lg-shadow)!important}
+#navigation-panel #navigation-items>.glass-nav-marker[hidden]{display:none!important}
+/* Legacy rule .topbar-settings .language-switch>span clipped the selection lens. */
+.topbar-settings .language-switch>span.unified-lens,.language-switch>.unified-lens,.unified-theme>.unified-lens{display:block!important;position:absolute!important;left:4px!important;right:auto!important;top:4px!important;bottom:4px!important;height:auto!important;min-height:0!important;max-height:none!important;min-width:0!important;max-width:none!important;margin:0!important;padding:0!important;clip:auto!important;clip-path:none!important;-webkit-clip-path:none!important;overflow:visible!important;visibility:visible!important;opacity:1!important;z-index:0!important;border-radius:12px!important;background:linear-gradient(140deg,rgba(255,255,255,.25),transparent 65%),var(--uc-lens)!important;border:1px solid var(--uc-edge)!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.34),0 3px 10px var(--lg-shadow)!important;pointer-events:none!important}
+.topbar-settings .language-switch>.unified-lens,.language-switch>.unified-lens{width:calc((100% - 8px)/2)!important;transform:translateX(calc(var(--language-index,0)*100%))!important}
+.language-switch.uc-second{--language-index:1}
+.language-switch>button,.unified-theme>button{z-index:1!important;color:var(--uc-muted)!important}
+.language-switch>button[aria-pressed="true"],.unified-theme>button[aria-pressed="true"]{color:var(--uc-ink)!important;font-weight:700!important;background:transparent!important}
+.language-switch,.unified-theme{overflow:visible!important;border:1px solid var(--uc-edge)!important;box-shadow:inset 0 1px 2px rgba(30,45,70,.045)!important}
+/* Hover adds a gentle reflection; selected lens remains visible when hover ends. */
+@media(hover:hover){.language-switch>button:hover,.unified-theme>button:hover{background:linear-gradient(135deg,rgba(255,255,255,.26),rgba(255,255,255,.08))!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.29)!important}#navigation-panel #navigation-items button:not(.active):hover{background:rgba(255,255,255,.10)!important}}
+#global-search{background:rgba(255,255,255,.21)!important;border-color:var(--lg-rim)!important}html[data-theme="dark"] #global-search{background:rgba(8,16,29,.18)!important}
+#global-search input,#global-search>span{color:var(--lg-text)!important}#global-search input::placeholder{color:var(--lg-text);opacity:.65}
+.topbar-settings{background:transparent!important}.unified-three{--uc-index:2}
+@media(max-width:800px){main>.topbar{padding:14px!important;gap:16px!important}.topbar-settings{margin-left:0!important}}
+@media(prefers-reduced-transparency:reduce){#navigation-panel.sidebar,main>.topbar{backdrop-filter:none!important;-webkit-backdrop-filter:none!important;background:#e4eaf2!important}html[data-theme="dark"] #navigation-panel.sidebar,html[data-theme="dark"] main>.topbar{background:#202c3e!important}}
+@media(prefers-reduced-motion:reduce){.unified-lens,.glass-nav-marker{transition:none!important}}

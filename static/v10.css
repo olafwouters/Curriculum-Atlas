@@ -1,0 +1,59 @@
+/* v10: retain matrix semantics; use available screen space. */
+body{padding:20px}.app-shell{max-width:none;grid-template-columns:226px minmax(0,1fr);overflow:visible}.sidebar{border-radius:28px 0 0 28px}main{padding:20px 24px;min-width:0}.app-shell.navigation-collapsed{grid-template-columns:68px minmax(0,1fr)}#navigation-toggle{display:flex;align-items:center;gap:10px;width:100%;min-height:44px;margin-bottom:16px;padding:8px;border:1px solid var(--line);border-radius:10px;font-size:13px;background:var(--input)}#navigation-toggle>span:first-child{font-size:20px}.navigation-collapsed .nav-toggle-label,.navigation-collapsed .sidebar-brand,.navigation-collapsed .nav-label,.navigation-collapsed .sidebar-settings{display:none}.navigation-collapsed .sidebar{padding:18px 8px}.navigation-collapsed #navigation-toggle{justify-content:center;padding:8px 0}.navigation-collapsed .sidebar nav button{justify-content:center;padding:10px 0;gap:0}.navigation-collapsed .sidebar nav button span{color:var(--ink)}.sidebar nav button.active{outline:none}.sidebar nav button:focus-visible,#navigation-toggle:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+body[data-view="matrix"] .topbar{margin-bottom:16px}body[data-view="matrix"] #legend{display:none}body[data-view="matrix"] #workspace-controls{margin-bottom:12px}body[data-view="matrix"] #view{width:100%;max-width:none;padding:20px 16px;border-radius:18px}body[data-view="matrix"] #identity{padding:8px 0;margin-bottom:8px}body[data-view="matrix"] #identity p{margin:6px 0}body[data-view="matrix"] .matrix-scroll{width:100%;height:auto!important;max-height:none!important;overflow-x:auto!important;overflow-y:auto!important;position:relative;border-radius:10px;scrollbar-gutter:auto}body[data-view="matrix"] .v6-matrix{table-layout:fixed;width:100%!important;min-width:var(--matrix-min,650px)!important;border-collapse:separate;border-spacing:0}body[data-view="matrix"] .v6-matrix th,body[data-view="matrix"] .v6-matrix td{min-width:0!important;width:auto!important;max-width:none;padding:10px 8px;overflow-wrap:anywhere}body[data-view="matrix"] .v6-matrix thead th{position:static!important;background:var(--panel);vertical-align:top}body[data-view="matrix"] .v6-matrix .outcome{position:static!important;background:var(--panel);text-align:left}body[data-view="matrix"] .v6-matrix .module-link{white-space:normal;overflow-wrap:anywhere;line-height:1.45;min-height:44px;font-size:14px;width:100%}body[data-view="matrix"] .v6-matrix small{font-size:12px;line-height:1.4}body[data-view="matrix"] .v6-matrix .mapping-cell{min-height:62px;width:100%;padding:8px 4px;white-space:normal}body[data-view="matrix"] .v6-matrix .tag{font-size:12px;white-space:normal;line-height:1.4}body[data-view="matrix"] .v6-matrix .group th{position:static!important;padding:0!important;text-align:left}.domain-controls{display:flex;align-items:center;justify-content:space-between;gap:8px}.domain-toggle{display:flex;align-items:center;gap:10px;flex:1;text-align:left;min-height:44px;padding:10px 14px!important;font-size:14px;font-weight:650}.domain-controls [data-info]{min-width:44px;min-height:44px;margin:0 6px;padding:8px!important}.domain-toggle span:first-child{font-size:16px}.matrix-actions{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:12px 0}.matrix-actions button{min-height:44px}.matrix-guidance{font-size:14px;color:var(--muted);margin:8px 0}.matrix-workmode .app-shell{grid-template-columns:minmax(0,1fr)}.matrix-workmode .sidebar,.matrix-workmode .topbar,.matrix-workmode #workspace-controls,.matrix-workmode footer{display:none!important}.matrix-workmode main{padding:12px}.matrix-workmode{padding:8px}.matrix-floating-head{position:fixed;z-index:30;top:0;overflow:hidden;background:var(--panel);box-shadow:0 3px 10px #25354e22;border-bottom:1px solid var(--line)}.matrix-floating-head[hidden]{display:none}.matrix-floating-head table{margin:0!important;min-width:0!important;table-layout:fixed;border-collapse:separate;border-spacing:0;background:var(--panel)}.matrix-floating-head th{padding:10px 8px;vertical-align:top;background:var(--panel);border-right:1px solid var(--line);font-size:14px;overflow-wrap:anywhere}.matrix-floating-head .module-link{width:100%;min-height:44px;white-space:normal;line-height:1.45}.matrix-floating-head small{display:block;font-size:12px}.v6-matrix tr[hidden]{display:none!important}#view [hidden]{display:none!important}
+@media(max-width:700px){body{padding:8px}.app-shell{grid-template-columns:1fr}.sidebar{border-radius:22px 22px 0 0}main{padding:14px}.app-shell.navigation-collapsed{grid-template-columns:1fr}.navigation-collapsed .sidebar{padding:8px}.navigation-collapsed #navigation-toggle{width:auto;margin:0}.navigation-collapsed .sidebar nav{display:none}.navigation-collapsed .nav-toggle-label{display:inline}.navigation-collapsed #navigation-toggle .nav-toggle-label{font-size:13px}#navigation-toggle{margin-bottom:8px}body[data-view="matrix"] #view{padding:12px 8px}.matrix-floating-head{font-size:12px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+/* v10 navigation label fix: icons and labels have independent sizing. */
+.sidebar nav button{min-width:0;max-width:100%;font-size:14px;line-height:1.4;text-align:left;white-space:normal;}
+.sidebar nav button>span[aria-hidden="true"]{flex:0 0 22px;width:22px;font-size:20px;line-height:1.2;text-align:center;}
+.sidebar nav button>span.nav-label{flex:1 1 0%;min-width:0;width:auto;max-width:100%;font-size:14px;font-weight:400;line-height:1.4;text-align:left;color:inherit;white-space:normal;overflow-wrap:anywhere;word-break:normal;}
+.navigation-collapsed .sidebar nav button>span.nav-label{display:none;}
+.nav-toggle-label{min-width:0;white-space:normal;overflow-wrap:anywhere;}
+@media(max-width:700px){.sidebar nav button{max-width:100%;}.sidebar nav button>span[aria-hidden="true"]{flex-basis:18px;width:18px;font-size:18px;}.sidebar nav button>span.nav-label{flex:0 1 auto;font-size:14px;}}
+
+/* v10 typography and expanded navigation width refinement */
+:root{--font-ui:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;--type-meta:.75rem;--type-ui:.875rem;--type-body:1rem;--type-subheading:1.125rem;--type-heading:1.5rem;--navigation-width:15.375rem;}
+body{font-family:var(--font-ui);font-size:var(--type-body);line-height:1.5;}
+button,.button,input,select,textarea,table,dialog,svg.curriculum-chart{font-family:var(--font-ui);}
+svg.curriculum-chart{font-size:var(--type-ui);}
+svg.curriculum-chart text{font-family:var(--font-ui);}
+.app-shell{grid-template-columns:var(--navigation-width) minmax(0,1fr);}
+.app-shell.navigation-collapsed{grid-template-columns:68px minmax(0,1fr);}
+.matrix-workmode .app-shell{grid-template-columns:minmax(0,1fr);}
+.sidebar nav button>span.nav-label{font-size:var(--type-ui);overflow-wrap:normal;word-break:normal;hyphens:none;}
+#navigation-toggle{font-size:var(--type-ui);}
+.sidebar-brand{font-size:1.25rem;line-height:1.35;}
+.sidebar-brand small,.sidebar-settings,.sidebar-settings #status,footer,.overview-note,.activity-year,.subtle,.legend span{font-size:var(--type-meta);line-height:1.5;}
+.sidebar-settings select,.toolbar button,.toolbar .button,.toolbar select,.workspace-tools summary,#legend button,.graph-legend button,.matrix-guidance,.quick-card button,.activity-row,.stat-card p{font-size:var(--type-ui);line-height:1.5;}
+.hint,#identity p,.breadcrumb,#dialog .breadcrumb,.domain-level p{font-size:var(--type-ui);line-height:1.5;}
+.topbar input,input,select,textarea{font-size:var(--type-body);}
+h3{font-size:var(--type-subheading);line-height:1.4;}
+#view>h2,#dialog h2{font-size:var(--type-heading);line-height:1.3;}
+#identity h2{font-size:var(--type-subheading);line-height:1.4;}
+#dialog .field,#dialog .alignment-steps h3{font-size:var(--type-ui);line-height:1.5;}
+.quick-card h2,.activity-card h2{font-size:1.25rem;line-height:1.35;}
+body[data-view="matrix"] .v6-matrix,body[data-view="matrix"] .v6-matrix .module-link,.matrix-floating-head th,.matrix-floating-head .module-link,.domain-toggle{font-size:var(--type-ui);}
+body[data-view="matrix"] .v6-matrix small,body[data-view="matrix"] .v6-matrix .tag,.matrix-floating-head small,.tag,.cell button{font-size:var(--type-meta);line-height:1.5;}
+/* Narrow layouts keep wrapping at spaces, and preserve full-width mobile navigation. */
+@media(max-width:700px){.app-shell,.app-shell.navigation-collapsed{grid-template-columns:minmax(0,1fr);}.sidebar nav button>span.nav-label{font-size:var(--type-ui);}.navigation-collapsed #navigation-toggle .nav-toggle-label{font-size:var(--type-ui);}}
+
+/* v10 outcome text: remove legacy 220px paragraph minimum width. */
+body[data-view="matrix"] .v6-matrix .outcome{white-space:normal;overflow-wrap:anywhere;word-break:normal;}
+body[data-view="matrix"] .v6-matrix .outcome details,
+body[data-view="matrix"] .v6-matrix .outcome details p{box-sizing:border-box;min-width:0!important;width:100%;max-width:100%;white-space:normal;overflow-wrap:anywhere;word-break:normal;}
+body[data-view="matrix"] .v6-matrix .outcome details p{font-weight:400;line-height:1.5;}
+body[data-view="matrix"] .v6-matrix .outcome summary{min-width:0;max-width:100%;white-space:normal;overflow-wrap:anywhere;}
+
+/* Readable snapshot notes; preserve line breaks without HTML injection. */
+.saved-session-notes{margin-top:24px;}
+.session-note-card{padding:20px;margin:16px 0;border:1px solid var(--line);border-radius:12px;background:var(--panel);}
+.session-note-card h4{font-size:var(--type-subheading);line-height:1.4;margin:0 0 8px;}
+.session-note-text{font-size:var(--type-body);line-height:1.6;white-space:pre-wrap;overflow-wrap:anywhere;max-width:75ch;margin-top:12px;}
+.session-note-retry{margin-top:12px;min-height:44px;}
+
+.language-switch{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:16px}.language-switch button[aria-pressed="true"]{background:#4b6fb5;color:white}.digcomp-info{max-width:1100px}.digcomp-info img{max-width:100%;height:auto}.digcomp-info h2{margin-top:28px}
+
+.topbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap}.topbar-settings{display:flex;align-items:center;gap:16px;margin-left:auto}.topbar-settings .language-switch{margin:0;flex-wrap:nowrap}.topbar-settings .language-switch>span{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}.topbar-theme{display:flex;align-items:center;gap:8px}.topbar-theme label{margin:0}.topbar-settings button,.topbar-settings select{min-height:44px}.digcomp-figure img{display:block;width:100%;height:auto}.digcomp-figure figcaption{margin-top:10px}@media(max-width:650px){.topbar-settings{gap:8px}.topbar-theme label{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}.topbar form{flex:1 1 180px}}
+
+.sidebar nav .nav-icon{display:inline-flex;align-items:center;justify-content:center;width:24px;min-width:24px;font-size:21px}.navigation-collapsed .sidebar nav .nav-label{display:none!important}.navigation-collapsed .sidebar nav button{overflow:hidden}.navigation-collapsed .sidebar nav .nav-icon{display:inline-flex!important}

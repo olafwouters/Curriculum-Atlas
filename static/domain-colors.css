@@ -1,0 +1,6 @@
+/* Legenda-items: rondom gelijke rand + afgeronde kleurbalk binnen het item (geen taps toelopende rand meer) */
+#view #legend.legend>*,#view #legend button{position:relative!important;overflow:hidden!important;border-radius:var(--surface-radius)!important;border:1px solid var(--surface-border)!important;border-inline-start:1px solid var(--surface-border)!important;padding-inline-start:30px!important}
+#view #legend.legend>*::before,#view #legend button::before{content:""!important;display:block!important;position:absolute!important;left:14px!important;right:auto!important;top:12px!important;bottom:12px!important;width:5px!important;border-radius:999px!important;background:var(--domain,var(--accent))!important}
+/* Matrix: groeprij in volle domeinkleur, indeling ongewijzigd */
+#view .v6-matrix .group th,body[data-view="matrix"] .v6-matrix .group th{background:var(--domain)!important;background-image:none!important;color:#14213a!important}
+#view .v6-matrix .group button{color:#14213a!important}

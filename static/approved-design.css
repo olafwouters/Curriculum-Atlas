@@ -1,0 +1,174 @@
+/* warm-glass-finish */
+
+/* Finish only. No layout, spacing, size, order or DigComp domain overrides. */
+html:not([data-theme="dark"]) body{background:radial-gradient(ellipse at 3% 10%,#b4dfee88,transparent 52%),radial-gradient(ellipse at 96% 0%,#dcc1f377,transparent 56%),radial-gradient(ellipse at 95% 95%,#ffd8ab33,transparent 48%),#edf1f7!important}
+html:not([data-theme="dark"]) .sidebar,html:not([data-theme="dark"]) .topbar{background:linear-gradient(135deg,#ffffff55,transparent 48%,#f1c89c16),rgba(207,227,246,.34)!important;box-shadow:inset 0 .5px 0 #ffffffb0,0 18px 48px #283e6d18!important}
+button.primary{background:linear-gradient(155deg,#ff9b31,#e87500 63%,#d56500)!important;border-color:#ffb45e!important;box-shadow:inset 0 .5px 0 #ffffff90,0 5px 14px #ce690022!important;color:white!important}
+html:not([data-theme="dark"]) .glass-nav-marker{background:linear-gradient(145deg,#ffffff70,#ed9a3b24)!important;box-shadow:inset 0 .5px 0 #ffffffb0,0 4px 12px #ad6b1712!important}
+html:not([data-theme="dark"]) .sidebar nav button.active,html:not([data-theme="dark"]) .sidebar nav button.active span{color:#a54e00!important}
+
+/* full-banner-hybrid-style */
+
+/* Preserve original wide shell, navigation, search and switch geometry. */
+.sidebar-brand:before{content:'C';display:inline-grid;place-items:center;width:32px;height:32px;margin-right:8px;border-radius:50%;background:linear-gradient(145deg,#ff9a26,#df6600);color:white;font-size:21px;font-weight:750;box-shadow:inset 0 1px 0 #ffffff88,0 4px 12px #d36b0020;vertical-align:middle}
+.sidebar nav button:not(.active):hover{background:linear-gradient(135deg,#fff8eb88,#ed9a3b26)!important;color:#994600!important}
+.language-switch button[aria-pressed="true"],.language-switch button.active{background:linear-gradient(145deg,#fff5e1dd,#ed9a3b55)!important;color:#8f4000!important;border-color:#e4aa69!important;box-shadow:inset 0 1px 0 #ffffffd9,0 3px 10px #b8711615!important}
+.language-switch button:hover{background:#ef9b3e25!important}
+.cc-full-banner{position:relative;isolation:isolate;overflow:hidden;display:grid;grid-template-columns:minmax(0,1.4fr) minmax(270px,1fr);gap:32px;align-items:center;margin:0 0 24px;padding:38px;border-radius:25px;border:1px solid #ffffff66;background:radial-gradient(ellipse at 97% 100%,#875329db,transparent 62%),radial-gradient(ellipse at 65% 0%,#719ca05c,transparent 66%),linear-gradient(115deg,#182b2f,#3b5054);color:#fff;box-shadow:inset 0 1px 0 #ffffff55,0 14px 32px #17323614}
+.cc-full-banner:after{content:'';position:absolute;z-index:-1;width:330px;height:330px;right:-35px;top:-190px;border:55px solid #ffffff04;border-radius:50%;pointer-events:none}
+.cc-full-banner .cc-tag{display:inline-block;background:linear-gradient(145deg,#f78d0c,#ce5c00);border-radius:24px;padding:8px 13px;font-size:12px;font-weight:650;color:white;box-shadow:inset 0 1px 0 #ffffff77}
+#view .cc-full-banner h2{font-size:clamp(27px,3.1vw,46px)!important;letter-spacing:-1.4px;line-height:1.1;color:white!important;margin:22px 0 18px!important}
+#view .cc-full-banner p{font-size:15px;line-height:1.65;color:#e3ebec!important;margin:0!important;max-width:620px}
+.cc-banner-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}.cc-full-banner .cc-banner-actions button{border-radius:28px!important;padding:12px 20px!important;font-size:13px;font-weight:650;min-height:46px;border:1px solid #ffffffa6!important;color:white!important;background:#ffffff0e!important;box-shadow:inset 0 1px 0 #ffffff44!important}
+.cc-full-banner .cc-banner-actions .primary{background:linear-gradient(155deg,#ff9b31,#e87500 63%,#cf5d00)!important;border-color:#ffbb70!important;box-shadow:inset 0 1px 0 #ffffff88,0 5px 16px #ba5b0020!important}
+.cc-banner-workspace{background:linear-gradient(135deg,#ffffffd9,#ffffffb3);border:1px solid #ffffffe0;border-radius:22px;padding:28px;box-shadow:inset 0 1px 0 #ffffffed,0 14px 30px #00000013;backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);color:#171e24}
+.cc-banner-workspace small{font-size:10px;font-weight:750;letter-spacing:1.7px;color:#45535c}.cc-banner-workspace strong{display:block;font-size:23px;line-height:1.3;letter-spacing:-.5px;margin:15px 0 12px}
+#view .cc-banner-workspace p{font-size:12px!important;color:#45535c!important}.cc-banner-chips{display:flex;gap:7px;flex-wrap:wrap;margin-top:22px}.cc-banner-chips span{background:#fffffff0;padding:10px 13px;border-radius:24px;font-size:11px;color:#1c2228;box-shadow:0 5px 14px #00000006}
+@media(max-width:950px){.cc-full-banner{grid-template-columns:1fr;padding:28px;gap:24px}.cc-banner-workspace{padding:22px}}
+
+/* corrected-canvas-and-orange */
+
+/* Corrected direction: lighter WEBSITE canvas, original DARK banner untouched. */
+:root{--shared-orange:linear-gradient(155deg,#ff9b31,#e87500 63%,#cf5d00);--shared-orange-rim:#ffbb70;--shared-orange-shadow:inset 0 1px 0 #ffffff88,0 5px 16px #ba5b0020}
+html:not([data-theme="dark"]) body{background:radial-gradient(ellipse at 3% 10%,rgba(180,223,238,.28),transparent 55%),radial-gradient(ellipse at 96% 0%,rgba(220,193,243,.22),transparent 58%),radial-gradient(ellipse at 94% 95%,rgba(248,222,194,.14),transparent 48%),#f5f7fa!important}
+html:not([data-theme="dark"]) .sidebar,html:not([data-theme="dark"]) .topbar{background:linear-gradient(135deg,#ffffff88,transparent 48%,#e6edf82b),rgba(231,239,247,.46)!important}
+/* Same gradient as the continue-mapping button, not a pale orange tint. */
+button.primary,.cc-full-banner .cc-banner-actions .primary,.cc-full-banner .cc-tag,.sidebar-brand:before{background:var(--shared-orange)!important;color:#fff!important;border-color:var(--shared-orange-rim)!important;box-shadow:var(--shared-orange-shadow)!important}
+html .sidebar .glass-nav-marker,html[data-theme="dark"] .sidebar .glass-nav-marker,html:not([data-theme="dark"]) .glass-nav-marker{background:var(--shared-orange)!important;border-color:var(--shared-orange-rim)!important;box-shadow:var(--shared-orange-shadow)!important}
+html .sidebar nav button.active,html .sidebar nav button.active span,html:not([data-theme="dark"]) .sidebar nav button.active,html:not([data-theme="dark"]) .sidebar nav button.active span{color:white!important}
+html .sidebar nav button:not(.active):hover{background:var(--shared-orange)!important;color:white!important;box-shadow:var(--shared-orange-shadow)!important}html .sidebar nav button:not(.active):hover span{color:white!important}
+/* Colour the original animated lenses, preserving original movement and geometry. */
+html .language-switch>.unified-lens,html .unified-theme>.unified-lens{background:var(--shared-orange)!important;border-color:var(--shared-orange-rim)!important;box-shadow:var(--shared-orange-shadow)!important}
+html .language-switch>button[aria-pressed="true"],html .unified-theme>button[aria-pressed="true"],html .topbar-theme button[aria-pressed="true"]{background:transparent!important;background-image:none!important;box-shadow:none!important;color:#fff!important}
+html .language-switch>button:hover,html .unified-theme>button:hover{background:var(--shared-orange)!important;color:#fff!important;box-shadow:inset 0 1px 0 #ffffff88!important}
+
+/* persistent-orange-lenses-banner-palette */
+
+/* Final paint overrides target the real glass layers, not only the buttons. */
+html body #navigation-panel #navigation-items>.glass-nav-marker,
+html body .topbar .topbar-settings .language-switch>span.unified-lens,
+html body .topbar .unified-theme>span.unified-lens{
+background:var(--shared-orange)!important;background-image:var(--shared-orange)!important;border-color:var(--shared-orange-rim)!important;box-shadow:var(--shared-orange-shadow)!important;opacity:1!important;visibility:visible!important}
+html body #navigation-panel #navigation-items>button.active,
+html body #navigation-panel #navigation-items>button.active span,
+html body #navigation-panel #navigation-items>button:hover,
+html body #navigation-panel #navigation-items>button:hover span,
+html body .topbar .topbar-settings .language-switch>button[aria-pressed="true"],
+html body .topbar .unified-theme>button[aria-pressed="true"]{color:white!important}
+html body #navigation-panel #navigation-items>button:not(.active):hover{background:var(--shared-orange)!important;box-shadow:var(--shared-orange-shadow)!important}
+html body .topbar .topbar-settings .language-switch>button[aria-pressed="true"],
+html body .topbar .unified-theme>button[aria-pressed="true"]{background:transparent!important;background-image:none!important;box-shadow:none!important}
+/* Website canvas now uses lighter versions of banner teal, slate and warm brown. */
+html:not([data-theme="dark"]) body{background:radial-gradient(ellipse at 3% 8%,rgba(124,162,161,.46),transparent 58%),radial-gradient(ellipse at 95% 90%,rgba(163,122,84,.32),transparent 61%),linear-gradient(120deg,#d5e0df,#dce2df 56%,#e3d9cd)!important;background-attachment:fixed!important}
+html:not([data-theme="dark"]) body #navigation-panel.sidebar,
+html:not([data-theme="dark"]) body main>.topbar{background:linear-gradient(135deg,#ffffff66,rgba(150,176,173,.13) 60%,rgba(190,163,134,.11)),rgba(229,237,232,.45)!important}
+html[data-theme="dark"] body{background:radial-gradient(ellipse at 3% 8%,#42636366,transparent 58%),radial-gradient(ellipse at 95% 90%,#87532955,transparent 61%),linear-gradient(120deg,#15272b,#293b3e 56%,#43392f)!important;background-attachment:fixed!important}
+html[data-theme="dark"] body #navigation-panel.sidebar,html[data-theme="dark"] body main>.topbar{background:linear-gradient(135deg,#ffffff0d,#b18b6710),rgba(28,44,46,.64)!important}
+
+/* lighter-teal-sand-canvas */
+
+/* Lighter canvas only; preserve banner, controls and all domain colours. */
+html:not([data-theme="dark"]) body{background:radial-gradient(ellipse at 3% 8%,rgba(124,162,161,.19),transparent 58%),radial-gradient(ellipse at 95% 90%,rgba(163,122,84,.13),transparent 61%),linear-gradient(120deg,#edf3f2,#f1f4f1 56%,#f5f0e9)!important;background-attachment:fixed!important}
+
+/* white-to-very-pale-orange-canvas */
+html:not([data-theme="dark"]) body{background:linear-gradient(125deg,#ffffff 0%,#fffdfb 48%,#fff5eb 100%)!important;background-attachment:fixed!important}
+/* neutral-translucent-navigation-toolbar */
+
+/* Neutral frosted shell; no teal/green surface tint. Keep dark hero unchanged. */
+html:not([data-theme="dark"]) body #navigation-panel.sidebar,
+html:not([data-theme="dark"]) body main>.topbar{
+background:linear-gradient(135deg,rgba(255,255,255,.36),rgba(255,255,255,.12)),rgba(255,255,255,.24)!important;
+background-color:rgba(255,255,255,.24)!important;border-color:rgba(255,255,255,.72)!important;
+box-shadow:inset 0 1px 0 rgba(255,255,255,.86),0 12px 32px rgba(86,65,43,.07)!important;
+backdrop-filter:blur(24px) saturate(110%)!important;-webkit-backdrop-filter:blur(24px) saturate(110%)!important}
+html:not([data-theme="dark"]) body main>.topbar #global-search,
+html:not([data-theme="dark"]) body main>.topbar .language-switch,
+html:not([data-theme="dark"]) body main>.topbar .unified-theme{
+background:rgba(255,255,255,.25)!important;border-color:rgba(255,255,255,.65)!important}
+
+/* darker-neutral-toggle-tracks */
+
+/* Slightly darker neutral toggle tracks; selected orange lenses unchanged. */
+html:not([data-theme="dark"]) body main>.topbar .topbar-settings .language-switch,
+html:not([data-theme="dark"]) body main>.topbar .unified-theme{
+background:rgba(65,57,49,.10)!important;border-color:rgba(65,57,49,.12)!important;
+box-shadow:inset 0 1px 3px rgba(45,37,29,.08),0 1px 0 rgba(255,255,255,.65)!important}
+html[data-theme="dark"] body main>.topbar .topbar-settings .language-switch,
+html[data-theme="dark"] body main>.topbar .unified-theme{
+background:rgba(0,0,0,.24)!important;border-color:rgba(255,255,255,.13)!important;
+box-shadow:inset 0 1px 3px rgba(0,0,0,.20)!important}
+
+/* search-track-selected-navigation-text */
+
+html:not([data-theme="dark"]) body main>.topbar #global-search{background:rgba(65,57,49,.10)!important;border-color:rgba(65,57,49,.12)!important;box-shadow:inset 0 1px 3px rgba(45,37,29,.08),0 1px 0 rgba(255,255,255,.65)!important}
+html[data-theme="dark"] body main>.topbar #global-search{background:rgba(0,0,0,.24)!important;border-color:rgba(255,255,255,.13)!important;box-shadow:inset 0 1px 3px rgba(0,0,0,.20)!important}
+/* Restore normal text for every nonselected nav item, including hover. */
+html:not([data-theme="dark"]) body #navigation-panel #navigation-items>button:not(.active),
+html:not([data-theme="dark"]) body #navigation-panel #navigation-items>button:not(.active) span{color:#243039!important}
+html[data-theme="dark"] body #navigation-panel #navigation-items>button:not(.active),
+html[data-theme="dark"] body #navigation-panel #navigation-items>button:not(.active) span{color:#e2e9e9!important}
+/* Stronger selectors override previous hover-white rules. */
+html:not([data-theme="dark"]) body #navigation-panel #navigation-items>button:not(.active):hover,
+html:not([data-theme="dark"]) body #navigation-panel #navigation-items>button:not(.active):hover span{color:#243039!important}
+html[data-theme="dark"] body #navigation-panel #navigation-items>button:not(.active):hover,
+html[data-theme="dark"] body #navigation-panel #navigation-items>button:not(.active):hover span{color:#e2e9e9!important}
+html body #navigation-panel #navigation-items>button.active,
+html body #navigation-panel #navigation-items>button.active span,
+html body #navigation-panel #navigation-items>button.active:hover,
+html body #navigation-panel #navigation-items>button.active:hover span{color:#fff!important}
+
+/* selected-navigation-white-enforced */
+
+html body .app-shell aside#navigation-panel.sidebar nav#navigation-items button.active,
+html body .app-shell aside#navigation-panel.sidebar nav#navigation-items button.active *,
+html body .app-shell aside#navigation-panel.sidebar nav#navigation-items button[aria-current="page"],
+html body .app-shell aside#navigation-panel.sidebar nav#navigation-items button[aria-current="page"] *{color:#ffffff!important;-webkit-text-fill-color:#ffffff!important}
+
+/* updated-brand-deeper-glass */
+
+/* Remove decorative C; preserve branding container and controls. */
+html body #navigation-panel .sidebar-brand::before{content:none!important;display:none!important}
+/* More depth, with neutral clear-glass surfaces and reflected rims. */
+html:not([data-theme="dark"]) body #navigation-panel.sidebar,
+html:not([data-theme="dark"]) body main>.topbar{
+box-shadow:inset 0 1px 0 rgba(255,255,255,.95),inset 1px 0 0 rgba(255,255,255,.65),inset 0 -1px 0 rgba(112,93,73,.07),0 8px 18px rgba(63,49,37,.07),0 24px 48px rgba(63,49,37,.10)!important;
+border-color:rgba(255,255,255,.82)!important}
+html[data-theme="dark"] body #navigation-panel.sidebar,
+html[data-theme="dark"] body main>.topbar{
+box-shadow:inset 0 1px 0 rgba(255,255,255,.23),inset 1px 0 0 rgba(255,255,255,.10),inset 0 -1px 0 rgba(0,0,0,.15),0 8px 18px rgba(0,0,0,.17),0 24px 48px rgba(0,0,0,.25)!important}
+
+/* translated-orange-workflow */
+
+html body #ux-workflow>button[aria-current="step"]{background:var(--shared-orange)!important;color:white!important;border-color:var(--shared-orange-rim)!important;box-shadow:var(--shared-orange-shadow)!important;outline:2px solid #e87500!important;outline-offset:2px!important}
+html body #ux-workflow>button:focus-visible{outline:3px solid #e87500!important;outline-offset:3px!important}
+html body #ux-workflow>button:not(:disabled):hover{border-color:#e87500!important}
+
+/* orange-workflow-hover-matrix-interactions */
+
+/* Workflow hover: pale orange, except the selected step stays saturated orange. */
+html body #ux-workflow>button:not(:disabled):not([aria-current="step"]):hover{background:#fff0df!important;background-image:none!important;color:#8a3c00!important;border-color:#eea85e!important;box-shadow:inset 0 1px 0 #ffffffcc,0 3px 10px #c5630010!important}
+html body #ux-workflow>button[aria-current="step"]:hover{background:var(--shared-orange)!important;color:#fff!important}
+/* Interaction accents only. Domain header and mapping-status colours remain intact. */
+html body[data-view="matrix"] #view,html body #dialog{--accent:#e87500;--hover:#fff0df}
+html body #view .v6-matrix .ux-row td,html body #view .v6-matrix .ux-column{box-shadow:inset 0 0 0 2px #e87500!important}
+html body[data-view="matrix"] #view select:focus,html body[data-view="matrix"] #view select:focus-visible,
+html body #dialog select:focus,html body #dialog select:focus-visible{border-color:#e87500!important;outline:2px solid #e87500!important;outline-offset:2px!important;box-shadow:0 0 0 3px #e875001a!important}
+html body[data-view="matrix"] #view select:hover,html body #dialog select:hover{border-color:#e87500!important}
+html body[data-view="matrix"] #view input[type="checkbox"],html body[data-view="matrix"] #view input[type="radio"],html body #dialog input[type="checkbox"],html body #dialog input[type="radio"]{accent-color:#e87500!important}
+html body[data-view="matrix"] #view button:focus-visible,html body #dialog button:focus-visible{outline:3px solid #e87500!important;outline-offset:3px!important}
+html body #view .v6-matrix .mapping-cell:hover{background:#fff0df!important;border-color:#e87500!important}
+html body #view .v6-matrix .mapping-cell:focus-visible{outline:3px solid #e87500!important;outline-offset:2px!important}
+html body[data-view="matrix"] #view select option:checked,html body #dialog select option:checked{background:#fff0df;color:#8a3c00}
+
+/* matrix-orange-hover-sidebar-white-hover */
+
+/* Matrix action controls: override legacy blue hover without recolouring domains. */
+html body[data-view="matrix"] #view button:not(.primary):not([data-info]):not(.domain-toggle):not(.domain-info):not([aria-pressed="true"]):not(:disabled):hover{background:#fff0df!important;background-image:none!important;border-color:#eea85e!important;color:#8a3c00!important;box-shadow:inset 0 1px 0 #ffffffcc,0 3px 10px #c5630010!important}
+html body[data-view="matrix"] #view [data-switch].primary:hover{background:var(--shared-orange)!important;color:#ffffff!important}
+/* Hovered sidebar labels and icons white, including nonselected buttons. */
+html:not([data-theme="dark"]) body .app-shell aside#navigation-panel.sidebar nav#navigation-items>button:not(.active):hover,
+html:not([data-theme="dark"]) body .app-shell aside#navigation-panel.sidebar nav#navigation-items>button:not(.active):hover *,
+html[data-theme="dark"] body .app-shell aside#navigation-panel.sidebar nav#navigation-items>button:not(.active):hover,
+html[data-theme="dark"] body .app-shell aside#navigation-panel.sidebar nav#navigation-items>button:not(.active):hover *,
+html body .app-shell aside#navigation-panel.sidebar nav#navigation-items>button:hover,
+html body .app-shell aside#navigation-panel.sidebar nav#navigation-items>button:hover *{color:#ffffff!important;-webkit-text-fill-color:#ffffff!important}

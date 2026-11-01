@@ -1,0 +1,16 @@
+
+/* Common domain help is placed beside the relevant content instead of above every page. */
+html body #workspace-controls #legend,html body #legend.legend{display:none!important}
+#ux-workflow[hidden],.redundant-control{display:none!important}
+#page-purpose{margin-top:6px!important;margin-bottom:18px!important}
+.page-heading{margin-bottom:6px;font-size:1.5rem}
+.target-contributions{margin-top:16px;padding-top:12px;border-top:1px solid var(--line)}
+.target-contributions>summary{cursor:pointer;font-weight:600;line-height:1.5}
+.target-contributions ul{padding-inline-start:20px}.target-contributions li{margin-block:8px}
+.chart-explanation{margin-block:16px}.chart-explanation summary{cursor:pointer}
+#workspace-controls:has(.workspace-tools) .workspace-tools{margin-top:8px}
+
+/* Workspace context actions: orange, not blue. */
+html body #ux-context button,html body #ux-context [data-compact-meta]{background:#fff0df!important;background-image:none!important;border:1px solid #eea85e!important;color:#8a3c00!important;box-shadow:inset 0 1px 0 #ffffffcc!important}
+html body #ux-context button:hover,html body #ux-context button:focus-visible{background:var(--shared-orange,#f08a24)!important;border-color:#e87500!important;color:#fff!important}
+html body #ux-context button:focus-visible{outline:3px solid #e87500!important;outline-offset:3px!important}

@@ -1,0 +1,33 @@
+/* Shared surface system; approved navigation, palette and top alignment preserved. */
+:root{--surface-radius:22px;--control-radius:14px;--surface-pad:26px;--surface-gap:24px;--surface-tint:rgba(255,255,255,.40);--surface-highlight:rgba(255,255,255,.34);--surface-border:rgba(255,255,255,.42);--surface-shadow:rgba(38,54,83,.065)}
+html[data-theme="dark"]{--surface-tint:rgba(160,185,225,.065);--surface-highlight:rgba(225,237,255,.10);--surface-border:rgba(225,237,255,.16);--surface-shadow:rgba(0,0,0,.17)}
+/* Content cards share a quiet reflected rim, not an opaque white fill. */
+#view .card,#view .stat-card,#view .quick-card,#view .activity-card,#view .session-note-card,#view .chart-scroll,#view .graph-scroll,#view .chart-container,#view .chart-wrap,#view .scroll,#view .matrix-scroll,#workspace-controls>#identity,#workspace-controls>.workspace-tools,#dialog{box-sizing:border-box!important;border-radius:var(--surface-radius)!important;border:1px solid var(--surface-border)!important;background:linear-gradient(130deg,var(--surface-highlight),transparent 45%),var(--surface-tint)!important;box-shadow:inset 0 1px 0 var(--surface-highlight),0 6px 18px var(--surface-shadow)!important;background-clip:padding-box!important}
+#view .card,#view .stat-card,#view .quick-card,#view .activity-card,#view .session-note-card{padding:var(--surface-pad)!important}
+#view .card.domain{border-top:1px solid var(--surface-border)!important;border-inline-start:4px solid var(--domain,var(--accent))!important}
+#view .cards{gap:var(--surface-gap)!important;align-items:stretch!important}
+/* Reset section offsets so all four first-row cards start at the same grid line. */
+#view .overview-grid{align-items:start!important;gap:var(--surface-gap)!important;grid-template-columns:repeat(3,minmax(0,1fr)) minmax(250px,1.1fr)!important}
+#view .overview-grid>.stat-card,#view .overview-grid>.quick-card,#view .overview-grid>.activity-card{margin:0!important;top:auto!important;transform:none!important;align-self:start!important;position:relative!important}
+#view .overview-grid>.stat-card{grid-row:1!important;min-height:124px!important}
+#view .overview-grid>.quick-card{grid-column:4!important;grid-row:1 / span 2!important}
+#view .overview-grid>.activity-card{grid-column:1 / span 3!important;grid-row:2!important}
+#view .quick-card h2,#view .activity-card h2{margin:0 0 18px!important}
+#view .quick-card>button{display:block!important;width:100%!important;text-align:left!important;margin:8px 0 0!important;padding:12px 14px!important;border-radius:var(--control-radius)!important;border:1px solid var(--surface-border)!important;background:linear-gradient(130deg,var(--surface-highlight),transparent 70%),var(--surface-tint)!important;box-shadow:inset 0 1px 0 var(--surface-highlight)!important}
+/* Domain controls are individual glass capsules, retaining their domain colour stripe. */
+#legend.legend>*,.graph-legend>button,#view .domain-controls,#view .domain-level{box-sizing:border-box!important;border-radius:var(--surface-radius)!important;border:1px solid var(--surface-border)!important;background:linear-gradient(130deg,var(--surface-highlight),transparent 60%),var(--surface-tint)!important;box-shadow:inset 0 1px 0 var(--surface-highlight),0 3px 10px var(--surface-shadow)!important;background-clip:padding-box!important}
+#legend.legend>*{border-inline-start:4px solid var(--domain,var(--accent))!important;padding:14px 18px!important}
+#view .domain-level{padding:18px 22px!important;margin:0 0 14px!important}
+#view .domain-controls{padding:6px!important;margin:12px 0!important}
+#view .domain-toggle{border-radius:var(--control-radius)!important}
+/* All standard form/action boxes share one control radius; selected colours stay intact. */
+#view button,#view .button,#view input:not([type="checkbox"]):not([type="radio"]):not([type="range"]),#view select,#view textarea,#workspace-controls button,#workspace-controls select,#dialog button,#dialog input:not([type="checkbox"]):not([type="radio"]):not([type="range"]),#dialog select,#dialog textarea{border-radius:var(--control-radius)!important}
+#view .hint,#view .warning,#view .filters,#view .matrix-guidance{border-radius:var(--control-radius)!important}
+#view .chart-scroll,#view .graph-scroll,#view .chart-container,#view .chart-wrap,#view .scroll,#view .matrix-scroll{overflow:auto!important;max-width:100%!important}
+/* Keep table cells and chart data surfaces flat/readable inside the rounded container. */
+#view table,#view table th,#view table td,#view svg.curriculum-chart{border-radius:0!important}
+@media(hover:hover){#legend.legend>*:hover,.graph-legend>button:hover,#view .quick-card>button:hover,#view .domain-controls:hover{box-shadow:inset 0 1px 0 var(--surface-highlight),0 5px 16px var(--surface-shadow)!important;filter:brightness(1.035)}}
+@media(max-width:1200px){#view .overview-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important}#view .overview-grid>.quick-card{grid-column:1 / -1!important;grid-row:3!important}#view .overview-grid>.activity-card{grid-column:1 / -1!important;grid-row:2!important}}
+@media(max-width:850px){:root{--surface-pad:22px;--surface-gap:20px}#view .overview-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}#view .overview-grid>.stat-card,#view .overview-grid>.quick-card,#view .overview-grid>.activity-card{grid-row:auto!important;grid-column:auto!important}#view .overview-grid>.quick-card,#view .overview-grid>.activity-card{grid-column:1 / -1!important}}
+@media(max-width:640px){#view .overview-grid{grid-template-columns:1fr!important}#view .overview-grid>.stat-card,#view .overview-grid>.quick-card,#view .overview-grid>.activity-card{grid-column:1!important;grid-row:auto!important}}
+@media(prefers-reduced-transparency:reduce){:root{--surface-tint:#e8edf5;--surface-highlight:transparent}html[data-theme="dark"]{--surface-tint:#202c3e;--surface-highlight:transparent}}

@@ -1,0 +1,15 @@
+
+/* One workspace summary, one concise page purpose. */
+#identity{display:none!important}
+#page-purpose{margin:14px 0 18px;color:var(--muted);font-size:.95rem;line-height:1.55}
+#ux-context{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:15px 18px!important;margin:14px 0!important}
+#ux-context[hidden]{display:none!important}#ux-context .demo-badge{font-size:.75rem;background:#fff0df;color:#884100;border-radius:12px;padding:4px 9px}
+body[data-view="catalogue"] #legend,body[data-view="catalogue"] .graph-legend{display:none!important}
+.framework-info{display:inline-flex;align-items:center;justify-content:center;background:transparent!important;border:0!important;min-width:30px;min-height:30px;padding:3px!important;color:inherit!important;cursor:pointer}.framework-info:focus-visible{outline:2px solid #e87500!important}
+
+/* Target levels: information belongs in the full domain cards, not a duplicate legend. */
+html body[data-view="targets"] #workspace-controls #legend,
+html body[data-view="targets"] #legend.legend,
+html body[data-view="targets"] .graph-legend{display:none!important}
+html body[data-view="targets"] #view .card>h3{display:flex;align-items:center;gap:8px}
+html body[data-view="targets"] #view .target-domain-info{flex-shrink:0;margin-inline-start:auto}
