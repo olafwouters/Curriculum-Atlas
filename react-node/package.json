@@ -11,7 +11,7 @@
     "server": "node server.mjs",
     "build": "tsc --noEmit && vite build",
     "start": "node server.mjs",
-    "test": "node --test test.mjs"
+    "test": "node --test"
   },
   "dependencies": {
     "react": "^19.0.0",
