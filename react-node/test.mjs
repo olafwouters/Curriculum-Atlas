@@ -1,0 +1,45 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {mkdtempSync, writeFileSync, rmSync} from 'node:fs';
+import {tmpdir} from 'node:os';
+import {join} from 'node:path';
+import {readState, mappingKey, normalise, legacyStatus} from './src/domain.mjs';
+const fixture=()=>({programme:'Testopleiding',modules:[{id:'m1',name:'Module',year:1,courses:[{code:'A_B',name:'Vak'}]}],mappings:{'o1|m1::A_B':{status:'introduced',evidence:'één\ntwee',previous:{edition:'2025'}}},unknown:{keep:true}});
+test('state validation preserves IDs, Unicode, unknown and nested fields',()=>{const s=fixture(),copy=readState(s);assert.deepEqual(copy,s);copy.unknown.keep=false;assert.equal(s.unknown.keep,true);});
+test('invalid state is refused',()=>{assert.throws(()=>readState({programme:'',modules:[]}));assert.throws(()=>readState({...fixture(),modules:[{},{}]}));});
+test('duplicate module IDs are refused',()=>{const s=fixture();s.modules.push(structuredClone(s.modules[0]));assert.throws(()=>readState(s));});
+test('canonical course keys are encoded without changing module identity',()=>assert.equal(mappingKey({},'o1','m1','a b'),'o1|m1::a%20b'));
+test('existing legacy keys are preserved',()=>assert.equal(mappingKey({'o1|m1|A_B':{}},'o1','m1','A_B'),'o1|m1|A_B'));
+test('ambiguous course keys are refused rather than overwritten',()=>assert.throws(()=>mappingKey({'o1|m1::A_B':{},'o1|m1|A_B':{}},'o1','m1','A_B')));
+test('module and course keys remain separate',()=>assert.equal(mappingKey({},'o1','m1'),'o1|m1'));
+test('legacy assessed and excluded values keep their meaning',()=>{assert.equal(normalise({status:'assessed'}).testing,'summative');assert.equal(normalise({status:'excluded'}).decision,'excluded');assert.equal(legacyStatus({phase:'mastery',decision:'included'}),'practised');});
+test('editing preserves fields not represented by the editor',()=>{const s=fixture(),a=normalise(s.mappings['o1|m1::A_B']);a.evidence='Nieuw';s.mappings['o1|m1::A_B']={...a,status:legacyStatus(a)};assert.deepEqual(s.mappings['o1|m1::A_B'].previous,{edition:'2025'});assert.deepEqual(readState(JSON.parse(JSON.stringify(s))),s);});
+test('Node API: save/load/conflict/restart/auth/origin/snapshot', {skip:Number(process.versions.node.split('.')[0])<22}, async()=>{
+  const {createApp}=await import('./server.mjs');
+  const dir=mkdtempSync(join(tmpdir(),'atlas-test-')), frameworkPath=join(dir,'framework.json'), dbPath=join(dir,'test.sqlite3');
+  writeFileSync(frameworkPath,'[{"id":"o1"}]');
+  const config={dbPath,frameworkPath,user:'tester',password:'test-only-password-123',production:true};
+  let server;
+  const start=async()=>{server=createApp(config);await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));return 'http://127.0.0.1:'+server.address().port;};
+  const close=()=>new Promise(resolve=>server.close(resolve));
+  const headers={authorization:'Basic '+Buffer.from(config.user+':'+config.password).toString('base64'),'Content-Type':'application/json'};
+  try{
+    let base=await start();
+    const call=async(path,data,extra={})=>{const r=await fetch(base+path,{headers:{...headers,...extra},...(data===undefined?{}:{method:'POST',body:JSON.stringify(data)})});return {status:r.status,body:await r.json()};};
+    assert.equal((await fetch(base+'/api/workspaces')).status,401);
+    assert.equal((await call('/api/save',{state:fixture()},{origin:'https://evil.invalid'})).status,403);
+    assert.equal((await call('/api/save',{state:{}})).status,400);
+    const created=await call('/api/save',{state:fixture()});assert.equal(created.status,200);assert.equal(created.body.revision,1);
+    const id=created.body.id, loaded=await call('/api/workspaces/'+id);assert.deepEqual(loaded.body.state,fixture());
+    const updated=structuredClone(loaded.body.state);updated.mappings['o1|m1::A_B'].evidence='Gewijzigd';
+    assert.equal((await call('/api/save',{id,revision:1,state:updated,finish:true})).body.revision,2);
+    assert.equal((await call('/api/save',{id,revision:1,state:fixture()})).status,409);
+    assert.equal((await call('/api/save',{id:'missing',revision:1,state:fixture()})).status,409);
+    const final=await call('/api/workspaces/'+id);assert.deepEqual(final.body.state,updated);assert.equal(final.body.sessions.length,1);
+    assert.equal((await call('/api/framework')).body[0].id,'o1');
+    assert.equal((await call('/api/not-implemented')).status,404);
+    assert.equal((await call('/api/workspaces')).body.length,1);
+    await close();base=await start();assert.deepEqual((await call('/api/workspaces/'+id)).body.state,updated);
+    assert.throws(()=>createApp({production:true,user:'',password:''}));
+  } finally {if(server?.listening)await close();rmSync(dir,{recursive:true,force:true});}
+});
