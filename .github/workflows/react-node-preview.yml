@@ -1,0 +1,19 @@
+name: React Node preview checks
+on:
+  push:
+    branches: [react-node-migration]
+  pull_request:
+    paths: ['react-node/**', '.github/workflows/react-node-preview.yml']
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: npm --prefix react-node install
+      - run: npm --prefix react-node test
+      - run: npm --prefix react-node run build
