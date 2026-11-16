@@ -1,1 +1,12 @@
 :root{font-family:system-ui,sans-serif;color:#192d43;background:#f4f6fa}*{box-sizing:border-box}body{margin:0}header,main,footer{padding:20px 4vw}header{background:#0d2a49;color:white}h1{margin:0}header p,footer{font-size:.9rem}fieldset{border:0;padding:0;margin:0;min-width:0}section{background:white;padding:20px;margin:16px 0;border:1px solid #d5dfe9;border-radius:12px}.toolbar,.module{display:flex;flex-wrap:wrap;align-items:center;gap:10px}.module{margin:12px 0}label{display:block;margin:10px 0}input,textarea,select,button{font:inherit;padding:9px;border:1px solid #8c9cb0;border-radius:5px}input,textarea{display:block;width:100%;max-width:650px}textarea{min-height:75px}button{background:white;color:#153657;cursor:pointer}button:hover{background:#eaf0f7}button:disabled{opacity:.5;cursor:default}:focus-visible{outline:3px solid #bd7800;outline-offset:2px}.scroll{overflow:auto;max-height:65vh}table{border-collapse:separate;border-spacing:0;min-width:100%}td,th{padding:10px;border:1px solid #dde3ec;min-width:200px;text-align:left;background:white}thead th{position:sticky;top:0;z-index:2;background:#edf2f8}tbody th{min-width:280px;max-width:400px}small{display:block}.domain{display:block;border-left:6px solid;padding-left:8px}details{font-weight:normal;margin-top:8px;font-size:.9rem}dialog{border:1px solid #8595aa;border-radius:12px;width:min(700px,95vw);max-height:90vh;overflow:auto}dialog::backdrop{background:#0d2a4977}[role=alert]{color:#8b221a;white-space:pre-wrap}footer{color:#40566b}
+
+.alignment-dialog{width:min(1200px,95vw)}
+.level-options{overflow-x:auto;padding:5px;margin:8px -5px 16px}
+.level-grid{display:grid;gap:12px;align-items:stretch}
+.level-card{display:flex;flex-direction:column;gap:12px;margin:0;padding:14px;border:2px solid #b8c5d4;border-radius:8px;cursor:pointer;background:#fff}
+.level-card.selected{border-color:#153657;background:#edf3fb}
+.level-card:focus-within{outline:3px solid #bd7800;outline-offset:2px}
+.level-heading{display:flex;gap:8px;align-items:center}
+.level-heading input{display:inline-block;width:auto;max-width:none;margin:0;flex:none;accent-color:#153657}
+.level-description{display:block;font-weight:normal;line-height:1.5}
+.level-card small{margin-top:auto;font-weight:normal}
