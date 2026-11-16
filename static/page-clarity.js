@@ -21,3 +21,23 @@ if(page==='digcomp'){const domains=[...new Set(F.map(o=>o.domain))];for(const d 
 labels(view);}
 const prior=render;render=function(...args){const result=prior.apply(this,args);decorate();return result;};const oldDialog=dialog;dialog=function(...args){const result=oldDialog.apply(this,args);labels(document.getElementById('dialog'));return result;};document.querySelectorAll('[data-language]').forEach(b=>b.addEventListener('click',()=>setTimeout(()=>{decorate();labels(document.getElementById('dialog'));},0)));decorate();
 })();
+
+/* Alignment presentation correction: retain badges, fields and submit handlers. */
+(()=>{'use strict';
+const host=document.getElementById('dialog');if(!host)return;
+const style=document.createElement('style');
+style.textContent='#dialog.atlas-level-dialog #form>button.primary{position:static!important;inset:auto!important;z-index:auto!important;float:none!important;transform:none!important;background:var(--shared-orange)!important;border:1px solid var(--shared-orange-rim)!important;box-shadow:var(--shared-orange-shadow)!important;color:#fff!important}';
+document.head.append(style);
+function headings(){
+  host.querySelectorAll('.alignment-steps>section>h3').forEach(heading=>{
+    for(const node of heading.childNodes){
+      if(node.nodeType!==Node.TEXT_NODE||!node.nodeValue.trim())continue;
+      const next=node.nodeValue.replace(/^(\s*)[1-3]\.\s+/, '$1');
+      if(next!==node.nodeValue)node.nodeValue=next;
+      break;
+    }
+  });
+}
+new MutationObserver(headings).observe(host,{childList:true,subtree:true,characterData:true});
+headings();
+})();
