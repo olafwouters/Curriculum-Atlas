@@ -24,3 +24,49 @@
 #view .matrix-tools,#view .matrix-controls{gap:12px!important;margin-bottom:18px!important;flex-wrap:wrap!important}
 #navigation-panel #navigation-items>button{transition:color .18s ease!important}
 @media(max-width:640px){#identity:not([hidden]),#view>.card{padding:22px!important}#identity>div:first-child{align-items:flex-start!important;flex-direction:column}#identity button{margin-left:0!important}.workspace-tools{padding:16px 18px!important}#legend.legend{gap:10px!important}}
+
+/* Compact alignment popup; stored mapping fields remain unchanged. */
+#dialog.atlas-level-dialog{
+  box-sizing:border-box!important;
+  width:min(1440px,calc(100vw - 32px))!important;
+  max-width:calc(100vw - 32px)!important;
+  min-width:0!important;
+}
+#dialog.atlas-level-dialog #body,
+#dialog.atlas-level-dialog #form,
+#dialog.atlas-level-dialog .atlas-level-options,
+#dialog.atlas-level-dialog .atlas-level-grid,
+#dialog.atlas-level-dialog .atlas-level-card,
+#dialog.atlas-level-dialog .alignment-steps>section{
+  box-sizing:border-box!important;
+  min-width:0!important;
+  max-width:100%!important;
+}
+#dialog.atlas-level-dialog #form{width:100%!important}
+#dialog.atlas-level-dialog .atlas-level-options{overflow-x:visible!important}
+#dialog.atlas-level-dialog .atlas-level-grid{
+  grid-auto-flow:row!important;
+  grid-auto-columns:auto!important;
+  grid-template-columns:repeat(4,minmax(0,1fr))!important;
+}
+#dialog.atlas-level-dialog .atlas-level-card{
+  width:auto!important;
+  margin:0!important;
+  overflow-wrap:anywhere;
+}
+#dialog.atlas-level-dialog #form select,
+#dialog.atlas-level-dialog #form textarea{
+  box-sizing:border-box!important;
+  min-width:0!important;
+  max-width:100%!important;
+}
+/* Keep controls in the form for compatibility and preservation of old decisions. */
+#dialog.atlas-level-dialog label.field:has(#alignmentOutcome),
+#dialog.atlas-level-dialog label.field:has(select[name="decision"]){display:none!important}
+@media(max-width:1050px){
+  #dialog.atlas-level-dialog .atlas-level-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  #dialog.atlas-level-dialog .alignment-steps{grid-template-columns:minmax(0,1fr)!important}
+}
+@media(max-width:600px){
+  #dialog.atlas-level-dialog .atlas-level-grid{grid-template-columns:minmax(0,1fr)!important}
+}
