@@ -37,8 +37,15 @@ function headings(){
       break;
     }
   });
+  const pick=(nl,en)=>localStorage.getItem('compass-language')==='en'?en:nl;
+  function textOnly(element,value){if(!element)return;for(const node of element.childNodes){if(node.nodeType===Node.TEXT_NODE&&node.nodeValue.trim()){if(node.nodeValue!==value)node.nodeValue=value;break;}}}
+  const intended=host.querySelector('.alignment-steps [name="intended"]'),activity=host.querySelector('.alignment-steps [name="evidence"]');
+  textOnly(intended?.closest('section')?.querySelector('h3'),pick('Beoogde leeruitkomst / Beoogd leerdoel','Intended learning outcome / Learning objective'));
+  textOnly(intended?.closest('label'),pick('Wat moet de student leren?','What should the student learn?'));
+  textOnly(activity?.closest('section')?.querySelector('h3'),pick('Welke leeractiviteit bied je de student aan','Which learning activity do you offer the student'));
 }
 new MutationObserver(headings).observe(host,{childList:true,subtree:true,characterData:true});
+document.querySelectorAll('[data-language]').forEach(b=>b.addEventListener('click',()=>setTimeout(headings,0)));
 headings();
 })();
 
