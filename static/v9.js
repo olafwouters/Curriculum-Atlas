@@ -56,12 +56,35 @@ tab='overview';render();
     if(entries.length)next.schemaVersion=6;
     return next;
   }
-  const api={parse,resolve,normalise,groups,commit};
+  function domainRoute(outcomes,key,domain,visited=new Map()) {
+    const p=parse(key),current=outcomes.find(o=>o.id===p.oid),os=outcomes.filter(o=>o.domain===domain);
+    if(!current||!os.length)throw Error('Domein of leeruitkomst niet gevonden.');
+    const rank=v=>(String(v).match(/^(IV|III|II|I)(?=[.\s—–-]|$)/)||[])[1]||String(v);
+    const chosen=os.find(o=>o.id===visited.get(domain))||os.find(o=>rank(o.level)===rank(current.level))||os[0];
+    return chosen.id+'|'+p.mid+(p.encoded===undefined?'':'|'+p.encoded);
+  }
+  function iconName(domain,reference,custom=false) {
+    return ['search','chat','pencil','shield','gear'][custom?-1:reference.indexOf(domain)]||'grid';
+  }
+  function iconSvg(name) {
+    const paths={
+      search:'<circle cx="10" cy="10" r="6.5"/><path d="m15 15 6 6"/>',
+      chat:'<path d="M14 14H8l-5 4V8a5 5 0 0 1 5-5h5a5 5 0 0 1 5 5v1"/><path d="M16 9h1a5 5 0 0 1 5 5v7l-4-3h-3a4 4 0 0 1-4-4v-1a4 4 0 0 1 5-4Z"/>',
+      pencil:'<path d="m4 16-1 5 5-1L21 7a2 2 0 0 0 0-3l-1-1a2 2 0 0 0-3 0Z M14 6l4 4 M4 16l4 4"/>',
+      shield:'<path d="M12 3 3 6v6c0 5 9 9 9 9s9-4 9-9V6Z M7 12l3 3 7-7"/>',
+      gear:'<path d="m10 2-1 3-3 .5-2 3L6 11v2l-2 2.5 2 3L9 19l1 3h4l1-3 3-.5 2-3-2-2.5v-2l2-2.5-2-3L15 5l-1-3Z"/><circle cx="12" cy="12" r="4"/>',
+      grid:'<rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/>',
+      check:'<path d="m5 12 4 4L19 6"/>'
+    };
+    return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">'+(Object.hasOwn(paths,name)?paths[name]:paths.grid)+'</svg>';
+  }
+  const api={parse,resolve,normalise,groups,commit,domainRoute,iconName,iconSvg};
   if(typeof module==='object'&&module.exports)module.exports=api;
   if(typeof document==='undefined')return;
   const tx=(nl,en)=>localStorage.getItem('compass-language')==='en'?en:nl;
   const style=document.createElement('style');
   style.textContent='#dialog.atlas-level-dialog{width:min(1200px,96vw);max-width:96vw}.atlas-level-options{overflow-x:auto;padding:5px}.atlas-level-grid{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(240px,1fr);gap:12px}.atlas-level-card{display:flex;flex-direction:column;gap:10px;padding:14px;border:2px solid var(--line,#aebdcd);border-radius:12px;cursor:pointer;min-width:240px}.atlas-level-card:has(input:checked){border-color:var(--accent,#165a99)}.atlas-level-card:focus-within{outline:3px solid #bc7900;outline-offset:2px}.atlas-level-card input{width:auto;display:inline;margin-right:8px}.atlas-level-card p{white-space:pre-wrap;line-height:1.5;margin:0;font-weight:normal}.atlas-domain-mapping small{display:block}';
+  style.textContent+='.atlas-domain-icon{display:inline-flex!important;align-items:center;justify-content:center;flex:0 0 auto;width:40px;height:40px;border-radius:12px;background:var(--domain,#64748b);color:#14213a;box-shadow:inset 0 0 0 20px #ffffff66}.atlas-domain-icon svg{width:26px;height:26px;display:block}#legend.legend button[data-help]::before{content:none!important;display:none!important}#legend.legend button[data-help]>.atlas-domain-icon{margin:0!important;opacity:1!important}.domain-toggle>span:last-child{display:inline-flex;align-items:center;gap:10px}.v6-matrix .atlas-domain-icon{width:32px;height:32px;border-radius:9px}.v6-matrix .atlas-domain-icon svg{width:22px;height:22px}#dialog.atlas-level-dialog .atlas-domain-nav{order:-4;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:10px}#dialog.atlas-level-dialog .atlas-domain-nav button{position:relative;display:flex;align-items:center;gap:10px;padding:14px 28px 14px 14px;text-align:left;border:2px solid var(--line,#c4cbd6);border-radius:18px;background:var(--atlas-reference-surface,#fff);color:var(--ink,#14213a);font:inherit;min-width:0;overflow-wrap:anywhere}#dialog.atlas-level-dialog .atlas-domain-nav button[aria-pressed="true"]{border-color:var(--domain);box-shadow:inset 0 0 0 1px var(--domain)}#dialog.atlas-level-dialog .atlas-domain-check{position:absolute;top:8px;right:7px;width:18px;height:18px;border-radius:50%;background:var(--domain);color:#14213a}#dialog.atlas-level-dialog .atlas-domain-check svg{width:18px;height:18px}#dialog.atlas-level-dialog .atlas-domain-nav button:focus-visible{outline:3px solid var(--ink,#14213a);outline-offset:3px}#dialog.atlas-level-dialog .atlas-domain-context{order:-3;display:flex;align-items:center;gap:12px}#dialog.atlas-level-dialog .atlas-domain-context strong,#dialog.atlas-level-dialog .atlas-domain-context small{display:block}#dialog.atlas-level-dialog #form>.breadcrumb{display:none}#dialog.atlas-level-dialog .atlas-domain-status{font-size:.85rem;color:var(--atlas-reference-muted,#526077)}@media(max-width:600px){#dialog.atlas-level-dialog .atlas-domain-nav{grid-template-columns:minmax(0,1fr)}}';
   document.head.append(style);
   let session=null;
   const dlg=document.getElementById('dialog');
@@ -76,11 +99,55 @@ tab='overview';render();
     const fields=read(form);
     if(JSON.stringify(fields)===session.baseline)session.drafts.delete(session.key);else session.drafts.set(session.key,fields);
   }
+  function domainIcon(domain) {
+    const os=F.filter(o=>o.domain===domain),value=os[0]?.color||'';
+    const span=document.createElement('span');span.className='atlas-domain-icon';
+    span.style.setProperty('--domain',/^#(?:[\da-f]{3}|[\da-f]{6})$/i.test(value)?value:'#64748b');
+    span.innerHTML=iconSvg(iconName(domain,groups(FD).map(os=>os[0].domain),F!==FD));
+    return span;
+  }
+  function decorateDomains() {
+    const ds=groups(F).map(os=>os[0].domain);
+    document.querySelectorAll('#legend [data-help]').forEach(button=>{
+      const domain=ds[Number(button.dataset.help)];
+      if(domain&&!button.querySelector('.atlas-domain-icon'))button.prepend(domainIcon(domain));
+    });
+    document.querySelectorAll('.v6-matrix tr.group').forEach(row=>{
+      const info=row.querySelector('[data-info]');if(!info)return;
+      const label=row.querySelector('.domain-toggle')?.lastElementChild||info;
+      if(!label.querySelector('.atlas-domain-icon'))label.prepend(domainIcon(info.dataset.info));
+    });
+  }
+  function domainNavigation(form,o,p,m) {
+    session.visited.set(o.domain,o.id);
+    const nav=document.createElement('nav');nav.className='atlas-domain-nav';
+    nav.setAttribute('aria-label',tx('Domeinen binnen deze module of dit deelvak','Domains within this module or course'));
+    groups(F).forEach((os,index)=>{
+      const domain=os[0].domain,active=domain===o.domain,button=document.createElement('button');
+      button.type='button';button.dataset.atlasDomain=String(index);
+      button.setAttribute('aria-pressed',String(active));
+      const icon=domainIcon(domain);button.style.setProperty('--domain',icon.style.getPropertyValue('--domain'));
+      const label=document.createElement('span');label.textContent=domain;button.append(icon,label);
+      if(active){const check=document.createElement('span');check.className='atlas-domain-check';check.innerHTML=iconSvg('check');check.setAttribute('aria-hidden','true');button.append(check);}
+      button.onclick=()=>{if(active)return;capture();try{const target=domainRoute(F,keyFor(p),domain,session.visited);openLevel(target,session);document.querySelector('[data-atlas-domain="'+index+'"]').focus();}catch(error){say(error.message);}};
+      nav.append(button);
+    });
+    const context=document.createElement('div');context.className='atlas-domain-context';
+    const text=document.createElement('div'),title=document.createElement('strong'),subtitle=document.createElement('small');
+    title.textContent=o.domain;
+    const course=(m.courses||[]).find(c=>c.code===p.code);
+    subtitle.textContent=m.name+' · '+tx('Jaar ','Year ')+m.year+(course?' · '+course.code+' · '+course.name:'');
+    text.append(title,subtitle);context.append(domainIcon(o.domain),text);form.prepend(nav,context);
+    const status=document.createElement('p');status.className='atlas-domain-status';status.setAttribute('role','status');form.append(status);
+    const update=()=>{status.textContent=session.drafts.size+' '+tx('gewijzigde koppeling(en) in dit venster; nog niet toegepast.','changed mapping(s) in this dialog; not yet applied.');};
+    form.addEventListener('input',()=>{capture();update();});form.addEventListener('change',()=>{if(document.getElementById('form')===form){capture();update();}});update();
+  }
+  function keyFor(p){return p.oid+'|'+p.mid+(p.encoded===undefined?'':'|'+p.encoded);}
   function openLevel(key,existing) {
     try {
       const p=parse(key),o=F.find(o=>o.id===p.oid),m=state.modules.find(m=>m.id===p.mid);
       if(!o||!m)throw Error('Leeruitkomst of module niet gevonden.');
-      const resolved=resolve(state.mappings||{},key),nextSession=existing||{drafts:new Map()};
+      const resolved=resolve(state.mappings||{},key),nextSession=existing||{drafts:new Map(),visited:new Map()};
       if(dlg.open)dlg.close();
       previousMapping(p.ui);
       const form=document.getElementById('form');if(!form)return;
@@ -95,14 +162,15 @@ tab='overview';render();
         const label=document.createElement('label');label.className='atlas-level-card';
         const heading=document.createElement('strong'),radio=document.createElement('input');radio.type='radio';radio.name='atlas-level-choice';radio.checked=x.id===o.id;
         radio.value=x.id;radio.setAttribute('aria-label',x.level);
-        radio.onchange=()=>{capture();openLevel(x.id+'|'+p.mid+(p.encoded===undefined?'':'|'+p.encoded),session);};
+        radio.onchange=()=>{capture();openLevel(x.id+'|'+p.mid+(p.encoded===undefined?'':'|'+p.encoded),session);dlg.querySelector('.atlas-level-card input:checked')?.focus();};
         heading.append(radio,document.createTextNode(x.level));const description=document.createElement('p');description.textContent=x.text;label.append(heading,description);grid.append(label);
       });
       form.prepend(box);
+      domainNavigation(form,o,p,m);
       const outcome=document.getElementById('alignmentOutcome');
       if(outcome)outcome.onchange=()=>{capture();openLevel(outcome.value+'|'+p.mid+(p.encoded===undefined?'':'|'+p.encoded),session);};
       form.onsubmit=e=>{e.preventDefault();capture();try{const updated=commit(state,[...session.drafts]);const modified=session.drafts.size;session=null;dlg.close();if(modified){state=updated;changed();render();}}catch(error){say(error.message);}};
-      const submit=form.querySelector('button.primary');if(submit)submit.textContent=tx('Alle gewijzigde niveaus opslaan','Save all changed levels');
+      const submit=form.querySelector('button.primary');if(submit)submit.textContent=p.code===undefined?tx('Alle wijzigingen in deze module opslaan','Save all changes in this module'):tx('Alle wijzigingen in dit deelvak opslaan','Save all changes in this course');
     } catch(error) {say(error.message);}
   }
   mapping=function(key){openLevel(key,null);};
@@ -137,11 +205,13 @@ tab='overview';render();
   };
   function guard(event) {
     if(!session)return;capture();
-    if(session.drafts.size&&!confirm(tx('Wijzigingen voor alle niveaus verwerpen?','Discard edits for all levels?'))){event.preventDefault();event.stopImmediatePropagation();}
+    if(session.drafts.size&&!confirm(tx('Wijzigingen voor alle domeinen en niveaus verwerpen?','Discard edits for all domains and levels?'))){event.preventDefault();event.stopImmediatePropagation();}
   }
   document.getElementById('close').addEventListener('click',guard,true);
   dlg.addEventListener('cancel',guard,true);
   dlg.addEventListener('click',event=>{if(event.target!==dlg)return;const r=dlg.getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)guard(event);},true);
   dlg.addEventListener('close',()=>{if(!dlg.open){session=null;dlg.classList.remove('atlas-level-dialog');}});
+  const priorDomainRender=render;render=function(...args){const result=priorDomainRender.apply(this,args);queueMicrotask(decorateDomains);return result;};
+  queueMicrotask(decorateDomains);
   window.addEventListener('beforeunload',event=>{if(session){capture();if(session.drafts.size){event.preventDefault();event.returnValue='';}}});
 })();
