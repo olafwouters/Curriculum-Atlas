@@ -41,3 +41,6 @@ function headings(){
 new MutationObserver(headings).observe(host,{childList:true,subtree:true,characterData:true});
 headings();
 })();
+
+/* Reserve a badge column; omit unused Bloom UI without deleting stored values. */
+(()=>{'use strict';const style=document.createElement('style');style.textContent='#dialog.atlas-level-dialog .alignment-steps>section{display:grid!important;grid-template-columns:32px minmax(0,1fr)!important;column-gap:12px!important;row-gap:10px!important;align-content:start!important}#dialog.atlas-level-dialog .alignment-steps>section::before{position:static!important;inset:auto!important;grid-column:1!important;grid-row:1!important;width:32px!important;height:32px!important;align-self:start!important}#dialog.atlas-level-dialog .alignment-steps>section>h3{grid-column:2!important;grid-row:1!important;align-self:center!important;min-width:0!important;margin:0!important;overflow-wrap:anywhere}#dialog.atlas-level-dialog .alignment-steps>section>:not(h3){grid-column:1/-1!important;min-width:0!important}#dialog.atlas-level-dialog .alignment-steps>section::after{content:none!important;display:none!important}#dialog.atlas-level-dialog #form>details:has(select[name="bloom"]){display:none!important}';document.head.append(style);})();
