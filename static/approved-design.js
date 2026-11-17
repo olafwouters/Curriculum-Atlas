@@ -13,3 +13,31 @@ const prior=render;render=function(...args){const result=prior.apply(this,args);
 
 /* Load the scan presentation after the shared process model; legacy guide remains the fallback. */
 (()=>{if(document.getElementById('atlas-scan-script'))return;const script=document.createElement('script');script.id='atlas-scan-script';script.src='/static/scan-workspace.js?v=20261117-visible-completion';document.head.append(script);})();
+
+/* Visible terminology only. Routes, saved state, user content and export schemas stay unchanged. */
+(()=>{'use strict';
+const terms=/\b(curriculumscan|curriculum scan|competentiematrix|competence matrix|course catalogue|catalogus[\p{L}]*|catalogue|doelniveau[\p{L}]*|target levels?|matrix)\b/giu;
+function rename(value){return String(value).replace(terms,word=>{const lower=word.toLowerCase();let next;
+ if(lower==='curriculumscan')next='voortgang';else if(lower==='curriculum scan')next='progress';
+ else if(lower==='competentiematrix')next='curriculumscan';else if(lower==='competence matrix')next='curriculum scan';
+ else if(lower==='course catalogue')return word;else if(lower.startsWith('catalogus'))next='onderwijscatalogus'+lower.slice(9);
+ else if(lower==='catalogue')next='course catalogue';else if(lower.startsWith('doelniveau'))next='eindniveau'+lower.slice(10);
+ else if(lower.startsWith('target level'))next=lower.replace('target','exit');
+ else next=localStorage.getItem('compass-language')==='en'?'curriculum scan':'curriculumscan';
+ return /^[A-Z]/.test(word)?next[0].toUpperCase()+next.slice(1):next;
+ });}
+const textCache=new WeakMap(),attributeCache=new WeakMap();
+const skip='script,style,textarea,input,pre,code,.source,.outcome,.session-note-text,[contenteditable],[data-user-content]';
+let scheduled=false;
+function protectedStrings(){const values=new Set(),seen=new WeakSet();function visit(value){if(typeof value==='string'){terms.lastIndex=0;if(value&&terms.test(value))values.add(value);terms.lastIndex=0;}else if(value&&typeof value==='object'&&!seen.has(value)){seen.add(value);Object.values(value).forEach(visit);}}if(typeof state!=='undefined')visit(state);return [...values].sort((a,b)=>b.length-a.length);}
+function safeRename(value,protectedValues){let text=value;const tokens=[];for(const v of protectedValues){if(text.includes(v)){const marker='\uE000'+tokens.length+'\uE001';tokens.push(v);text=text.split(v).join(marker);}}text=rename(text);return text.replace(/\uE000(\d+)\uE001/g,(_,i)=>tokens[+i]);}
+function forceAttribute(node,key,value){if(node.getAttribute(key)!==value)node.setAttribute(key,value);let map=attributeCache.get(node);if(!map){map=new Map();attributeCache.set(node,map);}map.set(key,value);}
+function sync(){scheduled=false;const protect=protectedStrings();const walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT),nodes=[];while(walker.nextNode())nodes.push(walker.currentNode);
+ for(const node of nodes){if(!node.parentElement||node.parentElement.closest(skip))continue;const current=node.nodeValue;if(textCache.get(node)===current)continue;const next=safeRename(current,protect);if(next!==current)node.nodeValue=next;textCache.set(node,next);}
+ for(const node of document.querySelectorAll('[aria-label],[title],[placeholder]')){if(node.closest('script,style,pre,code,.source,.session-note-text,[contenteditable],[data-user-content]'))continue;let map=attributeCache.get(node);if(!map){map=new Map();attributeCache.set(node,map);}for(const key of ['aria-label','title','placeholder']){const value=node.getAttribute(key);if(value===null||map.get(key)===value)continue;const next=safeRename(value,protect);if(next!==value)node.setAttribute(key,next);map.set(key,next);}}
+ const en=localStorage.getItem('compass-language')==='en';for(const [route,nl,english] of [['facilitator','Voortgang','Progress'],['matrix','Curriculumscan','Curriculum scan'],['catalogue','Onderwijscatalogus','Course catalogue'],['targets','Eindniveau','Exit level']]){const button=document.querySelector('#navigation-items [data-tab="'+route+'"]');if(!button)continue;const label=button.querySelector('.nav-label'),value=en?english:nl;if(label){if(label.textContent!==value)label.textContent=value;if(label.firstChild)textCache.set(label.firstChild,value);}forceAttribute(button,'aria-label',value);forceAttribute(button,'title',value);}
+}
+function schedule(){if(scheduled)return;scheduled=true;requestAnimationFrame(sync);}
+new MutationObserver(schedule).observe(document.body,{childList:true,subtree:true,characterData:true,attributes:true,attributeFilter:['aria-label','title','placeholder']});
+document.addEventListener('change',schedule);document.querySelectorAll('[data-language]').forEach(button=>button.addEventListener('click',schedule));sync();
+})();
