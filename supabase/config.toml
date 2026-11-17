@@ -1,0 +1,9 @@
+# Local CLI configuration, not a production configuration deployment.
+project_id = "curriculum-atlas"
+
+[db]
+major_version = 17
+
+[auth]
+enable_signup = false
+enable_anonymous_sign_ins = false
