@@ -3,7 +3,7 @@ on:
   push:
     branches: ["integration/supabase-auth-storage"]
   pull_request:
-    paths: ["atlas_catalogue_storage.py", "tests/test_catalogue_storage.py", "tests/sql/**", "supabase/migrations/**", ".github/workflows/catalogue-storage.yml"]
+    paths: ["atlas_catalogue_*.py", "tests/test_catalogue*.py", "tests/sql/**", "supabase/migrations/**", ".github/workflows/catalogue-storage.yml"]
 permissions:
   contents: read
 jobs:
@@ -26,10 +26,12 @@ jobs:
       PGDATABASE: catalogue_ci
     steps:
       - uses: actions/checkout@v4
-      - name: Test catalogue migration in disposable PostgreSQL
+      - name: Test catalogue and worker migrations in disposable PostgreSQL
         run: >-
           psql -v ON_ERROR_STOP=1
           -f tests/sql/catalogue_bootstrap.sql
           -f supabase/migrations/20261117094355_curriculum_atlas_persistence_foundation.sql
           -f supabase/migrations/20261117150200_catalogue_storage.sql
+          -f supabase/migrations/20261117190000_catalogue_worker.sql
           -f tests/sql/catalogue_storage.sql
+          -f tests/sql/catalogue_worker.sql
