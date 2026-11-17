@@ -5,9 +5,28 @@ from werkzeug.exceptions import HTTPException
 class StoreError(Exception):
  def __init__(self,message,status=503):self.status=status;super().__init__(message)
 def configuration():
- url=os.environ.get('SUPABASE_URL','').rstrip('/');key=os.environ.get('SUPABASE_PUBLISHABLE_KEY','')
- if not url.startswith('https://') or not key.startswith('sb_publishable_'):raise StoreError('Supabase configuration missing; local fallback is disabled.')
+ from urllib.parse import urlsplit
+ url=os.environ.get('SUPABASE_URL','').strip().rstrip('/')
+ key=os.environ.get('SUPABASE_PUBLISHABLE_KEY','').strip()
+ problems=[]
+ if not url:
+  problems.append('SUPABASE_URL is missing from this deployment; check its Preview environment and exact Git branch scope')
+ else:
+  try:
+   parsed=urlsplit(url)
+   valid=parsed.scheme=='https' and bool(parsed.hostname) and not parsed.username and not parsed.password and parsed.path in ('','/') and not parsed.query and not parsed.fragment and not any(c.isspace() for c in url)
+  except ValueError:
+   valid=False
+  if not valid:
+   problems.append('SUPABASE_URL must be the HTTPS project API root URL, without quotes, a dashboard path, query parameters or credentials')
+ if not key:
+  problems.append('SUPABASE_PUBLISHABLE_KEY is missing from this deployment; check its Preview environment and exact Git branch scope')
+ elif not key.startswith('sb_publishable_') or not key[len('sb_publishable_'):] or any(c.isspace() for c in key):
+  problems.append('SUPABASE_PUBLISHABLE_KEY must contain the actual sb_publishable_ key, without quotes or internal spaces; variable names, legacy anon keys and secret keys are not accepted')
+ if problems:
+  raise StoreError('Supabase configuration error: '+'; '.join(problems)+'. Local fallback remains disabled.')
  return url,key
+
 def remote(path,method='GET',data=None,params=None):
  url,key=configuration()
  try:r=requests.request(method,url+path,headers={'apikey':key,'Authorization':'Bearer '+g.atlas_token,'Content-Type':'application/json'},json=data,params=params,timeout=(5,15),allow_redirects=False)
