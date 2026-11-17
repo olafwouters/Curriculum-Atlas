@@ -518,7 +518,8 @@ def cs_clean(d):
  if not out:raise ValueError('Een set heeft minstens een leeruitkomst.')
  return name,out
 from atlas_supabase import install
-install(app, globals())
+load_workspace_state = install(app, globals())
 
 if __name__=='__main__':app.run(host='127.0.0.1',port=int(os.environ.get('PORT','8022')),debug=False)
+
 
