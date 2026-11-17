@@ -1,10 +1,9 @@
 from flask import Flask,request,jsonify,send_from_directory
 from bs4 import BeautifulSoup
-import requests,sqlite3,json,uuid,datetime,re,os
+import requests,json,uuid,datetime,re,os
 from pathlib import Path
 ROOT=Path(__file__).resolve().parent
-DB=ROOT/'data'/'compass.sqlite3';DB.parent.mkdir(exist_ok=True)
-CATALOGUE_DIR=ROOT/'data'/'catalogue-cache';CATALOGUE_DIR.mkdir(exist_ok=True)
+CATALOGUE_DIR=ROOT/'data'/'catalogue-cache'
 app=Flask(__name__,static_folder=str(ROOT/'static'));app.config['MAX_CONTENT_LENGTH']=5000000
 
 @app.after_request
@@ -17,9 +16,6 @@ def disable_gui_cache(response):
 
 BASE='https://catalogue.hanze.nl'
 def now():return datetime.datetime.now(datetime.timezone.utc).isoformat()
-def db():
- c=sqlite3.connect(DB,timeout=15);c.row_factory=sqlite3.Row;return c
-with db() as c:c.executescript('CREATE TABLE IF NOT EXISTS workspaces(id TEXT PRIMARY KEY,state TEXT,revision INTEGER,updated TEXT); CREATE TABLE IF NOT EXISTS sessions(id TEXT PRIMARY KEY,workspace TEXT,title TEXT,state TEXT,created TEXT);')
 def text(x):return x.get_text(' ',strip=True) if x else ''
 def cache_file(year,lang):return CATALOGUE_DIR/(f'{lang}-{year}.json')
 def read_cache(year,lang):
@@ -30,6 +26,7 @@ def read_cache(year,lang):
   return d if isinstance(d,dict) and isinstance(d.get('results'),list) else None
  except Exception:return None
 def write_cache(year,lang,d):
+ CATALOGUE_DIR.mkdir(parents=True,exist_ok=True)
  d['saved']=now();tmp=cache_file(year,lang).with_suffix('.tmp');tmp.write_text(json.dumps(d,ensure_ascii=False),encoding='utf-8');tmp.replace(cache_file(year,lang))
  meta={'saved':d['saved'],'complete':bool(d.get('complete')),'programmes':len([x for x in d.get('results',[]) if '/programme/' in x.get('path','').lower()]),'courses':len(d.get('courses',{})),'totalCourses':d.get('totalCourses',0)}
  cache_file(year,lang).with_suffix('.meta').write_text(json.dumps(meta),encoding='utf-8')
@@ -326,87 +323,14 @@ def course():
    d=read_cache(p.stem.split('-',1)[1],p.stem.split('-',1)[0]);c=(d or {}).get('courses',{}).get(path)
    if c:return jsonify(c)
   raise
-@app.post('/api/workspaces/export')
-def export_workspaces():
- ids=request.json.get('ids',[])
- if not isinstance(ids,list) or not ids or len(ids)>1000 or any(not isinstance(x,str) for x in ids):raise ValueError('Select valid workspaces')
- with db() as c:
-  items=[]
-  for ident in dict.fromkeys(ids):
-   w=c.execute('SELECT * FROM workspaces WHERE id=?',(ident,)).fetchone()
-   if not w:return jsonify(error='Workspace no longer exists; reload the list'),409
-   items.append({'id':ident,'revision':w['revision'],'updated':w['updated'],'state':json.loads(w['state']),'sessions':[dict(x) for x in c.execute('SELECT * FROM sessions WHERE workspace=?',(ident,)).fetchall()]})
- return jsonify(format='compass-workspace-backup-v1',exported=now(),workspaces=items)
 
-@app.post('/api/workspaces/delete')
-def delete_workspaces():
- d=request.json;selected=d.get('workspaces',[])
- if d.get('confirmed') is not True or not isinstance(selected,list) or not selected or len(selected)>1000:raise ValueError('Confirmed workspace selection required')
- if any(not isinstance(x,dict) or not isinstance(x.get('id'),str) or not isinstance(x.get('revision'),int) for x in selected):raise ValueError('Invalid selection')
- ids=[x['id'] for x in selected]
- if len(set(ids))!=len(ids):raise ValueError('Duplicate selection')
- with db() as c:
-  c.execute('BEGIN IMMEDIATE');snapshots=[]
-  for x in selected:
-   w=c.execute('SELECT * FROM workspaces WHERE id=?',(x['id'],)).fetchone()
-   if not w or w['revision']!=x['revision']:return jsonify(error='Workspace changed or disappeared; reload before deleting'),409
-   snapshots.append({'workspace':dict(w),'sessions':[dict(v) for v in c.execute('SELECT * FROM sessions WHERE workspace=?',(x['id'],)).fetchall()]})
-  recovery=ROOT/'data'/'deleted-workspaces';recovery.mkdir(exist_ok=True)
-  backup=recovery/(str(uuid.uuid4())+'.json')
-  backup.write_text(json.dumps({'deleted':now(),'items':snapshots},ensure_ascii=False,indent=2),encoding='utf-8')
-  for ident in ids:
-   c.execute('DELETE FROM sessions WHERE workspace=?',(ident,));c.execute('DELETE FROM workspaces WHERE id=?',(ident,))
- return jsonify(deleted=len(ids),recovery=backup.name)
 
-@app.get('/api/workspaces')
-def listing():
- show_all=request.args.get('all')=='1'
- with db() as c:rows=c.execute('SELECT id,state,revision,updated FROM workspaces ORDER BY updated DESC').fetchall()
- out=[]
- for r in rows:
-  st=json.loads(r['state']);arch=bool(st.get('archived'))
-  if arch and not show_all:continue
-  out.append({'id':r['id'],'name':str(st.get('programme'))+((' ('+str(st.get('edition'))+')') if st.get('edition') else ''),'programme':st.get('programme'),'edition':st.get('edition'),'updated':r['updated'],'revision':r['revision'],'archived':arch})
- return jsonify(out)
-@app.get('/api/workspaces/<ident>')
-def load(ident):
- with db() as c:
-  r=c.execute('SELECT * FROM workspaces WHERE id=?',(ident,)).fetchone();ss=c.execute('SELECT id,title,created FROM sessions WHERE workspace=? ORDER BY created DESC',(ident,)).fetchall()
- if not r:return jsonify(error='Workspace not found'),404
- return jsonify(id=ident,state=json.loads(r['state']),revision=r['revision'],sessions=[dict(x) for x in ss])
-@app.post('/api/save')
-def save():
- d=request.json;state=d['state']
- if not isinstance(state,dict) or not isinstance(state.get('modules'),list) or not state.get('programme'):raise ValueError('Invalid workspace')
- ident=d.get('id') or str(uuid.uuid4());snapshot=json.dumps(state,ensure_ascii=False);stamp=now()
- with db() as c:
-  c.execute('BEGIN IMMEDIATE');old=c.execute('SELECT revision,state FROM workspaces WHERE id=?',(ident,)).fetchone()
-  if d.get('id') and not old:return jsonify(error='Workspace was deleted; export your changes before creating a new workspace.'),409
-  if old and old['revision']!=d.get('revision'):return jsonify(error='Another window changed this workspace. Export JSON, then reopen.'),409
-  if old:
-   prev=json.loads(old['state'])
-   if prev.get('archived'):state['archived']=True;state['archivedAt']=prev.get('archivedAt','')
-   else:state.pop('archived',None);state.pop('archivedAt',None)
-   snapshot=json.dumps(state,ensure_ascii=False)
-  revision=(old['revision'] if old else 0)+1
-  c.execute('INSERT OR REPLACE INTO workspaces VALUES(?,?,?,?)',(ident,snapshot,revision,stamp))
-  if d.get('finish'):c.execute('INSERT INTO sessions VALUES(?,?,?,?,?)',(str(uuid.uuid4()),ident,state.get('sessionTitle','Review'),snapshot,stamp))
- return jsonify(id=ident,revision=revision,updated=stamp)
-@app.get('/api/sessions/<ident>')
-def session(ident):
- with db() as c:r=c.execute('SELECT state FROM sessions WHERE id=?',(ident,)).fetchone()
- if not r:return jsonify(error='Session not found'),404
- return jsonify(state=json.loads(r['state']))
 
 from urllib.parse import quote,unquote,urlparse
 def ckey(code):return quote(str(code),safe="-_.!~*'()")
 def ncode(x):return str(x or '').strip().upper()
 def nname(x):return re.sub(r'\W+',' ',str(x or ''),flags=re.U).strip().lower()
 def meaningful(a):return isinstance(a,dict) and a.get('status') not in (None,'','unreviewed')
-def load_workspace_state(ident):
- with db() as c:r=c.execute('SELECT state FROM workspaces WHERE id=?',(ident,)).fetchone()
- if not r:raise ValueError('Workspace not found')
- return json.loads(r['state'])
 def structure_for(path):
  try:return parse_programme(get(path),path),False
  except requests.RequestException:
@@ -544,31 +468,6 @@ def yc_plan():
  d=request.json or {};old=load_workspace_state(d.get('workspace',''));new,offline=structure_for(d.get('path',''))
  ns,report=build_plan(old,new,d.get('workspace',''),d.get('lang','nl'));report['offline']=offline
  return jsonify(report)
-@app.post('/api/year-copy/commit')
-def yc_commit():
- d=request.json or {};ident=d.get('workspace','');old=load_workspace_state(ident);new,offline=structure_for(d.get('path',''))
- ns,report=build_plan(old,new,ident,d.get('lang','nl'));ns.pop('archived',None);ns.pop('archivedAt',None);nid=str(uuid.uuid4());stamp=now()
- with db() as c:
-  c.execute('BEGIN IMMEDIATE');c.execute('INSERT INTO workspaces VALUES(?,?,?,?)',(nid,json.dumps(ns,ensure_ascii=False),1,stamp))
-  if d.get('archive',True):
-   r=c.execute('SELECT state FROM workspaces WHERE id=?',(ident,)).fetchone()
-   if r:
-    st=json.loads(r['state']);st['archived']=True;st['archivedAt']=stamp;c.execute('UPDATE workspaces SET state=? WHERE id=?',(json.dumps(st,ensure_ascii=False),ident))
- return jsonify(id=nid,name=str(ns.get('programme'))+' ('+str(ns.get('edition'))+')',summary=report['summary'],archived=bool(d.get('archive',True)))
-@app.post('/api/workspaces/archive')
-def archive_workspaces():
- d=request.json or {};ids=d.get('ids',[]);flag=bool(d.get('archived',True))
- if not isinstance(ids,list) or not ids or len(ids)>1000 or any(not isinstance(x,str) for x in ids):raise ValueError('Select valid workspaces')
- with db() as c:
-  c.execute('BEGIN IMMEDIATE')
-  for ident in dict.fromkeys(ids):
-   r=c.execute('SELECT state FROM workspaces WHERE id=?',(ident,)).fetchone()
-   if not r:return jsonify(error='Workspace no longer exists; reload the list'),409
-   st=json.loads(r['state'])
-   if flag:st['archived']=True;st['archivedAt']=now()
-   else:st.pop('archived',None);st.pop('archivedAt',None)
-   c.execute('UPDATE workspaces SET state=? WHERE id=?',(json.dumps(st,ensure_ascii=False),ident))
- return jsonify(count=len(ids),archived=flag)
 
 LIB_DOMAINS=['Informatie & data geletterdheid','Communicatie & samenwerking','Digitale content creatie','Digitale veiligheid','Probleemoplossend vermogen']
 LIB_LEVELS=['I. Starten','II. Toepassen','III. Verdiepen','IV. Richting geven']
@@ -579,16 +478,6 @@ def lib_file(n):
  return os.path.join(os.path.dirname(os.path.abspath(__file__)),n)
 def lib_seeds():
  with open(lib_file('library_seed.json'),encoding='utf-8') as f:return json.load(f)
-def lib_ensure(c):
- c.execute('CREATE TABLE IF NOT EXISTS library(id TEXT PRIMARY KEY,item TEXT NOT NULL,source TEXT,created TEXT,updated TEXT)')
- c.execute('CREATE TABLE IF NOT EXISTS library_meta(key TEXT PRIMARY KEY,value TEXT NOT NULL)')
- r=c.execute("SELECT value FROM library_meta WHERE key='version'").fetchone()
- if r and r['value']==LIB_VERSION:return
- c.execute("DELETE FROM library WHERE source IN ('web','curated')")
- for x in lib_seeds():
-  item={k:v for k,v in x.items() if k!='id'}
-  c.execute('INSERT OR REPLACE INTO library VALUES(?,?,?,?,?)',(x['id'],json.dumps(item,ensure_ascii=False),'curated',now(),now()))
- c.execute("INSERT OR REPLACE INTO library_meta(key,value) VALUES('version',?)",(LIB_VERSION,))
 def lib_clean(d):
  if not isinstance(d,dict):raise ValueError('Invalid example')
  s=lambda k,n:str(d.get(k,'') or '').strip()[:n]
@@ -602,13 +491,6 @@ def lib_clean(d):
  tags=d.get('tags',[]);tags=tags.split(',') if isinstance(tags,str) else tags
  item['tags']=[str(t).strip()[:40] for t in (tags if isinstance(tags,list) else []) if str(t).strip()][:12]
  return item
-def lib_row(r):
- x=json.loads(r['item']);x.update(id=r['id'],source=r['source'],created=r['created'],updated=r['updated']);return x
-@app.get('/api/library')
-def library_list():
- with db() as c:
-  lib_ensure(c);rows=c.execute('SELECT * FROM library ORDER BY id ASC').fetchall()
- return jsonify([lib_row(r) for r in rows])
 @app.get('/api/library/outcomes')
 def library_outcomes():
  with open(lib_file('framework.json'),encoding='utf-8') as f:fw=json.load(f)
@@ -624,29 +506,7 @@ def library_translations():
  try:
   with open(lib_file('library_seed.en.json'),encoding='utf-8') as f:return jsonify(json.load(f))
  except FileNotFoundError:return jsonify({})
-@app.post('/api/library')
-def library_add():
- item=lib_clean((request.json or {}).get('item'));ident=str(uuid.uuid4());stamp=now()
- with db() as c:
-  lib_ensure(c);c.execute('INSERT INTO library VALUES(?,?,?,?,?)',(ident,json.dumps(item,ensure_ascii=False),'handmatig',stamp,stamp))
- return jsonify(id=ident)
-@app.post('/api/library/update')
-def library_update():
- d=request.json or {};item=lib_clean(d.get('item'))
- with db() as c:
-  lib_ensure(c)
-  if not c.execute('SELECT 1 FROM library WHERE id=?',(d.get('id',''),)).fetchone():return jsonify(error='Voorbeeld bestaat niet meer; ververs de bibliotheek.'),409
-  c.execute('UPDATE library SET item=?,updated=? WHERE id=?',(json.dumps(item,ensure_ascii=False),now(),d['id']))
- return jsonify(ok=True)
-@app.post('/api/library/delete')
-def library_delete():
- d=request.json or {}
- with db() as c:
-  lib_ensure(c);n=c.execute('DELETE FROM library WHERE id=?',(d.get('id',''),)).rowcount
- if not n:return jsonify(error='Voorbeeld bestaat niet meer; ververs de bibliotheek.'),409
- return jsonify(deleted=n)
 LVS={'I. Starten','II. Toepassen','III. Verdiepen','IV. Richting geven'}
-with db() as c:c.execute('CREATE TABLE IF NOT EXISTS competence_sets(id TEXT PRIMARY KEY,name TEXT NOT NULL,data TEXT NOT NULL,updated TEXT)')
 def cs_clean(d):
  name=str(d.get('name') or '').strip()[:120]
  if not name:raise ValueError('Geef de set een naam.')
@@ -657,25 +517,8 @@ def cs_clean(d):
   seen.add((dom.lower(),lv));out.append(dict(id=oid,domain=dom,level=lv,text=txt,color=col if re.fullmatch(r'#[0-9A-Fa-f]{6}',col) else '#8E6BBF'))
  if not out:raise ValueError('Een set heeft minstens een leeruitkomst.')
  return name,out
-@app.get('/api/competence-sets')
-def cs_list():
- with db() as c:rows=c.execute('SELECT id,name,data,updated FROM competence_sets ORDER BY lower(name)').fetchall()
- return jsonify([dict(id=r['id'],name=r['name'],updated=r['updated'],outcomes=json.loads(r['data'])) for r in rows])
-@app.post('/api/competence-sets')
-def cs_save():
- d=request.json or {}
- try:name,out=cs_clean(d)
- except ValueError as e:return jsonify(error=str(e)),400
- ident=str(d.get('id') or '')[:80] or str(uuid.uuid4())
- with db() as c:
-  c.execute('BEGIN IMMEDIATE')
-  if c.execute('SELECT 1 FROM competence_sets WHERE lower(name)=lower(?) AND id!=?',(name,ident)).fetchone():return jsonify(error='Er bestaat al een set met deze naam.'),409
-  c.execute('INSERT OR REPLACE INTO competence_sets VALUES(?,?,?,?)',(ident,name,json.dumps(out,ensure_ascii=False),now()))
- return jsonify(id=ident,name=name)
-@app.post('/api/competence-sets/delete')
-def cs_delete():
- d=request.json or {}
- with db() as c:n=c.execute('DELETE FROM competence_sets WHERE id=?',(str(d.get('id','')),)).rowcount
- if not n:return jsonify(error='Set bestaat niet meer.'),409
- return jsonify(deleted=n)
+from atlas_supabase import install
+install(app, globals())
+
 if __name__=='__main__':app.run(host='127.0.0.1',port=int(os.environ.get('PORT','8022')),debug=False)
+
