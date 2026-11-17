@@ -175,3 +175,4 @@ def install(app,legacy):
  def library_delete():
   d=request.get_json() or {};rpc('atlas_write_shared',p_kind='library',p_id=str(d.get('id','')),p_data=None,p_delete=True,p_expected_revision=d.get('revision'));return jsonify(deleted=1)
  route('/api/library',library_add,'POST');route('/api/library/update',library_update,'POST');route('/api/library/delete',library_delete,'POST')
+ return legacy['load_workspace_state']
