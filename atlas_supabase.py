@@ -55,6 +55,8 @@ def revision(value):
  if type(value) is not int or value<1:raise StoreError('Current revision required.',400)
  return value
 def install(app,legacy):
+ from atlas_catalogue_snapshots import install as install_snapshots
+ snapshot_dispatch=install_snapshots(legacy,StoreError) if os.environ.get('VERCEL') else None
  def route(path,fn,method='GET'):app.add_url_rule(path,'atlas_'+fn.__name__,fn,methods=[method])
  @app.errorhandler(StoreError)
  def storage_error(e):return jsonify(error=str(e)),e.status
@@ -74,7 +76,7 @@ def install(app,legacy):
    origin=request.headers.get('Origin')
    if origin and origin!=os.environ.get('APP_ORIGIN',request.host_url.rstrip('/')):raise StoreError('Cross-origin write refused.',403)
   if request.path in ('/api/catalogue-cache/start','/api/catalogue-cache/stop'):raise StoreError('Use the separate catalogue synchronisation worker; request-lifetime crawling is disabled.',503)
-  if os.environ.get('VERCEL') and request.path in ('/api/search','/api/catalogue-clusters','/api/programme','/api/course'):raise StoreError('Persistent catalogue integration is not installed yet. Workspace storage is available.',503)
+  if snapshot_dispatch is not None:return snapshot_dispatch()
  def home():
   html=(legacy['ROOT']/'static/index.html').read_text(encoding='utf-8');marker='<script src="/static/app.js'
   if html.count(marker)!=1:raise StoreError('Application boot marker changed; cannot install authentication safely.')
