@@ -41,3 +41,54 @@ function schedule(){if(scheduled)return;scheduled=true;requestAnimationFrame(syn
 new MutationObserver(schedule).observe(document.body,{childList:true,subtree:true,characterData:true,attributes:true,attributeFilter:['aria-label','title','placeholder']});
 document.addEventListener('change',schedule);document.querySelectorAll('[data-language]').forEach(button=>button.addEventListener('click',schedule));sync();
 })();
+
+/* Surface-only atmosphere: existing controls, routes and storage are untouched. */
+(()=>{'use strict';
+if(document.getElementById('atlas-atmosphere'))return;
+const style=document.createElement('style');style.textContent=`
+#atlas-atmosphere{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none;background:radial-gradient(ellipse at 0% 5%,#647b7c55,transparent 68%),radial-gradient(ellipse at 40% 110%,#b77b4940,transparent 65%),#f8f7f3}
+body.atlas-locked #atlas-atmosphere{display:none}
+body:not(.atlas-locked)>.app-shell{position:relative;z-index:1}
+#atlas-atmosphere canvas{position:absolute;width:min(88vw,115vh);height:min(88vw,115vh);left:-10vw;top:-18vh;opacity:.48}
+html:not([data-theme="dark"]) body:not(.atlas-locked) .app-shell aside#navigation-panel.sidebar{isolation:isolate;background:linear-gradient(135deg,#ffffffb8,#ffffffa3)!important;border-color:#ffffffdf!important;box-shadow:inset 0 1px 0 #fffffff2,inset 1px 0 0 #ffffffa6,0 8px 18px #3f312512,0 24px 48px #3f312519!important;backdrop-filter:blur(24px)!important;-webkit-backdrop-filter:blur(24px)!important}
+html[data-theme="dark"] body:not(.atlas-locked) .app-shell aside#navigation-panel.sidebar{isolation:isolate;border-color:#ffffff38!important}
+.atlas-globe-clip{position:absolute;inset:0;z-index:-1;border-radius:inherit;overflow:hidden;pointer-events:none}
+#navigation-panel>.atlas-globe-clip canvas{position:absolute;width:150px;height:150px;left:-75px;top:-10px}
+.cc-full-banner>.atlas-globe-clip canvas{position:absolute;width:360px;height:360px;right:-80px;top:10px}
+html[data-theme="dark"] #atlas-atmosphere{background:radial-gradient(ellipse at 0% 5%,#42636355,transparent 68%),radial-gradient(ellipse at 40% 110%,#87532933,transparent 65%),#182b2f}
+@media(prefers-reduced-transparency:reduce){html:not([data-theme="dark"]) body:not(.atlas-locked) .app-shell aside#navigation-panel.sidebar{background:#f8f8f5!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}}
+`;
+document.head.append(style);
+const root=document.createElement('div');root.id='atlas-atmosphere';root.setAttribute('aria-hidden','true');document.body.prepend(root);
+const reduced=matchMedia('(prefers-reduced-motion: reduce)'),dark=()=>document.documentElement.dataset.theme==='dark';
+let paused=reduced.matches,angle=0,frame=0,last=0;const globes=new Map();
+function attach(parent,kind){
+ const canvas=document.createElement('canvas');canvas.setAttribute('aria-hidden','true');
+ let host=parent;if(kind!=='page'){host=document.createElement('div');host.className='atlas-globe-clip';host.setAttribute('aria-hidden','true');parent.append(host);}
+ host.append(canvas);const ctx=canvas.getContext('2d');if(ctx)globes.set(canvas,{ctx,kind});
+}
+attach(root,'page');const nav=document.getElementById('navigation-panel');if(nav)attach(nav,'menu');
+const settings=nav?.querySelector('.sidebar-settings');let pause;
+if(settings){pause=document.createElement('button');pause.type='button';pause.dataset.noTranslate='';pause.onclick=()=>{paused=!paused;sync();};settings.append(pause);}
+const paths=[];
+for(let lat=-75;lat<=75;lat+=15){const p=[];for(let lon=-180;lon<=180;lon+=3)p.push([lon*Math.PI/180,lat*Math.PI/180]);paths.push(p);}
+for(let lon=-180;lon<180;lon+=15){const p=[];for(let lat=-90;lat<=90;lat+=3)p.push([lon*Math.PI/180,lat*Math.PI/180]);paths.push(p);}
+function draw(){for(const [canvas,{ctx,kind}] of globes){
+ if(!canvas.isConnected){globes.delete(canvas);continue;}
+ const width=canvas.getBoundingClientRect().width;if(!width)continue;const size=Math.round(width*Math.min(devicePixelRatio||1,2));if(canvas.width!==size)canvas.width=canvas.height=size;
+ ctx.setTransform(1,0,0,1,0,0);ctx.clearRect(0,0,size,size);const r=size*.48;ctx.translate(size/2,size/2);ctx.scale(r,r);ctx.lineWidth=1/r;
+ const light=kind==='banner'||dark(),rgb=light?'231,242,239':'70,94,95',alpha=kind==='menu'?.49:kind==='banner'?.14:.30;
+ for(const front of [false,true]){ctx.strokeStyle='rgba('+rgb+','+(front?alpha:alpha*.23)+')';for(const path of paths){ctx.beginPath();let pen=false;for(const [lon,lat] of path){const a=lon+angle,x=Math.cos(lat)*Math.sin(a),y=Math.sin(lat),z=Math.cos(lat)*Math.cos(a);if((z>=0)!==front){pen=false;continue;}const px=x*Math.cos(.20)-y*Math.sin(.20),py=-x*Math.sin(.20)-y*Math.cos(.20);if(pen)ctx.lineTo(px,py);else ctx.moveTo(px,py);pen=true;}ctx.stroke();}}
+ ctx.beginPath();ctx.arc(0,0,1,0,Math.PI*2);ctx.strokeStyle='rgba('+rgb+','+alpha*.7+')';ctx.stroke();
+}}
+function visible(){return !document.hidden&&!document.body.classList.contains('atlas-locked');}
+function tick(now){frame=0;if(paused||!visible()){last=0;return;}if(last)angle+=Math.min(now-last,50)*Math.PI*2/100000;last=now;draw();frame=requestAnimationFrame(tick);}
+function sync(){if(frame)cancelAnimationFrame(frame);frame=0;last=0;if(pause){const en=localStorage.getItem('compass-language')==='en',text=paused?(en?'Resume globe':'Globe hervatten'):(en?'Pause globe':'Globe pauzeren');if(pause.textContent!==text)pause.textContent=text;pause.setAttribute('aria-pressed',String(paused));}if(visible()){draw();if(!paused)frame=requestAnimationFrame(tick);}}
+function discover(){let added=false;document.querySelectorAll('.cc-full-banner').forEach(b=>{if(!b.querySelector(':scope > .atlas-globe-clip')){attach(b,'banner');added=true;}});if(added)sync();}
+new MutationObserver(discover).observe(document.getElementById('view')||document.body,{childList:true,subtree:true});
+new MutationObserver(sync).observe(document.body,{attributes:true,attributeFilter:['class']});
+new MutationObserver(sync).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme','lang']});
+document.addEventListener('visibilitychange',sync);window.addEventListener('resize',()=>{if(visible())draw();});
+document.addEventListener('click',e=>{if(e.target.closest('[data-language]'))setTimeout(sync,0);});
+reduced.addEventListener('change',e=>{paused=e.matches;sync();});discover();sync();
+})();
