@@ -13,3 +13,11 @@ html body[data-view="targets"] #legend.legend,
 html body[data-view="targets"] .graph-legend{display:none!important}
 html body[data-view="targets"] #view .card>h3{display:flex;align-items:center;gap:8px}
 html body[data-view="targets"] #view .target-domain-info{flex-shrink:0;margin-inline-start:auto}
+
+/* Obsolete catalogue controls: retain saved search and per-programme online lookup. */
+#view #updateCatalogue,
+#view #stopCatalogue,
+#view #catalogueProgress,
+#view label:has(#refreshCatalogue),
+#view .filters:has(> #updateCatalogue),
+#searchForm button[value="online"]{display:none!important}
