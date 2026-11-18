@@ -16,3 +16,33 @@ native.addEventListener('change',sync);new MutationObserver(sync).observe(docume
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
 })();
+
+/* Catalogue control labels: own these UI labels so rerenders stay bilingual.
+   Only controls are touched; source content, values and handlers are preserved. */
+(() => {
+  'use strict';
+  const view = document.getElementById('view');
+  if (!view) return;
+  function label(element, nl, en) {
+    if (!element) return;
+    const text = localStorage.getItem('compass-language') === 'en' ? en : nl;
+    if (!element.hasAttribute('data-no-translate')) element.setAttribute('data-no-translate', '');
+    if (element.textContent !== text) element.textContent = text;
+  }
+  function syncCatalogueLabels() {
+    const form = view.querySelector('#searchForm');
+    if (!form) return;
+    label(form.querySelector('button[value="local"]'), 'Zoek lokale onderwijscatalogus', 'Search saved course catalogue');
+    label(form.querySelector('button[value="online"]'), 'Zoek online onderwijscatalogus', 'Search online course catalogue');
+    view.querySelectorAll('button[data-path]').forEach(button => {
+      const programme = /\/programme\//i.test(button.dataset.path || '');
+      label(button, programme ? 'Bekijk curriculum' : 'Bekijk vak', programme ? 'View curriculum' : 'View course');
+    });
+  }
+  new MutationObserver(syncCatalogueLabels).observe(view, {childList: true, subtree: true, characterData: true});
+  new MutationObserver(syncCatalogueLabels).observe(document.documentElement, {attributes: true, attributeFilter: ['lang']});
+  document.addEventListener('click', event => {
+    if (event.target.closest && event.target.closest('[data-language]')) queueMicrotask(syncCatalogueLabels);
+  });
+  syncCatalogueLabels();
+})();
