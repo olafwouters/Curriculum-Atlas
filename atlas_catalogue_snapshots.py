@@ -55,6 +55,9 @@ def install(legacy, error):
             raise error('Item is not available in the deployed catalogue snapshot.', 404)
         return copy.deepcopy(item)
 
+    from atlas_programme_routes import install as install_programme_routes
+    programme_dispatch = install_programme_routes(legacy, error, read, detail)
+
     legacy['structure_for'] = lambda path: (detail(path, 'Programme'), True)
 
     def metadata(data):
@@ -63,6 +66,9 @@ def install(legacy, error):
         return {'saved': data.get('saved') or data.get('fetched', ''), 'complete': bool(data.get('complete')), 'programmes': sum('/programme/' in r.get('path', '').lower() for r in data['results']), 'courses': len(data.get('courses', {})), 'totalCourses': data.get('totalCourses', len(data.get('courses', {})))}
 
     def dispatch():
+        response = programme_dispatch()
+        if response is not None:
+            return response
         if request.path not in ROUTES:
             return None
         if request.path in ('/api/programme', '/api/course'):
