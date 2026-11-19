@@ -15,10 +15,14 @@ window.addEventListener('resize',schedule);sync();
 (()=>{'use strict';
 const nav=document.getElementById('navigation-panel');if(!nav)return;
 const style=document.createElement('style');style.textContent=`
-#navigation-panel .sidebar-brand.atlas-brand-globe{position:relative;box-sizing:border-box;min-height:52px;padding-right:60px;display:flex;align-items:center}
-#navigation-panel .sidebar-brand>.atlas-menu-globe{position:absolute;right:0;top:50%;transform:translateY(-50%);width:48px;height:48px;pointer-events:none}
+/* Content sets menu height; the document scrolls instead of a nested panel. */
+html body .app-shell aside#navigation-panel.sidebar{position:relative!important;top:0!important;height:auto!important;max-height:none!important;min-height:0!important;overflow:visible!important}
+html body #navigation-panel #navigation-items,html body #navigation-panel .sidebar-settings{height:auto!important;max-height:none!important;overflow:visible!important;flex:0 0 auto!important}
+/* A 192px target diameter, constrained only by available menu width. */
+#navigation-panel .sidebar-brand.atlas-brand-globe{position:relative;box-sizing:border-box;min-height:0;padding:5px 0 20px!important;display:flex;flex-wrap:wrap;align-items:center;gap:12px;min-width:0;max-width:100%}
+#navigation-panel .sidebar-brand>.atlas-menu-globe{display:block;position:relative;right:auto;top:auto;transform:none;margin-left:auto;flex:0 1 192px;width:192px;max-width:100%;height:auto;aspect-ratio:1;pointer-events:none}
 #navigation-panel .sidebar-brand>.atlas-menu-globe[hidden]{display:none!important}
-#navigation-panel .atlas-menu-globe canvas{display:block;position:static;width:48px;height:48px;max-width:none;max-height:none;opacity:1;transform:none}
+#navigation-panel .atlas-menu-globe canvas{display:block;position:static;box-sizing:border-box;width:100%;height:auto;aspect-ratio:1;max-width:100%;max-height:none;opacity:1;transform:none}
 `;document.head.append(style);
 function place(){
  const brand=nav.querySelector('.sidebar-brand');if(!brand)return;
