@@ -14,3 +14,6 @@ document.addEventListener('DOMContentLoaded',()=>{
  });}
  new MutationObserver(swap).observe(view,{subtree:true,childList:true,attributes:true,attributeFilter:['src','srcset','href']});swap();
 },{once:true});
+
+/* Load inline progress completion controls after app initialization. */
+document.addEventListener('DOMContentLoaded',()=>{const s=document.createElement('script');s.src='/static/progress-step-checks.js?v=20261119-inline';document.head.append(s);},{once:true});
