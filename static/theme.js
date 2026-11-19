@@ -1,1 +1,3 @@
 (()=>{const key='nextgen-compass-theme',mq=matchMedia('(prefers-color-scheme: dark)');let p='system';try{p=localStorage.getItem(key)||p}catch{}function apply(){document.documentElement.dataset.theme=p==='system'?(mq.matches?'dark':'light'):p}apply();mq.addEventListener('change',apply);document.addEventListener('DOMContentLoaded',()=>{const s=document.getElementById('theme');s.value=p;s.onchange=()=>{p=s.value;try{localStorage.setItem(key,p)}catch{}apply()}})})();
+/* Load shared workspace presentation after the existing app initializes. */
+document.addEventListener('DOMContentLoaded',()=>{const s=document.createElement('script');s.src='/static/workspace-bar.js?v=20261119-compact';document.head.append(s);},{once:true});
