@@ -11,18 +11,17 @@ new MutationObserver(schedule).observe(nav,{subtree:true,attributes:true,attribu
 window.addEventListener('resize',schedule);sync();
 })();
 
-/* Keep the existing animated menu canvas whole, beside the brand title. */
+/* Keep the existing animation behind the centered, readable menu title. */
 (()=>{'use strict';
 const nav=document.getElementById('navigation-panel');if(!nav)return;
 const style=document.createElement('style');style.textContent=`
-/* Content sets menu height; the document scrolls instead of a nested panel. */
 html body .app-shell aside#navigation-panel.sidebar{position:relative!important;top:0!important;height:auto!important;max-height:none!important;min-height:0!important;overflow:visible!important}
 html body #navigation-panel #navigation-items,html body #navigation-panel .sidebar-settings{height:auto!important;max-height:none!important;overflow:visible!important;flex:0 0 auto!important}
-/* A 192px target diameter, constrained only by available menu width. */
-#navigation-panel .sidebar-brand.atlas-brand-globe{position:relative;box-sizing:border-box;min-height:0;padding:5px 0 20px!important;display:flex;flex-wrap:wrap;align-items:center;gap:12px;min-width:0;max-width:100%}
-#navigation-panel .sidebar-brand>.atlas-menu-globe{display:block;position:relative;right:auto;top:auto;transform:none;margin-left:auto;flex:0 1 192px;width:192px;max-width:100%;height:auto;aspect-ratio:1;pointer-events:none}
+#navigation-panel .sidebar-brand.atlas-brand-globe{position:relative;isolation:isolate;box-sizing:border-box;height:164px;min-height:164px;padding:10px 0!important;display:flex;align-items:center;justify-content:center;text-align:center;min-width:0;max-width:100%;flex-shrink:0;text-shadow:0 1px 8px var(--atlas-brand-halo,#f8f7f3)}
+html[data-theme="dark"] #navigation-panel .sidebar-brand{--atlas-brand-halo:#182b2f}
+#navigation-panel .sidebar-brand>.atlas-menu-globe{display:block;position:absolute;z-index:-1;left:50%;top:50%;transform:translate(-50%,-50%);margin:0;width:144px;height:144px;max-width:100%;pointer-events:none}
 #navigation-panel .sidebar-brand>.atlas-menu-globe[hidden]{display:none!important}
-#navigation-panel .atlas-menu-globe canvas{display:block;position:static;box-sizing:border-box;width:100%;height:auto;aspect-ratio:1;max-width:100%;max-height:none;opacity:1;transform:none}
+#navigation-panel .atlas-menu-globe canvas{display:block;position:static;box-sizing:border-box;width:100%;height:100%;max-width:100%;max-height:none;opacity:.42;transform:none}
 `;document.head.append(style);
 function place(){
  const brand=nav.querySelector('.sidebar-brand');if(!brand)return;
@@ -36,4 +35,26 @@ function place(){
 }
 new MutationObserver(place).observe(nav,{childList:true,subtree:true,attributes:true,attributeFilter:['aria-expanded']});
 window.addEventListener('resize',place);place();
+})();
+
+/* Match account actions to the existing glass tracks, retaining their handlers. */
+(()=>{'use strict';
+const style=document.createElement('style');style.textContent=`
+html body .app-shell main>.topbar #atlas-account{margin:0!important;gap:12px;min-width:0;flex-wrap:wrap}
+html body .app-shell main>.topbar #atlas-account>.atlas-account-actions{box-sizing:border-box;display:inline-flex;align-items:center;flex-shrink:0;gap:0;height:48px;padding:4px;border-radius:16px;border:1px solid var(--uc-edge);background:var(--uc-track);box-shadow:inset 0 1px 3px rgba(45,37,29,.08),0 1px 0 rgba(255,255,255,.3);backdrop-filter:blur(20px) saturate(140%);-webkit-backdrop-filter:blur(20px) saturate(140%)}
+html body .app-shell main>.topbar #atlas-account .atlas-account-actions>button{box-sizing:border-box;appearance:none;display:flex;align-items:center;justify-content:center;height:38px!important;min-height:38px!important;padding:0 12px!important;margin:0!important;border:0!important;border-radius:12px!important;background:transparent!important;box-shadow:none!important;color:var(--uc-ink)!important;font-size:12px!important;font-weight:600!important;line-height:1!important;white-space:nowrap;transform:none!important;cursor:pointer}
+html body .app-shell main>.topbar #atlas-account .atlas-account-actions>button:hover,html body .app-shell main>.topbar #atlas-account .atlas-account-actions>button:active{background:var(--shared-orange)!important;box-shadow:var(--shared-orange-shadow)!important;color:#fff!important}
+html body .app-shell main>.topbar #atlas-account .atlas-account-actions>button:focus-visible{outline:2px solid #e87500!important;outline-offset:3px}
+`;
+document.head.append(style);
+function decorate(){
+ const profile=document.querySelector('.topbar #profile');if(profile){profile.onclick=null;profile.remove();}
+ const account=document.getElementById('atlas-account');if(!account)return;
+ const buttons=[...account.children].filter(n=>n.tagName==='BUTTON');if(!buttons.length)return;
+ let group=account.querySelector(':scope > .atlas-account-actions');
+ if(!group){group=document.createElement('div');group.className='atlas-account-actions';group.setAttribute('role','group');account.append(group);}
+ buttons.forEach(button=>group.append(button));
+}
+function start(){const topbar=document.querySelector('.topbar');if(!topbar)return;new MutationObserver(decorate).observe(topbar,{childList:true,subtree:true});decorate();}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start,{once:true});else start();
 })();
