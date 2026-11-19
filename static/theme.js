@@ -1,3 +1,16 @@
 (()=>{const key='nextgen-compass-theme',mq=matchMedia('(prefers-color-scheme: dark)');let p='system';try{p=localStorage.getItem(key)||p}catch{}function apply(){document.documentElement.dataset.theme=p==='system'?(mq.matches?'dark':'light'):p}apply();mq.addEventListener('change',apply);document.addEventListener('DOMContentLoaded',()=>{const s=document.getElementById('theme');s.value=p;s.onchange=()=>{p=s.value;try{localStorage.setItem(key,p)}catch{}apply()}})})();
 /* Load shared workspace presentation after the existing app initializes. */
 document.addEventListener('DOMContentLoaded',()=>{const s=document.createElement('script');s.src='/static/workspace-bar.js?v=20261119-compact';document.head.append(s);},{once:true});
+
+/* Use the uploaded framework asset without changing page layout or image contents. */
+document.addEventListener('DOMContentLoaded',()=>{
+ const view=document.getElementById('view');if(!view)return;
+ const previous='/static/DigComp-3.0-figure.jpeg',next='/static/DigCompFramework.png';
+ function swap(){view.querySelectorAll('img[src],img[srcset],source[srcset],a[href]').forEach(element=>{
+  for(const attribute of ['src','srcset','href']){
+   const value=element.getAttribute(attribute);
+   if(value&&value.includes(previous))element.setAttribute(attribute,value.split(previous).join(next));
+  }
+ });}
+ new MutationObserver(swap).observe(view,{subtree:true,childList:true,attributes:true,attributeFilter:['src','srcset','href']});swap();
+},{once:true});
