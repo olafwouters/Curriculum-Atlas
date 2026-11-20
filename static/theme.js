@@ -35,3 +35,6 @@ document.addEventListener('DOMContentLoaded',()=>{const style=document.createEle
 
 /* Replace only the DigComp demonstration after the original chooser initializes. */
 document.addEventListener('DOMContentLoaded',()=>{const s=document.createElement('script');s.src='/static/demo-digcomp-four-year.js?v=20261120-four-years';document.head.append(s);},{once:true});
+
+/* Reopen existing demonstrations rather than saving another copy. */
+document.addEventListener('DOMContentLoaded',()=>{const s=document.createElement('script');s.src='/static/demo-workspace-reuse.js?v=20261120-reuse';document.head.append(s);},{once:true});
