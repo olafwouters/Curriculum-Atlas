@@ -1,8 +1,20 @@
-@media screen and (min-width: 1200px) {
-  #view svg.curriculum-chart:has(text[transform*='rotate']):not(:has(text[transform*='rotate'] ~ text[transform*='rotate'] ~ text[transform*='rotate'] ~ text[transform*='rotate'] ~ text[transform*='rotate'] ~ text[transform*='rotate'] ~ text[transform*='rotate'] ~ text[transform*='rotate'] ~ text[transform*='rotate'])) {
-    max-width: 68rem;
-    height: auto;
-    margin-inline: auto;
-    display: block;
+/* Interactive view only. Do not change SVG geometry or report styles. */
+@media screen {
+  html body #view .chart-scroll {
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    padding: 16px !important;
+    overflow-x: auto !important;
+  }
+  html body #view .chart-scroll svg.curriculum-chart {
+    display: block !important;
+    width: auto !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    height: 430px !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    margin: 0 !important;
   }
 }
