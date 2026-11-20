@@ -32,3 +32,6 @@ document.addEventListener('DOMContentLoaded',()=>{const s=document.createElement
 
 /* Limit desktop enlargement of short live charts without changing exported SVGs. */
 document.addEventListener('DOMContentLoaded',()=>{const style=document.createElement('link');style.rel='stylesheet';style.href='/static/compact-curriculum-chart.css';document.head.append(style);},{once:true});
+
+/* Replace only the DigComp demonstration after the original chooser initializes. */
+document.addEventListener('DOMContentLoaded',()=>{const s=document.createElement('script');s.src='/static/demo-digcomp-four-year.js?v=20261120-four-years';document.head.append(s);},{once:true});
