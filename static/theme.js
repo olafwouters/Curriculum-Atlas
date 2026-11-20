@@ -29,3 +29,6 @@ document.addEventListener('DOMContentLoaded',()=>{const s=document.createElement
 
 /* Share collision-free competence display colours across chart and scan. */
 document.addEventListener('DOMContentLoaded',()=>{const s=document.createElement('script');s.src='/static/competence-colours.js?v=20261120-unique';document.head.append(s);},{once:true});
+
+/* Limit desktop enlargement of short live charts without changing exported SVGs. */
+document.addEventListener('DOMContentLoaded',()=>{const style=document.createElement('link');style.rel='stylesheet';style.href='/static/compact-curriculum-chart.css';document.head.append(style);},{once:true});
