@@ -1,0 +1,13 @@
+'use strict';
+const assert=require('node:assert/strict');
+const {identity,ordered,matching}=require('../static/workspace-index.js');
+assert.equal(identity({source:'https://catalogue.hanze.nl/nl/programme/2026/ABC?x=1',edition:'2026–2027'}),'abc|2026');
+assert.equal(identity({source:'/en/programme/2026/ABC/'}),'abc|2026');
+assert.notEqual(identity({source:'/nl/programme/2025/ABC'}),identity({source:'/nl/programme/2026/ABC'}));
+assert.equal(identity({programme:'ABC'}),'');
+assert.equal(identity({source:'/nl/course/2026/ABC'}),'');
+const rows=[{id:'2',programme:'Zulu',curriculumKey:'abc|2026'},{id:'1',programme:'alpha',curriculumKey:'abc|2026'},{id:'3',programme:'Beta',curriculumKey:'other|2026'}];
+assert.deepEqual(ordered(rows).map(w=>w.id),['1','3','2']);
+assert.equal(rows[0].id,'2');
+assert.equal(matching(rows,'/en/programme/2026/ABC').length,2);
+assert.equal(matching(rows,'/en/programme/2025/ABC').length,0);

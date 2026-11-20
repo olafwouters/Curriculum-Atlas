@@ -23,3 +23,6 @@ document.addEventListener('DOMContentLoaded',()=>{const s=document.createElement
 
 /* Add the module overview to PDF team reports. */
 document.addEventListener('DOMContentLoaded',()=>{const s=document.createElement('script');s.src='/static/report-module-overview.js?v=20261120';document.head.append(s);},{once:true});
+
+/* Add cluster-filtered workspace switching and catalogue import checks. */
+document.addEventListener('DOMContentLoaded',()=>{const s=document.createElement('script');s.src='/static/workspace-index.js?v=20261120';document.head.append(s);},{once:true});
