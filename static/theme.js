@@ -18,8 +18,8 @@ document.addEventListener('DOMContentLoaded',()=>{
 /* Load inline progress completion controls after app initialization. */
 document.addEventListener('DOMContentLoaded',()=>{const s=document.createElement('script');s.src='/static/progress-step-checks.js?v=20261119-inline';document.head.append(s);},{once:true});
 
-/* Load chart-only display filters after the existing chart scripts. */
-document.addEventListener('DOMContentLoaded',()=>{const s=document.createElement('script');s.src='/static/curriculum-chart-filters.js?v=20261120';document.head.append(s);},{once:true});
+/* Load chart filters first, then tag graph ownership for report isolation. */
+document.addEventListener('DOMContentLoaded',()=>{const s=document.createElement('script');s.src='/static/curriculum-chart-filters.js?v=20261120';s.onload=()=>{const fix=document.createElement('script');fix.src='/static/graph-domain-isolation.js?v=20261120';document.head.append(fix);};document.head.append(s);},{once:true});
 
 /* Add the module overview to PDF team reports. */
 document.addEventListener('DOMContentLoaded',()=>{const s=document.createElement('script');s.src='/static/report-module-overview.js?v=20261120';document.head.append(s);},{once:true});

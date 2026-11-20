@@ -1,0 +1,20 @@
+<!doctype html><meta charset="utf-8"><title>Graph domain isolation regression</title>
+<body><pre id="result">Running…</pre><script src="../static/graph-domain-isolation.js"></script><script>
+'use strict';
+const outcomes=[{id:'a',domain:'A'},{id:'b',domain:'B'},{id:'c',domain:'No points'}];
+const host=document.createElement('div');
+host.innerHTML='<svg class="curriculum-chart" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><text y="375" transform="rotate(45)">Label</text>'+[['a',10,20],['a',40,30],['b',15,20],['b',45,40]].map(([id,x,y])=>'<g class="graph-point" data-graph-key="'+id+'|module"><circle cx="'+x+'" cy="'+y+'" r="7"/></g>').join('')+'<line class="domain-connection" x1="10" y1="20" x2="40" y2="30" stroke="#8e6bbf"/><line class="domain-connection atlas-course-pathway" x1="15" y1="20" x2="45" y2="40" stroke="#8e6bbf"/>'+['A','B','No points'].map(d=>'<g class="target-level-line"><title>Doelniveau '+d+': III · Verdiepen</title><line stroke="#8e6bbf" stroke-dasharray="10 6"/></g>').join('')+'</svg>';
+const full=host.querySelector('svg'),before=full.outerHTML;
+AtlasGraphDomains.tagGraph(full,outcomes);
+for(const domain of ['A','B','No points']){
+ const copy=full.cloneNode(true);AtlasGraphDomains.isolateGraph(copy,domain);
+ const elements=[...copy.querySelectorAll('.graph-point,.domain-connection,.target-level-line')];
+ if(!elements.every(e=>e.dataset.atlasDomain===domain))throw Error('Foreign competence remains');
+ if(copy.querySelectorAll('.target-level-line').length!==1)throw Error('Target count');
+ if(copy.querySelectorAll('.graph-point').length!==(domain==='No points'?0:2))throw Error('Point count');
+ if(copy.querySelectorAll('.domain-connection').length!==(domain==='No points'?0:1))throw Error('Path count');
+ if(copy.getAttribute('viewBox')!=='0 0 1200 600'||copy.querySelector('text').getAttribute('transform')!=='rotate(45)')throw Error('Layout changed');
+}
+if(full.querySelectorAll('.graph-point').length!==4||full.querySelectorAll('.domain-connection').length!==2)throw Error('Live graph changed');
+document.getElementById('result').textContent='PASS: same-colour paths and targets isolated; no-point competence; course pathway; live graph and layout preserved.';
+</script>
