@@ -1,20 +1,4 @@
-/* Interactive view only. Do not change SVG geometry or report styles. */
-@media screen {
-  html body #view .chart-scroll {
-    height: auto !important;
-    min-height: 0 !important;
-    max-height: none !important;
-    padding: 16px !important;
-    overflow-x: auto !important;
-  }
-  html body #view .chart-scroll svg.curriculum-chart {
-    display: block !important;
-    width: auto !important;
-    min-width: 0 !important;
-    max-width: none !important;
-    height: 430px !important;
-    min-height: 0 !important;
-    max-height: none !important;
-    margin: 0 !important;
-  }
-}
+/* Recent live chart sizing overrides removed.
+   Use the existing chart renderer and original styles again.
+   Keep this stylesheet available for clients using the existing theme.js loader.
+   PDF report styles, SVG geometry and stored mappings are unchanged. */
