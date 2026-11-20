@@ -25,4 +25,7 @@ document.addEventListener('DOMContentLoaded',()=>{const s=document.createElement
 document.addEventListener('DOMContentLoaded',()=>{const s=document.createElement('script');s.src='/static/report-module-overview.js?v=20261120';document.head.append(s);},{once:true});
 
 /* Add cluster-filtered workspace switching and catalogue import checks. */
-document.addEventListener('DOMContentLoaded',()=>{const s=document.createElement('script');s.src='/static/workspace-index.js?v=20261120';document.head.append(s);},{once:true});
+document.addEventListener('DOMContentLoaded',()=>{const s=document.createElement('script');s.src='/static/workspace-index.js?v=20261120-catalogue';document.head.append(s);},{once:true});
+
+/* Share collision-free competence display colours across chart and scan. */
+document.addEventListener('DOMContentLoaded',()=>{const s=document.createElement('script');s.src='/static/competence-colours.js?v=20261120-unique';document.head.append(s);},{once:true});
