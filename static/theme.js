@@ -20,3 +20,6 @@ document.addEventListener('DOMContentLoaded',()=>{const s=document.createElement
 
 /* Load chart-only display filters after the existing chart scripts. */
 document.addEventListener('DOMContentLoaded',()=>{const s=document.createElement('script');s.src='/static/curriculum-chart-filters.js?v=20261120';document.head.append(s);},{once:true});
+
+/* Add the module overview to PDF team reports. */
+document.addEventListener('DOMContentLoaded',()=>{const s=document.createElement('script');s.src='/static/report-module-overview.js?v=20261120';document.head.append(s);},{once:true});
