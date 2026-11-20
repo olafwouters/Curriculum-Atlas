@@ -17,3 +17,6 @@ document.addEventListener('DOMContentLoaded',()=>{
 
 /* Load inline progress completion controls after app initialization. */
 document.addEventListener('DOMContentLoaded',()=>{const s=document.createElement('script');s.src='/static/progress-step-checks.js?v=20261119-inline';document.head.append(s);},{once:true});
+
+/* Load chart-only display filters after the existing chart scripts. */
+document.addEventListener('DOMContentLoaded',()=>{const s=document.createElement('script');s.src='/static/curriculum-chart-filters.js?v=20261120';document.head.append(s);},{once:true});
